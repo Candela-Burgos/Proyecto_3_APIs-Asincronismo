@@ -1,0 +1,4 @@
+header {
+    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    width: 100%;
+}
