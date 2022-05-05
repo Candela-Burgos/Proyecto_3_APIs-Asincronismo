@@ -24,9 +24,10 @@ header {
   align-items: center;
   width: 100%;
   background-color: #ca62a5;
+  padding: 1.5em;
 }
 .navbar h2 {
-  margin: 1em;
+  margin-right: 1em;
   color: #fff;
 }
 .navbar .navbar--links a {

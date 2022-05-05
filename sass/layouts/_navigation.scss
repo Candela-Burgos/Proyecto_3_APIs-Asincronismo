@@ -2,9 +2,10 @@
     @include d-flex ($direction: row, $justify_content: flex-start, $align_items: center);
     width: 100%;
     background-color: $primary_color;
+    padding: 1.5em;
 
     h2 {
-        margin: 1em;
+        margin-right: 1em;
         color: $color--light;
     }
 
