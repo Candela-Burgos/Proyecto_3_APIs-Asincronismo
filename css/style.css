@@ -25,5 +25,21 @@ header {
   width: 100%;
   background-color: #ca62a5;
 }
+.navbar h2 {
+  margin: 1em;
+  color: #fff;
+}
+.navbar .navbar--links a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 1em;
+  padding-bottom: 0.3em;
+}
+.navbar .navbar--links a:hover {
+  border-bottom: 1px solid #fff;
+}
+.navbar .navbar--links a:focus {
+  border-bottom: 1px solid #fff;
+}
 
 /*# sourceMappingURL=style.css.map */

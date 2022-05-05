@@ -2,4 +2,26 @@
     @include d-flex ($direction: row, $justify_content: flex-start, $align_items: center);
     width: 100%;
     background-color: $primary_color;
+
+    h2 {
+        margin: 1em;
+        color: $color--light;
+    }
+
+    .navbar--links {
+        a {
+            text-decoration: none;
+            color: $color--light;
+            margin: 0 1em;
+            padding-bottom: .3em;
+        }
+
+        a:hover {
+            border-bottom: 1px solid $color--light;
+        }
+
+        a:focus {
+            border-bottom: 1px solid $color--light;
+        }
+    }
 }
