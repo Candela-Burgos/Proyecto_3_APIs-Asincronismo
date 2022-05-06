@@ -1,0 +1,140 @@
+main {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+
+    .home {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 100%; 
+        
+        .home--search {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+            width: 80%; 
+            margin: 1em 0;
+
+            .home--search--select{
+                cursor: pointer;
+                font-size: $font_size--small;
+                color: $color--light;
+                background-color: $primary_color;
+                border: 1px solid $secondary_color;
+                border-radius: 5px;
+                padding: .5em 7em .5em 1em;
+                margin: 1em;
+                transition: background-color 1s;
+            }
+
+            .home--search--select:hover {
+                background-color: $secondary_color;
+            }
+
+            .home--search--buttons {
+
+                a {
+                    text-decoration: none;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    border: 1px solid $secondary_color;
+                    border-radius: 5px;
+                }
+
+                #search {
+                    color: $color--light;
+                    background-color: $primary_color;
+                    transition: background-color .3s;
+                }
+
+                #search:hover {
+                    background-color: $secondary_color;
+                }
+
+                #clear {
+                    background-color: $color--light;
+                    color: $color--dark;
+                    transition: color, .3s, background-color .3s;
+                }
+
+                #clear:hover {
+                    color: $color--light;
+                    background-color: $primary_color;
+                }
+            }
+        }
+
+        .home--cards {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+            flex-wrap: wrap;
+            max-width: 80%;
+            
+            .home--card {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+                flex: 0 1 25%;
+                max-width: 25%;
+                max-height: 45%;
+                background-color: $color--light;
+                border: 2px solid $primary_color;
+                border-radius: 5px;
+                padding: 1em;
+                margin: 1em;
+                box-shadow: -8px 10px 10px .1px $box_shadow;
+
+                h2 {
+                    text-align: center;
+                    font-weight: lighter;
+                    font-size: $font_size--medium;
+                    color: $color--dark;
+                    margin: .5em 0 1em 0;
+                }
+
+                .home--card--spans {
+                    @include d-flex     ($direction: row, $justify_content: center, $align_items: center);
+                    flex-wrap: wrap;
+                    width: 100%;
+                    margin-bottom: 1em;
+
+                    .span_info {
+                        background-color: $color_span;
+                        color: $color--dark;
+                        font-size: $font_size--small;
+                        padding: .1em .8em;
+                        border-radius: 15px;
+                        margin: .3em;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    margin-top: .5em;
+                    border: 1px solid $secondary_color;
+                    border-radius: 5px;
+                    color: $color--light;
+                    background-color: $primary_color;
+                    transition: background-color .3s;
+                }
+
+                a:hover {
+                    background-color: $secondary_color;
+                }
+            }
+        }
+    }
+
+    .d-none-cards {
+        display: flex;
+    }
+
+    .d-none-home {
+        display: flex;
+    }
+
+    .create_job {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 100%;
+
+    }
+
+    .d-none-job {
+        display: none;
+    }
+}

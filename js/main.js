@@ -16,9 +16,11 @@ const showData = (jobs) => {
         queryId('home--cards').innerHTML += `
             <div class="home--card">
                 <h2>${name}</h2>
+                <div class="home--card--spans">
                 <span class="span_info">${location}</span>
                 <span class="span_info">${category}</span>
                 <span class="span_info">${seniority}</span>
+                </div>
                 <a href="#" onclick="getJob(${id})">See Details</a>
             </div>            
         `

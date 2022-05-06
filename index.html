@@ -18,49 +18,50 @@
         </header>
         <main>
             <!-- HOME PAGE -->
-           <section class="home d-none">
+           <section class="home d-none-home">
                <div class="home--search">
-                   <select name="Location" id="home--select_location" class="home--search--select">
-                        <option disabled="">Location</option>
-                        <option value="argentina">Argentina</option>
-                        <option value="united states">United States</option>
-                        <option value="spain">Spain</option>
-                        <option value="chile">Chile</option>
-                        <option value="uruguay">Uruguay</option>
-                        <option value="russia">Russia</option>
-                        <!-- si agregan un job con otro pais, se agrega al select.
-                             si se borra, se borra del select. Así sucesivamente -->
-                   </select>
-                   <select name="Seniority" id="home--select_seniority" class="home--search--select">
-                        <option disabled="">Seniority</option>
-                        <option value="trainee">Trainee</option>
-                        <option value="junior">Junior</option>
-                        <option value="semisenior">Semisenior</option>
-                        <option value="senior">Senior</option>
-                   </select>
-                   <select name="Category" id="home--select_category" class="home--search--select">
-                        <option disabled="">Category</option>
-                        <option value="development">Development</option>
-                        <option value="product">Product</option>
-                        <option value="design">Design</option>
-                   </select>
+                   <div class="home--search--selects">
+                        <select name="Location" id="home--select_location" class="home--search--select">
+                            <option disabled="">Location</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="united states">United States</option>
+                            <option value="spain">Spain</option>
+                            <option value="chile">Chile</option>
+                            <option value="uruguay">Uruguay</option>
+                            <option value="russia">Russia</option>
+                            <!-- si agregan un job con otro pais, se agrega al select.
+                                    si se borra, se borra del select. Así sucesivamente -->
+                        </select>
+                        <select name="Seniority" id="home--select_seniority" class="home--search--select">
+                            <option disabled="">Seniority</option>
+                            <option value="trainee">Trainee</option>
+                            <option value="junior">Junior</option>
+                            <option value="semisenior">Semisenior</option>
+                            <option value="senior">Senior</option>
+                        </select>
+                        <select name="Category" id="home--select_category" class="home--search--select">
+                            <option disabled="">Category</option>
+                            <option value="development">Development</option>
+                            <option value="product">Product</option>
+                            <option value="design">Design</option>
+                        </select>
+                    </div>
                    <div class="home--search--buttons">
                        <a id="search" href="#">Search</a>
                        <a id="clear" href="#">Clear</a>
                    </div>
                </div>
                <!-- MUCHAS CARDS -->
-               <div id="home--cards" class="home--cards d-none">
+               <div id="home--cards" class="home--cards d-none-cards">
                    <!-- <div class="home--card--details">
                         <img src="" alt="">
                         <h2>FrontEnd Developer</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nulla aliquam perferendis. Eos similique maxime vitae repudiandae molestiae ratione ab esse veritatis delectus eaque distinctio corporis dolore, mollitia animi pariatur.</p>
                         <span class="span_info">Argentina</span>
                         <span class="span_info">Junior</span>
                         <span class="span_info">Development</span>
                         <a id="btn_edit" href="#">Edit Job</a>
                         <a id="btn_delete" href="#">Delete Job</a> -->
-                    </div>
+                    <!-- </div> -->
                     <!-- EDIT -->
                     <!-- <div class="home--form--edit">
                         <form>
@@ -102,7 +103,7 @@
                     </div> -->
                </div>
            </section>
-           <section class="create_job d-none">
+           <section class="create_job d-none-job">
                <div class="create_job--form">
                    <form>
                        <label>Job Title</label>
