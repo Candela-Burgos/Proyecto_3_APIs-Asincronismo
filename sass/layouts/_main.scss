@@ -93,7 +93,7 @@ main {
 
                     .span_info {
                         background-color: $color_span;
-                        color: $color--dark;
+                        color: $color--light;
                         font-size: $font_size--small;
                         padding: .1em .8em;
                         border-radius: 15px;
@@ -120,10 +120,6 @@ main {
         }
     }
 
-    .d-none-cards {
-        display: flex;
-    }
-
     .d-none-home {
         display: flex;
     }
@@ -132,9 +128,28 @@ main {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
         width: 100%;
 
+        .create_job--form form{
+            @include d-flex ($direction: column, $justify_content: center, $align_items: left);
+            width: 100%;
+
+            label {
+                color: $color--dark;
+                font-size: $font_size--small;
+                margin: 1em 1em 1em 0;
+            }
+
+            input {
+                padding: .5em;
+                color: $color--dark;
+            }
+
+            input:hover {
+
+            }
+        }
     }
 
     .d-none-job {
-        display: none;
+        display: flex;
     }
 }

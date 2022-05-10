@@ -52,7 +52,7 @@
                    </div>
                </div>
                <!-- MUCHAS CARDS -->
-               <div id="home--cards" class="home--cards d-none-cards">
+               <div id="home--cards" class="home--cards">
                    <!-- <div class="home--card--details">
                         <img src="" alt="">
                         <h2>FrontEnd Developer</h2>
@@ -63,11 +63,11 @@
                         <a id="btn_delete" href="#">Delete Job</a> -->
                     <!-- </div> -->
                     <!-- EDIT -->
-                    <!-- <div class="home--form--edit">
+                    <div class="home--form--edit">
                         <form>
                             <label>Job Title</label>
                             <input id="form--edit--title" type="text" placeholder="Job Title"><!-- aca va el mismo valor que tiene esa card -->
-                           <!-- <label>Description</label>
+                            <label>Description</label> -->
                             <textarea id="form--edit--description" cols="30" rows="10"></textarea>
                             <label>Tags</label>
                             <select name="Location" id="form--edit--select_location">
@@ -94,7 +94,7 @@
                             </select>
                             <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit">
                         </form>
-                    </div> -->
+                    </div>
                     <!-- DELETE -->
                     <!-- <div class="delete--warning d-none">
                         <p>Are you sure to delete this job?</p>
@@ -107,11 +107,11 @@
                <div class="create_job--form">
                    <form>
                        <label>Job Title</label>
-                       <input id="" type="text" placeholder="Job Title">
+                       <input id="job-title" type="text" placeholder="Job Title">
                        <label>Description</label>
-                       <textarea id="" cols="30" rows="10"></textarea>
+                       <textarea id="description" cols="30" rows="10"></textarea>
                        <label>Tags</label>
-                       <select name="" id="create_job--select_location">
+                       <select name="Location" id="create_job--select_location">
                         <option disabled="">Location</option>
                         <option value="argentina">Argentina</option>
                         <option value="united states">United States</option>
@@ -120,14 +120,14 @@
                         <option value="uruguay">Uruguay</option>
                         <option value="russia">Russia</option>
                        </select>
-                       <select name="" id="create_job--select_seniority">
+                       <select name="Seniority" id="create_job--select_seniority">
                         <option disabled="">Seniority</option>
                         <option value="trainee">Trainee</option>
                         <option value="junior">Junior</option>
                         <option value="semisenior">Semisenior</option>
                         <option value="senior">Senior</option>
                        </select>
-                       <select name="" id="create_job--select_category">
+                       <select name="Category" id="create_job--select_category">
                         <option disabled="">Category</option>
                         <option value="development">Development</option>
                         <option value="product">Product</option>

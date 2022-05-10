@@ -117,8 +117,8 @@ main .home .home--cards .home--card .home--card--spans {
   margin-bottom: 1em;
 }
 main .home .home--cards .home--card .home--card--spans .span_info {
-  background-color: #46a3af;
-  color: #2c2c2c;
+  background-color: #a646af;
+  color: #fff;
   font-size: 1em;
   padding: 0.1em 0.8em;
   border-radius: 15px;
@@ -138,9 +138,6 @@ main .home .home--cards .home--card a {
 main .home .home--cards .home--card a:hover {
   background-color: #e26ab6;
 }
-main .d-none-cards {
-  display: flex;
-}
 main .d-none-home {
   display: flex;
 }
@@ -151,8 +148,24 @@ main .create_job {
   align-items: center;
   width: 100%;
 }
+main .create_job .create_job--form form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+}
+main .create_job .create_job--form form label {
+  color: #2c2c2c;
+  font-size: 1em;
+  margin: 1em 1em 1em 0;
+}
+main .create_job .create_job--form form input {
+  padding: 0.5em;
+  color: #2c2c2c;
+}
 main .d-none-job {
-  display: none;
+  display: flex;
 }
 
 .navbar {
