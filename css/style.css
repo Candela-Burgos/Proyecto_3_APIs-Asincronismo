@@ -138,6 +138,135 @@ main .home .home--cards .home--card a {
 main .home .home--cards .home--card a:hover {
   background-color: #e26ab6;
 }
+main .home .home--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main .home .home--edit .home--form--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: 60%;
+}
+main .home .home--edit .home--form--edit form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+main .home .home--edit .home--form--edit form label {
+  color: #2c2c2c;
+  font-size: 1em;
+  margin: 1em 1em 1em 0;
+}
+main .home .home--edit .home--form--edit form .job-title {
+  padding: 0.5em;
+  color: #2c2c2c;
+  font-size: 1em;
+  outline: 0;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+main .home .home--edit .home--form--edit form .job-title:hover {
+  border: 1px solid #ca62a5;
+}
+main .home .home--edit .home--form--edit form .job-title:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+main .home .home--edit .home--form--edit form textarea {
+  padding: 0.5em;
+  color: #2c2c2c;
+  font-size: 1em;
+  outline: 0;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+main .home .home--edit .home--form--edit form textarea:hover {
+  border: 1px solid #ca62a5;
+}
+main .home .home--edit .home--form--edit form textarea:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+main .home .home--edit .home--form--edit form #form--edit--select_location, main .home .home--edit .home--form--edit form #form--edit--select_category, main .home .home--edit .home--form--edit form #form--edit--select_seniority {
+  cursor: pointer;
+  font-size: 1em;
+  color: #2c2c2c;
+  background-color: #fff;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  transition: border 0.3s;
+}
+main .home .home--edit .home--form--edit form #form--edit--select_location:hover, main .home .home--edit .home--form--edit form #form--edit--select_category:hover, main .home .home--edit .home--form--edit form #form--edit--select_seniority:hover {
+  border: 1px solid #ca62a5;
+}
+main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
+  width: 10%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.5em;
+  background-color: #189b4e;
+  border: 1px solid #189b4e;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+main .home .home--edit .home--form--edit form #btn--form--edit--confirm:hover {
+  background-color: #13793d;
+}
+main .home .home--delete {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main .home .home--delete .delete--warning {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+  padding: 1em;
+  background-color: rgba(199, 98, 98, 0.5058823529);
+  border: 1px solid rgba(199, 98, 98, 0.4196078431);
+  border-radius: 5px;
+  box-shadow: -4px 5px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
+}
+main .home .home--delete .delete--warning p {
+  font-size: 1em;
+  color: #2c2c2c;
+}
+main .home .home--delete .delete--warning #btn_delete--confirm, main .home .home--delete .delete--warning #btn_cancel {
+  text-decoration: none;
+  background-color: #aa2020;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border: 1px solid #8b1919;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+main .home .home--delete .delete--warning #btn_delete--confirm:hover, main .home .home--delete .delete--warning #btn_cancel:hover {
+  background-color: #8b1919;
+}
+main .home .home--delete .delete--warning #btn_cancel {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+main .home .home--delete .delete--warning #btn_cancel:hover {
+  background-color: #474747;
+}
 main .d-none-home {
   display: flex;
 }
@@ -148,11 +277,18 @@ main .create_job {
   align-items: center;
   width: 100%;
 }
+main .create_job .create_job--form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: 60%;
+}
 main .create_job .create_job--form form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: left;
+  align-items: stretch;
   width: 100%;
 }
 main .create_job .create_job--form form label {
@@ -160,9 +296,65 @@ main .create_job .create_job--form form label {
   font-size: 1em;
   margin: 1em 1em 1em 0;
 }
-main .create_job .create_job--form form input {
+main .create_job .create_job--form form .job-title {
   padding: 0.5em;
   color: #2c2c2c;
+  font-size: 1em;
+  outline: 0;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+main .create_job .create_job--form form .job-title:hover {
+  border: 1px solid #ca62a5;
+}
+main .create_job .create_job--form form .job-title:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+main .create_job .create_job--form form textarea {
+  padding: 0.5em;
+  color: #2c2c2c;
+  font-size: 1em;
+  outline: 0;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+main .create_job .create_job--form form textarea:hover {
+  border: 1px solid #ca62a5;
+}
+main .create_job .create_job--form form textarea:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+main .create_job .create_job--form form #create_job--select_location, main .create_job .create_job--form form #create_job--select_category, main .create_job .create_job--form form #create_job--select_seniority {
+  cursor: pointer;
+  font-size: 1em;
+  color: #2c2c2c;
+  background-color: #fff;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  transition: border 0.3s;
+}
+main .create_job .create_job--form form #create_job--select_location:hover, main .create_job .create_job--form form #create_job--select_category:hover, main .create_job .create_job--form form #create_job--select_seniority:hover {
+  border: 1px solid #ca62a5;
+}
+main .create_job .create_job--form form #btn--form--submit {
+  width: 10%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.5em;
+  background-color: #188c9b;
+  border: 1px solid #188c9b;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+main .create_job .create_job--form form #btn--form--submit:hover {
+  background-color: #136579;
 }
 main .d-none-job {
   display: flex;

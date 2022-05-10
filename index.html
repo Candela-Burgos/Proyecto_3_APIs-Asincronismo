@@ -51,24 +51,15 @@
                        <a id="clear" href="#">Clear</a>
                    </div>
                </div>
-               <!-- MUCHAS CARDS -->
-               <div id="home--cards" class="home--cards">
-                   <!-- <div class="home--card--details">
-                        <img src="" alt="">
-                        <h2>FrontEnd Developer</h2>
-                        <span class="span_info">Argentina</span>
-                        <span class="span_info">Junior</span>
-                        <span class="span_info">Development</span>
-                        <a id="btn_edit" href="#">Edit Job</a>
-                        <a id="btn_delete" href="#">Delete Job</a> -->
-                    <!-- </div> -->
+
+               <div class="home--edit">
                     <!-- EDIT -->
                     <div class="home--form--edit">
                         <form>
                             <label>Job Title</label>
-                            <input id="form--edit--title" type="text" placeholder="Job Title"><!-- aca va el mismo valor que tiene esa card -->
-                            <label>Description</label> -->
-                            <textarea id="form--edit--description" cols="30" rows="10"></textarea>
+                            <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title"><!-- aca va el mismo valor que tiene esa card -->
+                            <label>Description</label>
+                            <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
                             <label>Tags</label>
                             <select name="Location" id="form--edit--select_location">
                              <option disabled="">Location</option>
@@ -95,21 +86,29 @@
                             <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit">
                         </form>
                     </div>
-                    <!-- DELETE -->
-                    <!-- <div class="delete--warning d-none">
+               </div>
+
+               <div class="home--delete">
+                   <!-- DELETE -->
+                   <div class="delete--warning d-none">
                         <p>Are you sure to delete this job?</p>
                         <a id="btn_delete--confirm" href="#">Delete Job</a>
                         <a id="btn_cancel" href="#">Cancel</a>
-                    </div> -->
+                    </div>
+               </div>
+
+               <!-- MUCHAS CARDS -->
+               <div id="home--cards" class="home--cards">
+                    
                </div>
            </section>
            <section class="create_job d-none-job">
                <div class="create_job--form">
                    <form>
                        <label>Job Title</label>
-                       <input id="job-title" type="text" placeholder="Job Title">
+                       <input id="job-title" class="job-title" type="text" placeholder="Job Title">
                        <label>Description</label>
-                       <textarea id="description" cols="30" rows="10"></textarea>
+                       <textarea id="description" class="description" cols="30" rows="10"></textarea>
                        <label>Tags</label>
                        <select name="Location" id="create_job--select_location">
                         <option disabled="">Location</option>

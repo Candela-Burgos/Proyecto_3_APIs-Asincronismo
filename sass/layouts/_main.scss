@@ -118,6 +118,150 @@ main {
                 }
             }
         }
+
+        .home--edit {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+            width: 100%;
+
+            .home--form--edit {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+                width: 60%;
+            }
+
+            .home--form--edit form {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+                width: 100%;
+
+                label {
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    margin: 1em 1em 1em 0;
+                }
+
+                .job-title {
+                    padding: .5em;
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    outline: 0;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    transition: border .3s;
+                }
+
+                .job-title:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                .job-title:focus {
+                    outline: 1px solid $primary_color;
+                    border: 1px solid $primary_color;
+                }
+
+                textarea {
+                    padding: .5em;
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    outline: 0;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    transition: border .3s; 
+                }
+
+                textarea:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                textarea:focus {
+                    outline: 1px solid $primary_color;
+                    border: 1px solid $primary_color;
+                }
+
+                #form--edit--select_location {
+                    cursor: pointer;
+                    font-size: $font_size--small;
+                    color: $color--dark;
+                    background-color: $color--light;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    padding: .5em;
+                    margin-bottom: 1em;
+                    transition: border .3s;  
+                }
+
+                #form--edit--select_location:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                #form--edit--select_seniority {
+                    @extend #form--edit--select_location;
+                }
+
+                #form--edit--select_category {
+                    @extend #form--edit--select_location;
+                }
+
+                #btn--form--edit--confirm {
+                    width: 10%;
+                    cursor: pointer;
+                    color: $color--light;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    background-color: $color--edit;
+                    border: 1px solid $color--edit;
+                    border-radius: 5px;
+                    transition: background-color .3s;
+                }
+
+                #btn--form--edit--confirm:hover {
+                    background-color: $color--edit_hover;
+                }
+            }    
+        }
+
+        .home--delete {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+            width: 100%;
+
+            .delete--warning {
+                @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+                width: 60%;
+                padding: 1em;
+                background-color: $bg--delete;
+                border: 1px solid $border--delete;
+                border-radius: 5px;
+                box-shadow: -4px 5px 10px .1px $box_shadow;
+
+                p {
+                    font-size: $font_size--small;
+                    color: $color--dark;
+                }
+
+                #btn_delete--confirm {
+                    text-decoration: none;
+                    background-color: $color--delete;
+                    color: $color--light;
+                    font-size: $font_size--small;
+                    padding: .5em 1em;
+                    border: 1px solid $color--delete_hover;
+                    border-radius: 5px;
+                    transition: background-color .3s;
+                }
+
+                #btn_delete--confirm:hover {
+                    background-color: $color--delete_hover;
+                }
+
+                #btn_cancel {
+                    @extend #btn_delete--confirm;
+                    background-color: $color--cancel;
+                    border: 1px solid $color--cancel_hover;
+                }
+
+                #btn_cancel:hover {
+                    background-color: $color--cancel_hover;
+                }
+            }
+        }
     }
 
     .d-none-home {
@@ -128,8 +272,13 @@ main {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
         width: 100%;
 
+        .create_job--form {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+            width: 60%;
+        }
+
         .create_job--form form{
-            @include d-flex ($direction: column, $justify_content: center, $align_items: left);
+            @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
             width: 100%;
 
             label {
@@ -138,13 +287,82 @@ main {
                 margin: 1em 1em 1em 0;
             }
 
-            input {
+            .job-title {
                 padding: .5em;
                 color: $color--dark;
+                font-size: $font_size--small;
+                outline: 0;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                transition: border .3s;
             }
 
-            input:hover {
+            .job-title:hover {
+                border: 1px solid $primary_color;
+            }
 
+            .job-title:focus {
+                outline: 1px solid $primary_color;
+                border: 1px solid $primary_color;
+            }
+
+            textarea {
+                padding: .5em;
+                color: $color--dark;
+                font-size: $font_size--small;
+                outline: 0;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                transition: border .3s; 
+            }
+
+            textarea:hover {
+                border: 1px solid $primary_color;
+            }
+
+            textarea:focus {
+                outline: 1px solid $primary_color;
+                border: 1px solid $primary_color;
+            }
+
+            #create_job--select_location {
+                cursor: pointer;
+                font-size: $font_size--small;
+                color: $color--dark;
+                background-color: $color--light;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                padding: .5em;
+                margin-bottom: 1em;
+                transition: border .3s;  
+            }
+
+            #create_job--select_location:hover {
+                border: 1px solid $primary_color;
+            }
+
+            #create_job--select_seniority {
+                @extend #create_job--select_location;
+            }
+
+            #create_job--select_category {
+                @extend #create_job--select_location;
+            }
+
+            #btn--form--submit {
+                width: 10%;
+                cursor: pointer;
+                color: $color--light;
+                font-size: $font_size--small;
+                padding: .5em;
+                background-color: $color--submit;
+                border: 1px solid $color--submit;
+                border-radius: 5px;
+                transition: background-color .3s;
+            }
+
+            #btn--form--submit:hover {
+                background-color: $color--submit_hover;
             }
         }
     }
