@@ -1,6 +1,7 @@
 main {
     @include d-flex ($direction: column, $justify_content: center, $align_items: center);
     width: 100%;
+    margin-top: 4.8em;
 
     .home {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
