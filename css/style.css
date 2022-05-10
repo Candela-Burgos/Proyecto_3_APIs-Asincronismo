@@ -17,6 +17,9 @@
   width: 100%;
   background-color: #ca62a5;
   padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
 .footer h3 {
   font-size: 1em;
@@ -58,6 +61,7 @@ main {
   align-items: center;
   width: 100%;
   margin-top: 4.8em;
+  margin-bottom: 7em;
 }
 main .home {
   display: flex;
@@ -173,6 +177,90 @@ main .home .home--cards .home--card a {
 main .home .home--cards .home--card a:hover {
   background-color: #e26ab6;
 }
+main .home .home--cards .home--card--details {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: space-evenly;
+  flex: 0 1 60%;
+  width: 60%;
+  background-color: #fff;
+  border: 2px solid #ca62a5;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
+}
+main .home .home--cards .home--card--details .card--img {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+}
+main .home .home--cards .home--card--details .card--img img {
+  width: 100%;
+  margin: 0.5em;
+}
+main .home .home--cards .home--card--details .card--description {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+main .home .home--cards .home--card--details .card--description h2 {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 1.5em;
+  color: #2c2c2c;
+  margin: 0.5em 0 1em 0;
+}
+main .home .home--cards .home--card--details .card--description p {
+  text-align: center;
+  margin: 0 1em;
+}
+main .home .home--cards .home--card--details .card--description .home--card--spans--details {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1em;
+}
+main .home .home--cards .home--card--details .card--description .home--card--spans--details .span_info--details {
+  background-color: #a646af;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.1em 0.8em;
+  border-radius: 15px;
+  margin: 0.3em;
+}
+main .home .home--cards .home--card--details .card--description .btn--edit, main .home .home--cards .home--card--details .card--description .btn--delete {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  background-color: #189b4e;
+  border: 1px solid #13793d;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+main .home .home--cards .home--card--details .card--description .btn--edit:hover, main .home .home--cards .home--card--details .card--description .btn--delete:hover {
+  background-color: #13793d;
+}
+main .home .home--cards .home--card--details .card--description .btn--delete {
+  background-color: #aa2020;
+  border: 1px solid #8b1919;
+}
+main .home .home--cards .home--card--details .card--description .btn--delete:hover {
+  background-color: #8b1919;
+}
 main .home .home--edit {
   display: flex;
   justify-content: center;
@@ -252,7 +340,7 @@ main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
   font-size: 1em;
   padding: 0.5em;
   background-color: #189b4e;
-  border: 1px solid #189b4e;
+  border: 1px solid #13793d;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
@@ -430,7 +518,7 @@ main .d-none-job {
 }
 
 .spinner {
-  display: none;
+  display: block;
   border: 4px solid rgba(0, 0, 0, 0.1);
   width: 36px;
   height: 36px;
