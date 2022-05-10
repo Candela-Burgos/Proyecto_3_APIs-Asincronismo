@@ -224,6 +224,9 @@ main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
 main .home .home--edit .home--form--edit form #btn--form--edit--confirm:hover {
   background-color: #13793d;
 }
+main .home .home--edit .d-none-edit-form {
+  display: none;
+}
 main .home .home--delete {
   display: flex;
   justify-content: center;
@@ -266,6 +269,9 @@ main .home .home--delete .delete--warning #btn_cancel {
 }
 main .home .home--delete .delete--warning #btn_cancel:hover {
   background-color: #474747;
+}
+main .home .home--delete .d-none-delete-warning {
+  display: none;
 }
 main .d-none-home {
   display: flex;
@@ -357,7 +363,7 @@ main .create_job .create_job--form form #btn--form--submit:hover {
   background-color: #136579;
 }
 main .d-none-job {
-  display: flex;
+  display: none;
 }
 
 .navbar {
@@ -386,6 +392,26 @@ main .d-none-job {
 }
 .navbar .navbar--links a:focus {
   border-bottom: 1px solid #fff;
+}
+
+.spinner {
+  display: none;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #5692e0;
+  margin: 2em;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

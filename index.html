@@ -17,6 +17,7 @@
             </nav>
         </header>
         <main>
+            <div class="spinner" id="spinner"></div>
             <!-- HOME PAGE -->
            <section class="home d-none-home">
                <div class="home--search">
@@ -30,7 +31,7 @@
                             <option value="uruguay">Uruguay</option>
                             <option value="russia">Russia</option>
                             <!-- si agregan un job con otro pais, se agrega al select.
-                                    si se borra, se borra del select. Así sucesivamente -->
+                                si se borra, se borra del select. Así sucesivamente -->
                         </select>
                         <select name="Seniority" id="home--select_seniority" class="home--search--select">
                             <option disabled="">Seniority</option>
@@ -54,7 +55,7 @@
 
                <div class="home--edit">
                     <!-- EDIT -->
-                    <div class="home--form--edit">
+                    <div class="home--form--edit d-none-edit-form">
                         <form>
                             <label>Job Title</label>
                             <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title"><!-- aca va el mismo valor que tiene esa card -->
@@ -90,7 +91,7 @@
 
                <div class="home--delete">
                    <!-- DELETE -->
-                   <div class="delete--warning d-none">
+                   <div class="delete--warning d-none-delete-warning">
                         <p>Are you sure to delete this job?</p>
                         <a id="btn_delete--confirm" href="#">Delete Job</a>
                         <a id="btn_cancel" href="#">Cancel</a>

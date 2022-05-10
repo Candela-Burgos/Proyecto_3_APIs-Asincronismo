@@ -215,7 +215,11 @@ main {
                 #btn--form--edit--confirm:hover {
                     background-color: $color--edit_hover;
                 }
-            }    
+            } 
+
+            .d-none-edit-form {
+                display: none;
+            }
         }
 
         .home--delete {
@@ -261,12 +265,18 @@ main {
                     background-color: $color--cancel_hover;
                 }
             }
+
+            .d-none-delete-warning {
+                display: none;
+            }
         }
     }
 
     .d-none-home {
         display: flex;
     }
+
+    
 
     .create_job {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
@@ -368,6 +378,6 @@ main {
     }
 
     .d-none-job {
-        display: flex;
+        display: none;
     }
 }
