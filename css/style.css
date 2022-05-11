@@ -393,9 +393,6 @@ main .home .home--delete .delete--warning #btn_cancel {
 main .home .home--delete .delete--warning #btn_cancel:hover {
   background-color: #474747;
 }
-main .home .home--delete .d-none-delete-warning {
-  display: none;
-}
 main .d-none-home {
   display: flex;
 }
