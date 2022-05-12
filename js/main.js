@@ -93,7 +93,7 @@ const showDetail = (job) => {
         queryId('home--cards').innerHTML += `
             <div class="home--card--details">
                 <div class="card--img">
-                    <img src="assets/${name ? name : "Careers X"}.jpg" alt="${name}">
+                    <img src="assets/${name}.jpg" alt="${name}">
                 </div>
                 <div class="card--description">
                     <h2>${name}</h2>
@@ -112,7 +112,7 @@ const showDetail = (job) => {
     
 }
 
-// LINEA 96 el ternario no me sirve para nada. Ver como solucionarlo
+// LINEA 96 el ternario no me sirve para nada. Ver como solucionarlo => ${name ? name : "Careers X"}
 
 const deleteWarning = (id) => {
     queryId("home--cards").innerHTML = "";
