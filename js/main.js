@@ -93,7 +93,7 @@ const showDetail = (job) => {
         queryId('home--cards').innerHTML += `
             <div class="home--card--details">
                 <div class="card--img">
-                    <img src="assets/${name}.jpg" alt="${name}">
+                    <img src="assets/${name ? name : "Careers X"}.jpg" alt="${name}">
                 </div>
                 <div class="card--description">
                     <h2>${name}</h2>
@@ -111,6 +111,8 @@ const showDetail = (job) => {
     }, 2000)
     
 }
+
+// LINEA 96 el ternario no me sirve para nada. Ver como solucionarlo
 
 const deleteWarning = (id) => {
     queryId("home--cards").innerHTML = "";
@@ -160,6 +162,4 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
     e.preventDefault()
     sendData()
     queryId("create_job--form").classList.add("d-none-job")
-    queryId("home--cards").innerHTML = "";
-    getJobs()
 })
