@@ -54,6 +54,10 @@ header {
   z-index: 10;
 }
 
+body {
+  background-color: rgba(202, 98, 197, 0.1215686275);
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -346,6 +350,9 @@ main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
 }
 main .home .home--edit .home--form--edit form #btn--form--edit--confirm:hover {
   background-color: #13793d;
+}
+main .home .home--edit .d-none-edit-form {
+  display: none;
 }
 main .home .home--delete {
   display: flex;

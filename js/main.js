@@ -19,6 +19,38 @@ const getJob = (id) => {
         .catch(err => console.log(err))
 }
 
+const filterLocationJobs = (valorLocation) => {
+    valorLocation = queryId("home--select_location").value;
+    console.log(valorLocation);
+    fetch(`${BASE_API}?location=${valorLocation}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+const filterSeniorityJobs = (valorSeniority) => {
+    valorSeniority = queryId("home--select_seniority").value;
+    fetch(`${BASE_API}?seniority=${valorSeniority}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+const filterCategoryJobs = (valorCategory) => {
+    valorCategory = queryId("home--select_category").value;
+    fetch(`${BASE_API}?category=${valorCategory}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+queryId("search").addEventListener("click", () => {
+    filterLocationJobs();
+    filterSeniorityJobs();
+    filterCategoryJobs();
+});
+
+
 // POST || /jobs  CREATE JOB
 
 const sendData = () => {
@@ -34,13 +66,14 @@ const sendData = () => {
 
 // PUT || /jobs/:id
 
+
 const editData = (id) => {
     fetch(`${BASE_API}/${id}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(saveData())
+        body: JSON.stringify(getDataEdit())
     })
     .finally(() => window.location = "index.html")
 }
@@ -137,58 +170,166 @@ const saveData = () => {
         description: queryId("description").value,
         location: queryId("create_job--select_location").value,
         category: queryId("create_job--select_category").value,
-        seniority: queryId("create_job--select_seniority").value,
+        seniority: queryId("create_job--select_seniority").value
     }
 }
 
-const editForm = (id) => {
-    queryId("home--cards").innerHTML += `
-    <div class="home--edit" id="home--edit--form"> 
-        <div id="home--form--edit" class="home--form--edit d-none-edit-form">
-            <form>
-                <label>Job Title</label>
-                <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title">
-                <label>Description</label>
-                <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
-                <label>Tags</label>
-                <select name="Location" id="form--edit--select_location">
-                    <option disabled="">Location</option>
-                    <option value="argentina">Argentina</option>
-                    <option value="united states">United States</option>
-                    <option value="spain">Spain</option>
-                    <option value="chile">Chile</option>
-                    <option value="uruguay">Uruguay</option>
-                    <option value="russia">Russia</option>
-                </select>
-                <select name="Seniority" id="form--edit--select_seniority">
-                    <option disabled="">Seniority</option>
-                    <option value="trainee">Trainee</option>
-                    <option value="junior">Junior</option>
-                    <option value="semisenior">Semisenior</option>
-                    <option value="senior">Senior</option>
-                </select>
-                <select name="Category" id="form--edit--select_category">
-                    <option disabled="">Category</option>
-                    <option value="development">Development</option>
-                    <option value="product">Product</option>
-                    <option value="design">Design</option>
-                </select>
-                <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit" onclick="editData(${id})">
-            </form>
-        </div>       
-    </div>        
-    `
+const getDataEdit = () => {
+    return {
+        name: queryId("form--edit--title").value,
+        description: queryId("form--edit--description").value,
+        location: queryId("form--edit--select_location").value,
+        category: queryId("form--edit--select_seniority").value,
+        seniority: queryId("form--edit--select_category").value
+    }
 }
+
+// let editID = 0;
+
+const editForm = (id) => {
+    const job = getDataEdit();
+    const {name, description, location, category, seniority} = job;
+    queryId("home--form--edit").classList.remove("d-none-edit-form");
+    queryId("form--edit--title").value = `${name}`;
+    queryId("form--edit--description").value = `${description}`;
+    queryId("form--edit--select_location").value = `${location}`;
+    queryId("form--edit--select_seniority").value = `${seniority}`;
+    queryId("form--edit--select_category").value = `${category}`;
+    eventID(id)
+}
+
+const eventID = (id) => {
+    queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
+        e.preventDefault();
+        editData(id);
+    })
+}
+
+//CODIGO DE PILAR
+
+// const editData2 = (id) => {
+//     fetch(`${BASE_URL}dinero/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             'Content-Type': 'Application/json'
+//         },
+//         body: JSON.stringify(saveData())
+//     })
+//     .finally(() => console.log("termine de ejecutar el PUT"))
+// }
+
+// const getDataById = (id) => {
+//     fetch(`${BASE_URL}dinero/${id}`)
+//         .then(response => response.json())
+//         .then(data => populateCardData(data))
+//         .catch(err => console.log(err))
+// }
+
+// const populateCardData = (data) => {
+//     const { category, date, description, money } = data
+//     queryId("category").value = category
+//     queryId("date").value = date
+//     queryId("description").value = description
+//     queryId("price").value = money
+//     queryId("form").classList.remove("d-none")
+// }
+
+// const saveData2 = () => {
+//     return {
+//         category: queryId("category").value,
+//         date: queryId("date").value,
+//         description: queryId("description").value,
+//         money: parseInt(queryId("price").value)
+//     }
+// }
+
+// const addEvent = (id) => {
+//     queryId("submit").addEventListener("click", (e) => {
+//         e.preventDefault()
+//         if (isEdit) {
+//             editData(id)
+//         } else {
+//             sendData()
+//         }
+//     })
+// }
+
+// const showEditForm = (id) => {
+//     getDataById(id) // es mi GET a un id especifico
+//     queryId("container").innerHTML = ""
+//     queryId("submit").classList.remove("btn-primary")
+//     queryId("submit").classList.add("btn-success")
+//     queryId("submit").innerHTML = "Editar"
+//     isEdit = true
+//     addEvent(id)
+// }
+////////////////////////////////////////////////////////////*
+
+// const editForm = (id) => {
+//     const job = getDataEdit();
+//     const {name, description, location, category, seniority} = job;
+//     queryId("home--cards").innerHTML += `
+//     <div class="home--edit" id="home--edit--form"> 
+//         <div id="home--form--edit" class="home--form--edit d-none-edit-form">
+//             <form>
+//                 <label>Job Title</label>
+//                 <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title" value="${name}">
+//                 <label>Description</label>
+//                 <textarea id="form--edit--description" class="description" cols="30" rows="10">${description}</textarea>
+//                 <label>Tags</label>
+//                 <select name="Location" id="form--edit--select_location" value="${location}">
+//                     <option disabled="">Location</option>
+//                     <option value="argentina">Argentina</option>
+//                     <option value="united states">United States</option>
+//                     <option value="spain">Spain</option>
+//                     <option value="chile">Chile</option>
+//                     <option value="uruguay">Uruguay</option>
+//                     <option value="russia">Russia</option>
+//                 </select>
+//                 <select name="Seniority" id="form--edit--select_seniority" value="${seniority}">
+//                     <option disabled="">Seniority</option>
+//                     <option value="trainee">Trainee</option>
+//                     <option value="junior">Junior</option>
+//                     <option value="semisenior">Semisenior</option>
+//                     <option value="senior">Senior</option>
+//                 </select>
+//                 <select name="Category" id="form--edit--select_category" value="${category}">
+//                     <option disabled="">Category</option>
+//                     <option value="development">Development</option>
+//                     <option value="product">Product</option>
+//                     <option value="design">Design</option>
+//                 </select>
+//                 <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit" onclick="editData(${id})">
+//             </form>
+//         </div>       
+//     </div>        
+//     `
+// }
+
+
+
+// const editForm = (id) => {
+//     queryId("home--form--edit").classList.remove("d-none-edit-form");
+//     editID = id;
+// }
+
+
+
+// const clearSelects = () => {
+
+// }
 
 // EVENTS
 
 queryId("home").addEventListener('click', () => {
+    queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("create_job--form").classList.add("d-none-job") 
     queryId("home--cards").innerHTML = "";
     getJobs()
 })
 
 queryId("create_job").addEventListener('click', () => {
+    queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
     spinner();
     setTimeout(() => {
@@ -202,3 +343,8 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
     sendData()
     queryId("create_job--form").classList.add("d-none-job")
 })
+
+// queryId("clear").addEventListener("click", () => {
+//     getJobs()
+// })
+
