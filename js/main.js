@@ -50,6 +50,10 @@ queryId("search").addEventListener("click", () => {
     filterCategoryJobs();
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 // POST || /jobs  CREATE JOB
 
 const sendData = () => {
@@ -64,6 +68,7 @@ const sendData = () => {
 }
 
 // PUT || /jobs/:id
+
 
 const editData = (id) => {
     fetch(`${BASE_API}/${id}`, {
@@ -169,6 +174,7 @@ const saveData = () => {
         location: queryId("create_job--select_location").value,
         category: queryId("create_job--select_category").value,
         seniority: queryId("create_job--select_seniority").value
+<<<<<<< HEAD
     }
 }
 
@@ -194,6 +200,35 @@ const editForm = (id) => {
     eventID(id)
 }
 
+=======
+    }
+}
+
+const getDataEdit = () => {
+    return {
+        name: queryId("form--edit--title").value,
+        description: queryId("form--edit--description").value,
+        location: queryId("form--edit--select_location").value,
+        category: queryId("form--edit--select_seniority").value,
+        seniority: queryId("form--edit--select_category").value
+    }
+}
+
+// let editID = 0;
+
+const editForm = (id) => {
+    const job = getDataEdit();
+    const {name, description, location, category, seniority} = job;
+    queryId("home--form--edit").classList.remove("d-none-edit-form");
+    queryId("form--edit--title").value = `${name}`;
+    queryId("form--edit--description").value = `${description}`;
+    queryId("form--edit--select_location").value = `${location}`;
+    queryId("form--edit--select_seniority").value = `${seniority}`;
+    queryId("form--edit--select_category").value = `${category}`;
+    eventID(id)
+}
+
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 const eventID = (id) => {
     queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
         e.preventDefault();
@@ -201,17 +236,91 @@ const eventID = (id) => {
     })
 }
 
+<<<<<<< HEAD
 // const editForm = (id) => {
+=======
+//CODIGO DE PILAR
+
+// const editData2 = (id) => {
+//     fetch(`${BASE_URL}dinero/${id}`, {
+//         method: "PUT",
+//         headers: {
+//             'Content-Type': 'Application/json'
+//         },
+//         body: JSON.stringify(saveData())
+//     })
+//     .finally(() => console.log("termine de ejecutar el PUT"))
+// }
+
+// const getDataById = (id) => {
+//     fetch(`${BASE_URL}dinero/${id}`)
+//         .then(response => response.json())
+//         .then(data => populateCardData(data))
+//         .catch(err => console.log(err))
+// }
+
+// const populateCardData = (data) => {
+//     const { category, date, description, money } = data
+//     queryId("category").value = category
+//     queryId("date").value = date
+//     queryId("description").value = description
+//     queryId("price").value = money
+//     queryId("form").classList.remove("d-none")
+// }
+
+// const saveData2 = () => {
+//     return {
+//         category: queryId("category").value,
+//         date: queryId("date").value,
+//         description: queryId("description").value,
+//         money: parseInt(queryId("price").value)
+//     }
+// }
+
+// const addEvent = (id) => {
+//     queryId("submit").addEventListener("click", (e) => {
+//         e.preventDefault()
+//         if (isEdit) {
+//             editData(id)
+//         } else {
+//             sendData()
+//         }
+//     })
+// }
+
+// const showEditForm = (id) => {
+//     getDataById(id) // es mi GET a un id especifico
+//     queryId("container").innerHTML = ""
+//     queryId("submit").classList.remove("btn-primary")
+//     queryId("submit").classList.add("btn-success")
+//     queryId("submit").innerHTML = "Editar"
+//     isEdit = true
+//     addEvent(id)
+// }
+////////////////////////////////////////////////////////////*
+
+// const editForm = (id) => {
+//     const job = getDataEdit();
+//     const {name, description, location, category, seniority} = job;
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 //     queryId("home--cards").innerHTML += `
 //     <div class="home--edit" id="home--edit--form"> 
 //         <div id="home--form--edit" class="home--form--edit d-none-edit-form">
 //             <form>
 //                 <label>Job Title</label>
+<<<<<<< HEAD
 //                 <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title">
 //                 <label>Description</label>
 //                 <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
 //                 <label>Tags</label>
 //                 <select name="Location" id="form--edit--select_location">
+=======
+//                 <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title" value="${name}">
+//                 <label>Description</label>
+//                 <textarea id="form--edit--description" class="description" cols="30" rows="10">${description}</textarea>
+//                 <label>Tags</label>
+//                 <select name="Location" id="form--edit--select_location" value="${location}">
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 //                     <option disabled="">Location</option>
 //                     <option value="argentina">Argentina</option>
 //                     <option value="united states">United States</option>
@@ -220,14 +329,22 @@ const eventID = (id) => {
 //                     <option value="uruguay">Uruguay</option>
 //                     <option value="russia">Russia</option>
 //                 </select>
+<<<<<<< HEAD
 //                 <select name="Seniority" id="form--edit--select_seniority">
+=======
+//                 <select name="Seniority" id="form--edit--select_seniority" value="${seniority}">
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 //                     <option disabled="">Seniority</option>
 //                     <option value="trainee">Trainee</option>
 //                     <option value="junior">Junior</option>
 //                     <option value="semisenior">Semisenior</option>
 //                     <option value="senior">Senior</option>
 //                 </select>
+<<<<<<< HEAD
 //                 <select name="Category" id="form--edit--select_category">
+=======
+//                 <select name="Category" id="form--edit--select_category" value="${category}">
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 //                     <option disabled="">Category</option>
 //                     <option value="development">Development</option>
 //                     <option value="product">Product</option>
@@ -240,11 +357,31 @@ const eventID = (id) => {
 //     `
 // }
 
+<<<<<<< HEAD
+=======
+
+
+// const editForm = (id) => {
+//     queryId("home--form--edit").classList.remove("d-none-edit-form");
+//     editID = id;
+// }
+
+
+
+// const clearSelects = () => {
+
+// }
+
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
 // EVENTS
 
 queryId("home").addEventListener('click', () => {
     queryId("home--form--edit").classList.add("d-none-edit-form");
+<<<<<<< HEAD
     queryId("create_job--form").classList.add("d-none-job");
+=======
+    queryId("create_job--form").classList.add("d-none-job") 
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
     queryId("home--cards").innerHTML = "";
     getJobs()
 })
@@ -267,4 +404,9 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
 
 // queryId("clear").addEventListener("click", () => {
 //     getJobs()
+<<<<<<< HEAD
 // })
+=======
+// })
+
+>>>>>>> bfb30cdb4eba3b030c3c7014ffba492ccbca144e
