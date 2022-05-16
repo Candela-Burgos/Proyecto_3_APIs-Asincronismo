@@ -18,51 +18,81 @@
         </header>
         <main>
             <!-- HOME PAGE -->
-           <section class="home d-none-home">
-               <div class="home--search">
-                   <div class="home--search--selects">
+            <section class="home d-none-home">
+                <div class="home--search">
+                    <div class="home--search--selects">
                         <select name="Location" id="home--select_location" class="home--search--select">
                             <option disabled="">Location</option>
-                            <option value="argentina">Argentina</option>
-                            <option value="united states">United States</option>
-                            <option value="spain">Spain</option>
-                            <option value="chile">Chile</option>
-                            <option value="uruguay">Uruguay</option>
-                            <option value="russia">Russia</option>
-                            <!-- si agregan un job con otro pais, se agrega al select.
-                                si se borra, se borra del select. Así sucesivamente -->
+                            <option value="Argentina">Argentina</option>
+                            <option value="United States">United States</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Russia">Russia</option>
                         </select>
                         <select name="Seniority" id="home--select_seniority" class="home--search--select">
                             <option disabled="">Seniority</option>
-                            <option value="trainee">Trainee</option>
-                            <option value="junior">Junior</option>
-                            <option value="semisenior">Semisenior</option>
-                            <option value="senior">Senior</option>
+                            <option value="Trainee">Trainee</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Semisenior">Semisenior</option>
+                            <option value="Senior">Senior</option>
                         </select>
                         <select name="Category" id="home--select_category" class="home--search--select">
                             <option disabled="">Category</option>
-                            <option value="development">Development</option>
-                            <option value="product">Product</option>
-                            <option value="design">Design</option>
+                            <option value="Development">Development</option>
+                            <option value="Product">Product</option>
+                            <option value="Design">Design</option>
                         </select>
                     </div>
-                   <div class="home--search--buttons">
+                    <div class="home--search--buttons">
                        <a id="search" href="#">Search</a>
                        <a id="clear" href="#">Clear</a>
                    </div>
-               </div>
-
+                </div>
                
-               <div class="home--delete" id="home--delete--warning"> </div>
+                <div class="home--delete" id="home--delete--warning"> </div>
 
-                <!-- <div class="home--edit" id="home--edit--form"> </div> -->
+                <div class="home--edit" id="home--edit--form"> 
+                        <div id="home--form--edit" class="home--form--edit d-none-edit-form">
+                            <form>
+                                <label>Job Title</label>
+                                <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title" value="">
+                                <label>Description</label>
+                                <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
+                                <label>Tags</label>
+                                <select name="Location" id="form--edit--select_location" value="">
+                                    <option disabled="">Location</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="Chile">Chile</option>
+                                    <option value="Uruguay">Uruguay</option>
+                                    <option value="Russia">Russia</option>
+                                </select>
+                                <select name="Seniority" id="form--edit--select_seniority" value="">
+                                    <option disabled="">Seniority</option>
+                                    <option value="Trainee">Trainee</option>
+                                    <option value="Junior">Junior</option>
+                                    <option value="Semisenior">Semisenior</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
+                                <select name="Category" id="form--edit--select_category" value="">
+                                    <option disabled="">Category</option>
+                                    <option value="Development">Development</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                                <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit">
+                            </form>
+                        </div>       
+                    </div>  
 
                <!-- MUCHAS CARDS -->
                <div id="home--cards" class="home--cards"> </div>
-           </section>
-           <section id="create_job--form" class="create_job d-none-job">
-               <div class="create_job--form">
-                   <form>
+            </section>
+            <section id="create_job--form" class="create_job d-none-job">
+                <div class="create_job--form">
+                    <form>
                        <label>Job Title</label>
                        <input id="job-title" class="job-title" type="text" placeholder="Job Title">
                        <label>Description</label>
@@ -70,30 +100,30 @@
                        <label>Tags</label>
                        <select name="Location" id="create_job--select_location">
                         <option disabled="">Location</option>
-                        <option value="argentina">Argentina</option>
-                        <option value="united states">United States</option>
-                        <option value="spain">Spain</option>
-                        <option value="chile">Chile</option>
-                        <option value="uruguay">Uruguay</option>
-                        <option value="russia">Russia</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="United States">United States</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Russia">Russia</option>
                        </select>
                        <select name="Seniority" id="create_job--select_seniority">
                         <option disabled="">Seniority</option>
-                        <option value="trainee">Trainee</option>
-                        <option value="junior">Junior</option>
-                        <option value="semisenior">Semisenior</option>
-                        <option value="senior">Senior</option>
+                        <option value="Trainee">Trainee</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Semisenior">Semisenior</option>
+                        <option value="Senior">Senior</option>
                        </select>
                        <select name="Category" id="create_job--select_category">
                         <option disabled="">Category</option>
-                        <option value="development">Development</option>
-                        <option value="product">Product</option>
-                        <option value="design">Design</option>
+                        <option value="Development">Development</option>
+                        <option value="Product">Product</option>
+                        <option value="Design">Design</option>
                        </select>
                        <input id="btn--form--submit" type="submit" name="submit" value="Submit">
-                   </form>
-               </div>
-           </section>
+                    </form>
+                </div>
+            </section>
         </main>
         <footer>
             <div class="footer">

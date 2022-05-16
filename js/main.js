@@ -19,6 +19,37 @@ const getJob = (id) => {
         .catch(err => console.log(err))
 }
 
+const filterLocationJobs = (valorLocation) => {
+    valorLocation = queryId("home--select_location").value;
+    console.log(valorLocation);
+    fetch(`${BASE_API}?location=${valorLocation}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+const filterSeniorityJobs = (valorSeniority) => {
+    valorSeniority = queryId("home--select_seniority").value;
+    fetch(`${BASE_API}?seniority=${valorSeniority}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+const filterCategoryJobs = (valorCategory) => {
+    valorCategory = queryId("home--select_category").value;
+    fetch(`${BASE_API}?category=${valorCategory}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+}
+
+queryId("search").addEventListener("click", () => {
+    filterLocationJobs();
+    filterSeniorityJobs();
+    filterCategoryJobs();
+});
+
 // POST || /jobs  CREATE JOB
 
 const sendData = () => {
@@ -36,11 +67,11 @@ const sendData = () => {
 
 const editData = (id) => {
     fetch(`${BASE_API}/${id}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
             'Content-Type': 'Application/json'
         },
-        body: JSON.stringify(saveData())
+        body: JSON.stringify(getDataEdit())
     })
     .finally(() => window.location = "index.html")
 }
@@ -137,58 +168,89 @@ const saveData = () => {
         description: queryId("description").value,
         location: queryId("create_job--select_location").value,
         category: queryId("create_job--select_category").value,
-        seniority: queryId("create_job--select_seniority").value,
+        seniority: queryId("create_job--select_seniority").value
+    }
+}
+
+const getDataEdit = () => {
+    return {
+        name: queryId("form--edit--title").value,
+        description: queryId("form--edit--description").value,
+        location: queryId("form--edit--select_location").value,
+        category: queryId("form--edit--select_seniority").value,
+        seniority: queryId("form--edit--select_category").value
     }
 }
 
 const editForm = (id) => {
-    queryId("home--cards").innerHTML += `
-    <div class="home--edit" id="home--edit--form"> 
-        <div id="home--form--edit" class="home--form--edit d-none-edit-form">
-            <form>
-                <label>Job Title</label>
-                <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title">
-                <label>Description</label>
-                <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
-                <label>Tags</label>
-                <select name="Location" id="form--edit--select_location">
-                    <option disabled="">Location</option>
-                    <option value="argentina">Argentina</option>
-                    <option value="united states">United States</option>
-                    <option value="spain">Spain</option>
-                    <option value="chile">Chile</option>
-                    <option value="uruguay">Uruguay</option>
-                    <option value="russia">Russia</option>
-                </select>
-                <select name="Seniority" id="form--edit--select_seniority">
-                    <option disabled="">Seniority</option>
-                    <option value="trainee">Trainee</option>
-                    <option value="junior">Junior</option>
-                    <option value="semisenior">Semisenior</option>
-                    <option value="senior">Senior</option>
-                </select>
-                <select name="Category" id="form--edit--select_category">
-                    <option disabled="">Category</option>
-                    <option value="development">Development</option>
-                    <option value="product">Product</option>
-                    <option value="design">Design</option>
-                </select>
-                <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit" onclick="editData(${id})">
-            </form>
-        </div>       
-    </div>        
-    `
+    const job = getDataEdit();
+    const {name, description, location, category, seniority} = job;
+    queryId("home--form--edit").classList.remove("d-none-edit-form");
+    queryId("form--edit--title").value = `${name}`;
+    queryId("form--edit--description").value = `${description}`;
+    queryId("form--edit--select_location").value = `${location}`;
+    queryId("form--edit--select_seniority").value = `${seniority}`;
+    queryId("form--edit--select_category").value = `${category}`;
+    eventID(id)
 }
+
+const eventID = (id) => {
+    queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
+        e.preventDefault();
+        editData(id);
+    })
+}
+
+// const editForm = (id) => {
+//     queryId("home--cards").innerHTML += `
+//     <div class="home--edit" id="home--edit--form"> 
+//         <div id="home--form--edit" class="home--form--edit d-none-edit-form">
+//             <form>
+//                 <label>Job Title</label>
+//                 <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title">
+//                 <label>Description</label>
+//                 <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
+//                 <label>Tags</label>
+//                 <select name="Location" id="form--edit--select_location">
+//                     <option disabled="">Location</option>
+//                     <option value="argentina">Argentina</option>
+//                     <option value="united states">United States</option>
+//                     <option value="spain">Spain</option>
+//                     <option value="chile">Chile</option>
+//                     <option value="uruguay">Uruguay</option>
+//                     <option value="russia">Russia</option>
+//                 </select>
+//                 <select name="Seniority" id="form--edit--select_seniority">
+//                     <option disabled="">Seniority</option>
+//                     <option value="trainee">Trainee</option>
+//                     <option value="junior">Junior</option>
+//                     <option value="semisenior">Semisenior</option>
+//                     <option value="senior">Senior</option>
+//                 </select>
+//                 <select name="Category" id="form--edit--select_category">
+//                     <option disabled="">Category</option>
+//                     <option value="development">Development</option>
+//                     <option value="product">Product</option>
+//                     <option value="design">Design</option>
+//                 </select>
+//                 <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit" onclick="editData(${id})">
+//             </form>
+//         </div>       
+//     </div>        
+//     `
+// }
 
 // EVENTS
 
 queryId("home").addEventListener('click', () => {
-    queryId("create_job--form").classList.add("d-none-job") 
+    queryId("home--form--edit").classList.add("d-none-edit-form");
+    queryId("create_job--form").classList.add("d-none-job");
     queryId("home--cards").innerHTML = "";
     getJobs()
 })
 
 queryId("create_job").addEventListener('click', () => {
+    queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
     spinner();
     setTimeout(() => {
@@ -202,3 +264,7 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
     sendData()
     queryId("create_job--form").classList.add("d-none-job")
 })
+
+// queryId("clear").addEventListener("click", () => {
+//     getJobs()
+// })
