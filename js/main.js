@@ -15,7 +15,7 @@ getJobs()
 const getJob = (id) => {
     fetch(`${BASE_API}/${id}`)
         .then(res => res.json())
-        .then(data => showDetail(data))
+        .then(data => console.log(data))
         .catch(err => console.log(err))
 }
 
@@ -24,23 +24,31 @@ const filterLocationJobs = (valorLocation) => {
     console.log(valorLocation);
     fetch(`${BASE_API}?location=${valorLocation}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            `${valorLocation ? showData(data) : data}`
+        })
         .catch(err => console.log(err))
 }
 
 const filterSeniorityJobs = (valorSeniority) => {
     valorSeniority = queryId("home--select_seniority").value;
+    console.log(valorSeniority);
     fetch(`${BASE_API}?seniority=${valorSeniority}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+           `${valorSeniority ? showData(data) : data}`
+        })
         .catch(err => console.log(err))
 }
 
 const filterCategoryJobs = (valorCategory) => {
     valorCategory = queryId("home--select_category").value;
+    console.log(valorCategory);
     fetch(`${BASE_API}?category=${valorCategory}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            `${valorCategory ? showData(data) : data}`
+        })
         .catch(err => console.log(err))
 }
 
