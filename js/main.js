@@ -15,7 +15,7 @@ getJobs()
 const getJob = (id) => {
     fetch(`${BASE_API}/${id}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => showDetail(data))
         .catch(err => console.log(err))
 }
 
@@ -24,6 +24,7 @@ const filterLocationJobs = (valorLocation) => {
     console.log(valorLocation);
     fetch(`${BASE_API}?location=${valorLocation}`)
         .then(res => res.json())
+        // .then(data => console.log(data))
         .then(data => {
             `${valorLocation ? showData(data) : data}`
         })
@@ -35,6 +36,7 @@ const filterSeniorityJobs = (valorSeniority) => {
     console.log(valorSeniority);
     fetch(`${BASE_API}?seniority=${valorSeniority}`)
         .then(res => res.json())
+        // .then(data => console.log(data))
         .then(data => {
            `${valorSeniority ? showData(data) : data}`
         })
@@ -46,6 +48,7 @@ const filterCategoryJobs = (valorCategory) => {
     console.log(valorCategory);
     fetch(`${BASE_API}?category=${valorCategory}`)
         .then(res => res.json())
+        // .then(data => console.log(data))
         .then(data => {
             `${valorCategory ? showData(data) : data}`
         })
@@ -172,11 +175,11 @@ const cancel = () => {
     getJobs()
 }
 
-const validateCamp = (nam, descrip, locat, categ, seniori) => {
-    if (nam === "" || descrip === "" || locat === "" || categ === "" || seniori === "" ) {
-        queryId("validate").classList.remove("d-none-validate")
-    }
-}
+// const validateCamp = (nam, descrip, locat, categ, seniori) => {
+//     if (nam === "" || descrip === "" || locat === "" || categ === "" || seniori === "" ) {
+//         queryId("validate").classList.remove("d-none-validate")
+//     }
+// }
 
 const saveData = () => {
     return {
