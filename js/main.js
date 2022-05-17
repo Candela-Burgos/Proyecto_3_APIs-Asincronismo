@@ -106,8 +106,8 @@ const showData = (jobs) => {
                     <h2>${name}</h2>
                     <div class="home--card--spans">
                         <span class="span_info">${location}</span>
-                        <span class="span_info">${category}</span>
                         <span class="span_info">${seniority}</span>
+                        <span class="span_info">${category}</span>
                     </div>
                     <a href="#" onclick="getJob(${id})">See Details</a>
                 </div>            
@@ -132,8 +132,8 @@ const showDetail = (job) => {
                     <p>${description}</p>
                     <div class="home--card--spans--details">
                         <span class="span_info--details">${location}</span>
-                        <span class="span_info--details">${category}</span>
                         <span class="span_info--details">${seniority}</span>
+                        <span class="span_info--details">${category}</span>
                     </div>
                     <a href="#" class="btn--edit" id="btn--edit" onclick="editForm(${id})">Edit</a>
                     <a href="#" class="btn--delete" onclick="deleteWarning(${id})">Delete</a>
@@ -147,6 +147,7 @@ const showDetail = (job) => {
 // LINEA 96 el ternario no me sirve para nada. Ver como solucionarlo => ${name ? name : "Careers X"}
 
 const deleteWarning = (id) => {
+    queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
     queryId('home--delete--warning').innerHTML += `
         <div class="delete--warning d-none-delete-warning">
@@ -163,6 +164,12 @@ const cancel = () => {
     getJobs()
 }
 
+const validateCamp = (nam, descrip, locat, categ, seniori) => {
+    if (nam === "" || descrip === "" || locat === "" || categ === "" || seniori === "" ) {
+        queryId("validate").classList.remove("d-none-validate")
+    }
+}
+
 const saveData = () => {
     return {
         name: queryId("job-title").value,
@@ -173,6 +180,7 @@ const saveData = () => {
     }
 }
 
+//esto es lo que mando
 const getDataEdit = () => {
     return {
         name: queryId("form--edit--title").value,
@@ -184,14 +192,20 @@ const getDataEdit = () => {
 }
 
 const editForm = (id) => {
-    const job = getDataEdit();
-    const {name, description, location, category, seniority} = job;
+    fetch(`${BASE_API}/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            const {name, description, location, category, seniority} = data;
+            queryId("form--edit--title").value = `${name}`;
+            queryId("form--edit--description").innerHTML = `${description}`;
+            console.log(queryId("form--edit--select_location").value = `${location}`);
+            console.log(queryId("form--edit--select_seniority").value = `${seniority}`);
+            console.log(queryId("form--edit--select_category").value = `${category}`);
+            // console.log(queryId("form--edit--select_category").value = `${category}`.selected = `${category}`);
+            // console.log(queryId("form--edit--select_seniority") = `${seniority === getElementsByTagName('option').value && seniority.setAttribute("selected", "selected")}`);
+        })
+        .catch(err => console.log(err))
     queryId("home--form--edit").classList.remove("d-none-edit-form");
-    queryId("form--edit--title").value = `${name}`;
-    queryId("form--edit--description").value = `${description}`;
-    queryId("form--edit--select_location").value = `${location}`;
-    queryId("form--edit--select_seniority").value = `${seniority}`;
-    queryId("form--edit--select_category").value = `${category}`;
     eventID(id)
 }
 
@@ -202,54 +216,10 @@ const eventID = (id) => {
     })
 }
 
-// const editForm = (id) => {
-//     queryId("home--cards").innerHTML += `
-//     <div class="home--edit" id="home--edit--form"> 
-//         <div id="home--form--edit" class="home--form--edit d-none-edit-form">
-//             <form>
-//                 <label>Job Title</label>
-//                 <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title" value="${name}">
-//                 <label>Description</label>
-//                 <textarea id="form--edit--description" class="description" cols="30" rows="10">${description}</textarea>
-//                 <label>Tags</label>
-//                 <select name="Location" id="form--edit--select_location" value="${location}">
-//                     <option disabled="">Location</option>
-//                     <option value="argentina">Argentina</option>
-//                     <option value="united states">United States</option>
-//                     <option value="spain">Spain</option>
-//                     <option value="chile">Chile</option>
-//                     <option value="uruguay">Uruguay</option>
-//                     <option value="russia">Russia</option>
-//                 </select>
-//                 <select name="Seniority" id="form--edit--select_seniority" value="${seniority}">
-//                     <option disabled="">Seniority</option>
-//                     <option value="trainee">Trainee</option>
-//                     <option value="junior">Junior</option>
-//                     <option value="semisenior">Semisenior</option>
-//                     <option value="senior">Senior</option>
-//                 </select>
-//                 <select name="Category" id="form--edit--select_category" value="${category}">
-//                     <option disabled="">Category</option>
-//                     <option value="development">Development</option>
-//                     <option value="product">Product</option>
-//                     <option value="design">Design</option>
-//                 </select>
-//                 <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit" onclick="editData(${id})">
-//             </form>
-//         </div>       
-//     </div>        
-//     `
-// }
-
-// const editForm = (id) => {
-//     queryId("home--form--edit").classList.remove("d-none-edit-form");
-//     editID = id;
-// }
-
-
-
 // const clearSelects = () => {
-
+//     queryId("home--select_location").selected = queryId("location-option");
+//     queryId("home--select_seniority").selected = queryId("seniority-option");
+//     queryId("home--select_category").selected = queryId("category-option");
 // }
 
 // EVENTS
@@ -258,7 +228,7 @@ queryId("home").addEventListener('click', () => {
     queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("create_job--form").classList.add("d-none-job");
     queryId("home--cards").innerHTML = "";
-    getJobs()
+    getJobs();
 })
 
 queryId("create_job").addEventListener('click', () => {
@@ -267,16 +237,18 @@ queryId("create_job").addEventListener('click', () => {
     spinner();
     setTimeout(() => {
         queryId("home--cards").innerHTML = "";
-        queryId("create_job--form").classList.remove("d-none-job") 
+        queryId("create_job--form").classList.remove("d-none-job");
     }, 2000);
 })
 
 queryId("btn--form--submit").addEventListener('click', (e) => {
-    e.preventDefault()
-    sendData()
-    queryId("create_job--form").classList.add("d-none-job")
+    e.preventDefault();
+    sendData();
+    queryId("create_job--form").classList.add("d-none-job");
 })
 
-// queryId("clear").addEventListener("click", () => {
-//     getJobs()
-// })
+queryId("clear").addEventListener("click", () => {
+    // clearSelects();
+    window.location = "index.html";
+    getJobs();
+})

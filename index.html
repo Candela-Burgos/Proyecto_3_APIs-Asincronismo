@@ -3,6 +3,7 @@
     <head>
         <title>Careers</title>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -18,11 +19,11 @@
         </header>
         <main>
             <!-- HOME PAGE -->
-            <section class="home d-none-home">
+            <div class="home d-none-home">
                 <div class="home--search">
                     <div class="home--search--selects">
                         <select name="Location" id="home--select_location" class="home--search--select">
-                            <option disabled="">Location</option>
+                            <option selected disabled="">Location</option>
                             <option value="Argentina">Argentina</option>
                             <option value="United States">United States</option>
                             <option value="Spain">Spain</option>
@@ -31,14 +32,14 @@
                             <option value="Russia">Russia</option>
                         </select>
                         <select name="Seniority" id="home--select_seniority" class="home--search--select">
-                            <option disabled="">Seniority</option>
+                            <option selected disabled="">Seniority</option>
                             <option value="Trainee">Trainee</option>
                             <option value="Junior">Junior</option>
                             <option value="Semisenior">Semisenior</option>
                             <option value="Senior">Senior</option>
                         </select>
                         <select name="Category" id="home--select_category" class="home--search--select">
-                            <option disabled="">Category</option>
+                            <option selected disabled="">Category</option>
                             <option value="Development">Development</option>
                             <option value="Product">Product</option>
                             <option value="Design">Design</option>
@@ -52,6 +53,10 @@
                
                 <div class="home--delete" id="home--delete--warning"> </div>
                 
+
+               <!-- MUCHAS CARDS -->
+               <div id="home--cards" class="home--cards"> </div>
+
                 <div class="home--edit" id="home--edit--form"> 
                     <div id="home--form--edit" class="home--form--edit d-none-edit-form">
                         <form>
@@ -60,7 +65,7 @@
                             <label>Description</label>
                             <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
                             <label>Tags</label>
-                            <select name="Location" id="form--edit--select_location" value="">
+                            <select name="Location" id="form--edit--select_location">
                                 <option disabled="">Location</option>
                                 <option value="Argentina">Argentina</option>
                                 <option value="United States">United States</option>
@@ -69,14 +74,14 @@
                                 <option value="Uruguay">Uruguay</option>
                                 <option value="Russia">Russia</option>
                             </select>
-                            <select name="Seniority" id="form--edit--select_seniority" value="">
+                            <select name="Seniority" id="form--edit--select_seniority">
                                 <option disabled="">Seniority</option>
                                 <option value="Trainee">Trainee</option>
                                 <option value="Junior">Junior</option>
                                 <option value="Semisenior">Semisenior</option>
                                 <option value="Senior">Senior</option>
                             </select>
-                            <select name="Category" id="form--edit--select_category" value="">
+                            <select name="Category" id="form--edit--select_category">
                                 <option disabled="">Category</option>
                                 <option value="Development">Development</option>
                                 <option value="Product">Product</option>
@@ -87,19 +92,17 @@
                     </div>       
                 </div>
 
-               <!-- MUCHAS CARDS -->
-               <div id="home--cards" class="home--cards"> </div>
-            </section>
-            <section id="create_job--form" class="create_job d-none-job">
+            </div>
+            <div id="create_job--form" class="create_job d-none-job">
                 <div class="create_job--form">
                     <form>
                        <label>Job Title</label>
-                       <input id="job-title" class="job-title" type="text" placeholder="Job Title">
+                       <input id="job-title" class="job-title" type="text" placeholder="Job Title" required="required">
                        <label>Description</label>
-                       <textarea id="description" class="description" cols="30" rows="10"></textarea>
+                       <textarea id="description" class="description" cols="30" rows="10" required="required"></textarea>
                        <label>Tags</label>
-                       <select name="Location" id="create_job--select_location">
-                        <option disabled="">Location</option>
+                       <select name="Location" id="create_job--select_location" required="required">
+                        <option selected disabled="">Location</option>
                         <option value="Argentina">Argentina</option>
                         <option value="United States">United States</option>
                         <option value="Spain">Spain</option>
@@ -107,14 +110,14 @@
                         <option value="Uruguay">Uruguay</option>
                         <option value="Russia">Russia</option>
                        </select>
-                       <select name="Seniority" id="create_job--select_seniority">
+                       <select selected name="Seniority" id="create_job--select_seniority" required="required">
                         <option disabled="">Seniority</option>
                         <option value="Trainee">Trainee</option>
                         <option value="Junior">Junior</option>
                         <option value="Semisenior">Semisenior</option>
                         <option value="Senior">Senior</option>
                        </select>
-                       <select name="Category" id="create_job--select_category">
+                       <select selected name="Category" id="create_job--select_category" required="required">
                         <option disabled="">Category</option>
                         <option value="Development">Development</option>
                         <option value="Product">Product</option>
@@ -123,7 +126,7 @@
                        <input id="btn--form--submit" type="submit" name="submit" value="Submit">
                     </form>
                 </div>
-            </section>
+            </div>
         </main>
         <footer>
             <div class="footer">
