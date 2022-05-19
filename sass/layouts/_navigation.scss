@@ -1,0 +1,38 @@
+.navbar {
+    @include d-flex ($direction: row, $justify_content: flex-start, $align_items: center);
+    width: 100%;
+    background-color: $primary_color;
+    padding: 1.5em;
+
+    @media screen and (max-width: 632px) {
+        @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+    }
+
+    @media screen and (max-width: 373px) {
+        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    }
+
+    h2 {
+        margin-right: 1em;
+        color: $color--light;
+    }
+
+    .navbar--links {
+        a {
+            text-decoration: none;
+            color: $color--light;
+            margin: 0 1em;
+            padding-bottom: .3em;
+            border-bottom: none;
+            transition: border-bottom .3s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid $color--light;
+        }
+
+        a:focus {
+            border-bottom: 1px solid $color--light;
+        }
+    }
+}

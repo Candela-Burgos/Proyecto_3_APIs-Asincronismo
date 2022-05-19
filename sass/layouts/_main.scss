@@ -1,0 +1,692 @@
+main {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+    margin-top: 4.8em;
+    
+    margin-bottom: 7em;
+
+    .home {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 100%; 
+        
+        .home--search {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+            width: 80%; 
+            margin: 1em 0;
+
+            @media screen and (max-width: 711px) {
+                width: 90%;
+            }
+
+            @media screen and (max-width: 632px) {
+                @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+                width: 95%;
+            }
+
+            @media screen and (max-width: 599px) {
+                @include d-flex ($direction: column, $justify_content: space-evenly, $align_items: center);
+                width: 95%;
+                margin: 1em 0em 0em 0em;
+            }
+
+            .home--search--select{
+                cursor: pointer;
+                font-size: $font_size--small;
+                color: $color--light;
+                background-color: $primary_color;
+                border: 1px solid $secondary_color;
+                border-radius: 5px;
+                padding: .5em 7em .5em 1em;
+                margin: 1em;
+                transition: background-color 1s;
+
+                @media screen and (max-width: 1168px) {
+                    padding: .5em 3em .5em 1em;
+                }
+
+                @media screen and (max-width: 927px) {
+                    padding: .5em 2em .5em 1em;
+                }
+
+                @media screen and (max-width: 867px) {
+                    padding: .5em 1em;
+                }
+
+                @media screen and (max-width: 807px) {
+                    padding: .5em;
+                }
+
+                @media screen and (max-width: 747px) {
+                    padding: .5em .2em;
+                }
+
+                @media screen and (max-width: 474px) {
+                    padding: .5em .1em;
+                    margin: .5em .5em 1em .5em;
+                }
+
+                @media screen and (max-width: 414px) {
+                    padding: .3em .1em;
+                    margin: 0em .1em 1em .1em;
+                }
+
+                @media screen and (max-width: 373px) {
+                    padding: .3em 0em;
+                    margin: 0em 0em .5em 0em;
+                }
+            }
+
+            .home--search--select:hover {
+                background-color: $secondary_color;
+            }
+
+            .home--search--buttons {
+
+                @media screen and (max-width: 599px) {
+                    padding: .6em;
+                    margin-bottom: 1em;
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    border: 1px solid $secondary_color;
+                    border-radius: 5px;
+
+                    @media screen and (max-width: 599px) {
+                        padding: .5em 1em;
+                        margin: .5em .5em 0 .5em;
+                    }
+                }
+
+                #search {
+                    color: $color--light;
+                    background-color: $primary_color;
+                    transition: background-color .3s;
+                }
+
+                #search:hover {
+                    background-color: $secondary_color;
+                }
+
+                #clear {
+                    background-color: $color--light;
+                    color: $color--dark;
+                    transition: color, .3s, background-color .3s;
+                }
+
+                #clear:hover {
+                    color: $color--light;
+                    background-color: $primary_color;
+                }
+            }
+        }
+
+        .home--cards {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+            flex-wrap: wrap;
+            max-width: 80%;
+
+            @media screen and (max-width: 1168px) {
+                max-width: 90%;
+            }
+
+            @media screen and (max-width: 1066px) {
+                max-width: 95%;
+            }
+
+            @media screen and (max-width: 1066px) {
+                max-width: 97%;
+            }
+
+            @media screen and (max-width: 700px) {
+                max-width: 100%;
+            }
+            
+            .home--card {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+                flex: 0 1 25%;
+                max-width: 25%;
+                max-height: 45%;
+                background-color: $color--light;
+                border: 2px solid $primary_color;
+                border-radius: 5px;
+                padding: 1em;
+                margin: 1em;
+                box-shadow: -8px 10px 10px .1px $box_shadow;
+
+                @media screen and (max-width: 1168px) {
+                    flex: 0 1 30%;
+                    max-width: 30%;
+                    max-height: 50%;
+                }
+                
+                @media screen and (max-width: 989px) {
+                    flex: 0 1 35%;
+                    max-width: 35%;
+                    max-height: 55%;
+                }
+
+                @media screen and (max-width: 700px) {
+                    flex: 0 1 40%;
+                    max-width: 40%;
+                    max-height: 60%;
+                }
+
+                @media screen and (max-width: 585px) {
+                    flex: 0 1 60%;
+                    max-width: 60%;
+                    max-height: 70%;
+                }
+
+                @media screen and (max-width: 414px) {
+                    flex: 0 1 70%;
+                    max-width: 70%;
+                    max-height: 70%;
+                }
+
+                h2 {
+                    text-align: center;
+                    font-weight: lighter;
+                    font-size: $font_size--medium;
+                    color: $color--dark;
+                    margin: .5em 0 1em 0;
+                }
+
+                .home--card--spans {
+                    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                    flex-wrap: wrap;
+                    width: 100%;
+                    margin-bottom: 1em;
+
+                    .span_info {
+                        background-color: $color_span;
+                        color: $color--light;
+                        font-size: $font_size--small;
+                        padding: .1em .8em;
+                        border-radius: 15px;
+                        margin: .3em;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    margin-top: .5em;
+                    border: 1px solid $secondary_color;
+                    border-radius: 5px;
+                    color: $color--light;
+                    background-color: $primary_color;
+                    transition: background-color .3s;
+                }
+
+                a:hover {
+                    background-color: $secondary_color;
+                }
+            }
+
+            .home--card--details {
+                @include d-flex ($direction: row, $justify_content: center, $align_items: space-evenly);
+                flex: 0 1 60%;
+                width: 60%;
+                background-color: $color--light;
+                border: 2px solid $primary_color;
+                border-radius: 5px;
+                padding: 1em;
+                margin: 1em;
+                box-shadow: -8px 10px 10px .1px $box_shadow;
+
+                @media screen and (max-width: 1457px) {
+                    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+                }
+
+                @media screen and (max-width: 1168px) {
+                    flex: 0 1 70%;
+                    width: 70%; 
+                }
+
+                @media screen and (max-width: 747px) {
+                    flex: 0 1 80%;
+                    width: 80%; 
+                }
+
+                .card--img {
+                    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                    flex-wrap: wrap;
+                    width: 100%;
+                    object-fit: cover;
+
+                    img {
+                        width: 100%;
+                        margin: .5em;
+                    }
+                }
+
+                .card--description {
+                    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    h2 {
+                        text-align: center;
+                        font-weight: lighter;
+                        font-size: $font_size--medium;
+                        color: $color--dark;
+                        margin: .5em 0 1em 0;
+                        width: auto;
+                    }
+                    
+                    p {
+                        text-align: center;
+                        margin: 0 1em 1em 1em;
+                        max-width: auto;
+                        word-wrap: anywhere;
+                        
+                        @media screen and (max-width: 867px) {
+                            max-height: 150px;
+                            overflow: scroll;
+                        }
+                    }
+
+                    .home--card--spans--details {
+                        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                        flex-wrap: wrap;
+                        width: 100%;
+                        margin-bottom: 1em;
+
+                        .span_info--details {
+                            background-color: $color_span;
+                            color: $color--light;
+                            font-size: $font_size--small;
+                            padding: .1em .8em;
+                            border-radius: 15px;
+                            margin: .3em;
+                        }
+                    }
+                    
+                    .home--card--btn--details {
+                        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                        flex-wrap: wrap;
+                        width: 100%;
+                        
+                        .btn--edit {
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: $color--light;
+                        font-size: $font_size--small;
+                        padding: .5em 1em;
+                        margin: .5em 1em;
+                        background-color: $color--edit;
+                        border: 1px solid $color--edit_hover;
+                        border-radius: 5px;
+                        transition: background-color .3s;
+                        }
+
+                        .btn--edit:hover {
+                            background-color: $color--edit_hover;
+                        }
+
+                        .btn--delete {
+                            @extend .btn--edit;
+                            background-color: $color--delete;
+                            border: 1px solid $color--delete_hover;
+                        }
+
+                        .btn--delete:hover {
+                            background-color: $color--delete_hover;
+                        }
+                    }
+                    
+
+                }    
+
+            }
+        }
+
+        .home--edit {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+            width: 100%;
+
+            .home--form--edit {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+                width: 60%;
+
+                @media screen and (max-width: 1168px) {
+                    width: 70%; 
+                }
+    
+                @media screen and (max-width: 973px) {
+                    width: 80%; 
+                }
+            }
+
+            .home--form--edit form {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+                width: 100%;
+
+                label {
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    margin: 1em 1em 1em 0;
+                }
+
+                .job-title {
+                    padding: .5em;
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    outline: 0;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    transition: border .3s;
+                }
+
+                .job-title:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                .job-title:focus {
+                    outline: 1px solid $primary_color;
+                    border: 1px solid $primary_color;
+                }
+
+                textarea {
+                    padding: .5em;
+                    color: $color--dark;
+                    font-size: $font_size--small;
+                    outline: 0;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    transition: border .3s; 
+                }
+
+                textarea:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                textarea:focus {
+                    outline: 1px solid $primary_color;
+                    border: 1px solid $primary_color;
+                }
+
+                #form--edit--select_location {
+                    cursor: pointer;
+                    font-size: $font_size--small;
+                    color: $color--dark;
+                    background-color: $color--light;
+                    border: 1px solid $color--dark;
+                    border-radius: 5px;
+                    padding: .5em;
+                    margin-bottom: 1em;
+                    transition: border .3s;  
+                }
+
+                #form--edit--select_location:hover {
+                    border: 1px solid $primary_color;
+                }
+
+                #form--edit--select_seniority {
+                    @extend #form--edit--select_location;
+                }
+
+                #form--edit--select_category {
+                    @extend #form--edit--select_location;
+                }
+
+                #btn--form--edit--confirm {
+                    width: 10%;
+                    cursor: pointer;
+                    color: $color--light;
+                    font-size: $font_size--small;
+                    padding: .5em;
+                    background-color: $color--edit;
+                    border: 1px solid $color--edit_hover;
+                    border-radius: 5px;
+                    transition: background-color .3s;
+
+                    @media screen and (max-width: 815px) {
+                        width: 20%; 
+                    }
+    
+                    @media screen and (max-width: 421px) {
+                        width: 25%; 
+                    }
+    
+                    @media screen and (max-width: 360px) {
+                        width: 30%; 
+                    }
+                }
+
+                #btn--form--edit--confirm:hover {
+                    background-color: $color--edit_hover;
+                }
+            } 
+
+            .d-none-edit-form {
+                display: none;
+            }
+        }
+
+        .home--delete {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+            width: 100%;
+
+            .delete--warning {
+                @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+                width: 50%;
+                padding: 1em;
+                background-color: $bg--delete;
+                border: 1px solid $border--delete;
+                border-radius: 5px;
+                box-shadow: -4px 5px 10px .1px $box_shadow;
+
+                @media screen and (max-width: 956px) {
+                    @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+                    width: 80%;
+                }
+
+                @media screen and (max-width: 599px) {
+                    @include d-flex ($direction: column, $justify_content: space-evenly, $align_items: center);
+                    width: 80%;
+                }
+
+                p {
+                    font-size: $font_size--small;
+                    color: $color--dark;
+                }
+
+                .delete--warning--btn {
+                    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                    width: auto;
+
+                    @media screen and (max-width: 599px) {
+                        margin-top: 1em;
+                    }
+                        
+                    #btn_delete--confirm {
+                    text-decoration: none;
+                    background-color: $color--delete;
+                    color: $color--light;
+                    font-size: $font_size--small;
+                    padding: .5em 1em;
+                    margin: 0em 1em;
+                    border: 1px solid $color--delete_hover;
+                    border-radius: 5px;
+                    transition: background-color .3s;
+                    }
+
+                    #btn_delete--confirm:hover {
+                        background-color: $color--delete_hover;
+                    }
+
+                    #btn_cancel {
+                        @extend #btn_delete--confirm;
+                        background-color: $color--cancel;
+                        border: 1px solid $color--cancel_hover;
+                    }
+
+                    #btn_cancel:hover {
+                        background-color: $color--cancel_hover;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+
+    .d-none-home {
+        display: flex;
+    }
+
+    
+
+    .create_job {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 100%;
+            
+        .validate {
+            position: absolute;
+            background-color: $color--cancel;
+            padding: 1em;
+            border: 1px solid $color--cancel_hover;
+            border-radius: 5px;
+            z-index: 12;
+
+            h3 {
+                color: $color--light;
+                padding: 1em;
+                text-align: center;
+            }
+
+            .btn-ok {
+                background-color: #9ba2a5;
+                padding: .3em 1em;
+                color: $color--dark;
+            }
+        }
+
+        .d-none-validate {
+            display: none;
+        }
+
+        .create_job--form {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+            width: 60%;
+
+            @media screen and (max-width: 1131px) {
+                width: 70%; 
+            }
+
+            @media screen and (max-width: 973px) {
+                width: 80%; 
+            }
+        }
+
+        .create_job--form form{
+            @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
+            width: 100%;
+
+            label {
+                color: $color--dark;
+                font-size: $font_size--small;
+                margin: 1em 1em 1em 0;
+            }
+
+            .job-title {
+                padding: .5em;
+                color: $color--dark;
+                font-size: $font_size--small;
+                outline: 0;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                transition: border .3s;
+            }
+
+            .job-title:hover {
+                border: 1px solid $primary_color;
+            }
+
+            .job-title:focus {
+                outline: 1px solid $primary_color;
+                border: 1px solid $primary_color;
+            }
+
+            textarea {
+                padding: .5em;
+                color: $color--dark;
+                font-size: $font_size--small;
+                outline: 0;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                transition: border .3s; 
+            }
+
+            textarea:hover {
+                border: 1px solid $primary_color;
+            }
+
+            textarea:focus {
+                outline: 1px solid $primary_color;
+                border: 1px solid $primary_color;
+            }
+
+            #create_job--select_location {
+                cursor: pointer;
+                font-size: $font_size--small;
+                color: $color--dark;
+                background-color: $color--light;
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                padding: .5em;
+                margin-bottom: 1em;
+                transition: border .3s;  
+            }
+
+            #create_job--select_location:hover {
+                border: 1px solid $primary_color;
+            }
+
+            #create_job--select_seniority {
+                @extend #create_job--select_location;
+            }
+
+            #create_job--select_category {
+                @extend #create_job--select_location;
+            }
+
+            #btn--form--submit {
+                width: 10%;
+                cursor: pointer;
+                color: $color--light;
+                font-size: $font_size--small;
+                padding: .5em;
+                background-color: $color--submit;
+                border: 1px solid $color--submit;
+                border-radius: 5px;
+                transition: background-color .3s;
+
+                @media screen and (max-width: 815px) {
+                    width: 20%; 
+                }
+
+                @media screen and (max-width: 421px) {
+                    width: 25%; 
+                }
+
+                @media screen and (max-width: 360px) {
+                    width: 30%; 
+                }
+            }
+
+            #btn--form--submit:hover {
+                background-color: $color--submit_hover;
+            }
+        }
+    }
+
+    .d-none-job {
+        display: none;
+    }
+}

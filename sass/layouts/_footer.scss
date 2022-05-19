@@ -1,0 +1,35 @@
+.footer {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+    background-color: $primary_color;
+    padding: 1em;
+
+    position: fixed;
+    // left: 0;
+    bottom: 0;
+    width: 100vw;
+
+    h3 {
+        font-size: $font_size--small;
+        font-weight: lighter;
+        color: $color--light;
+        margin: .5em;
+    }
+
+    p {
+        font-size: $font_size--small;
+        font-weight: lighter;
+        color: $color--light;
+        margin: .5em;
+        
+        a {
+            text-decoration: none;
+            color: $color--light;
+            transition: color .3s;
+        }
+
+        a:hover {
+            color: $color--dark;
+        }
+    }
+}

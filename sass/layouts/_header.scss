@@ -1,0 +1,12 @@
+header {
+    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+body {
+    background-color: #ca62c51f;
+}
