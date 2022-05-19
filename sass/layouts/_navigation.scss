@@ -4,6 +4,14 @@
     background-color: $primary_color;
     padding: 1.5em;
 
+    @media screen and (max-width: 632px) {
+        @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
+    }
+
+    @media screen and (max-width: 373px) {
+        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    }
+
     h2 {
         margin-right: 1em;
         color: $color--light;

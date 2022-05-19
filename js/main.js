@@ -62,9 +62,14 @@ const limpiarSelects = () => {
 
 queryId("search").addEventListener("click", (e) => {
     e.preventDefault();
+    queryId('home--delete--warning').innerHTML = ""; 
+    queryId("create_job--form").classList.add("d-none-job");
+    queryId("home--form--edit").classList.add("d-none-edit-form");
     filterJobs();
     limpiarSelects();
 });
+
+// Si apreta search y los select estan vacios, que tire una alerta de que tiene que llenar 1 select para poder buscar/filtrar
 
 // POST || /jobs  CREATE JOB
 
@@ -165,11 +170,13 @@ const showDetail = (job) => {
 const deleteWarning = (id) => {
     queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
-    queryId('home--delete--warning').innerHTML += `
-        <div class="delete--warning d-none-delete-warning">
+    queryId("home--delete--warning").innerHTML += `
+        <div id="delete--warning" class="delete--warning">
             <p>Are you sure to delete this job?</p>
-            <a id="btn_delete--confirm" href="#" onclick="deleteConfirm(${id})">Delete Job</a>
-            <a id="btn_cancel" onclick="cancel()" href="#">Cancel</a>
+            <div class="delete--warning--btn">
+                <a id="btn_delete--confirm" href="#" onclick="deleteConfirm(${id})">Delete Job</a>
+                <a id="btn_cancel" onclick="cancel()" href="#">Cancel</a>
+            </div>
         </div>                       
     `
 }
@@ -250,6 +257,7 @@ const eventID = (id) => {
 // EVENTS
 
 queryId("home").addEventListener('click', () => {
+    queryId('home--delete--warning').innerHTML = ""; 
     queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("create_job--form").classList.add("d-none-job");
     queryId("home--cards").innerHTML = "";
@@ -257,6 +265,7 @@ queryId("home").addEventListener('click', () => {
 })
 
 queryId("create_job").addEventListener('click', () => {
+    queryId('home--delete--warning').innerHTML = "";
     queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
     spinner();

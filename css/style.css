@@ -82,6 +82,30 @@ main .home .home--search {
   width: 80%;
   margin: 1em 0;
 }
+@media screen and (max-width: 711px) {
+  main .home .home--search {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 632px) {
+  main .home .home--search {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 599px) {
+  main .home .home--search {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 1em 0em 0em 0em;
+  }
+}
 main .home .home--search .home--search--select {
   cursor: pointer;
   font-size: 1em;
@@ -93,8 +117,57 @@ main .home .home--search .home--search--select {
   margin: 1em;
   transition: background-color 1s;
 }
+@media screen and (max-width: 1168px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em 3em 0.5em 1em;
+  }
+}
+@media screen and (max-width: 927px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em 2em 0.5em 1em;
+  }
+}
+@media screen and (max-width: 867px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em 1em;
+  }
+}
+@media screen and (max-width: 807px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em;
+  }
+}
+@media screen and (max-width: 747px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em 0.2em;
+  }
+}
+@media screen and (max-width: 474px) {
+  main .home .home--search .home--search--select {
+    padding: 0.5em 0.1em;
+    margin: 0.5em 0.5em 1em 0.5em;
+  }
+}
+@media screen and (max-width: 414px) {
+  main .home .home--search .home--search--select {
+    padding: 0.3em 0.1em;
+    margin: 0em 0.1em 1em 0.1em;
+  }
+}
+@media screen and (max-width: 373px) {
+  main .home .home--search .home--search--select {
+    padding: 0.3em 0em;
+    margin: 0em 0em 0.5em 0em;
+  }
+}
 main .home .home--search .home--search--select:hover {
   background-color: #e26ab6;
+}
+@media screen and (max-width: 599px) {
+  main .home .home--search .home--search--buttons {
+    padding: 0.6em;
+    margin-bottom: 1em;
+  }
 }
 main .home .home--search .home--search--buttons a {
   text-decoration: none;
@@ -102,6 +175,12 @@ main .home .home--search .home--search--buttons a {
   padding: 0.5em;
   border: 1px solid #e26ab6;
   border-radius: 5px;
+}
+@media screen and (max-width: 599px) {
+  main .home .home--search .home--search--buttons a {
+    padding: 0.5em 1em;
+    margin: 0.5em 0.5em 0 0.5em;
+  }
 }
 main .home .home--search .home--search--buttons #search {
   color: #fff;
@@ -128,6 +207,26 @@ main .home .home--cards {
   flex-wrap: wrap;
   max-width: 80%;
 }
+@media screen and (max-width: 1168px) {
+  main .home .home--cards {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 1066px) {
+  main .home .home--cards {
+    max-width: 95%;
+  }
+}
+@media screen and (max-width: 1066px) {
+  main .home .home--cards {
+    max-width: 97%;
+  }
+}
+@media screen and (max-width: 700px) {
+  main .home .home--cards {
+    max-width: 100%;
+  }
+}
 main .home .home--cards .home--card {
   display: flex;
   justify-content: center;
@@ -142,6 +241,41 @@ main .home .home--cards .home--card {
   padding: 1em;
   margin: 1em;
   box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
+}
+@media screen and (max-width: 1168px) {
+  main .home .home--cards .home--card {
+    flex: 0 1 30%;
+    max-width: 30%;
+    max-height: 50%;
+  }
+}
+@media screen and (max-width: 989px) {
+  main .home .home--cards .home--card {
+    flex: 0 1 35%;
+    max-width: 35%;
+    max-height: 55%;
+  }
+}
+@media screen and (max-width: 700px) {
+  main .home .home--cards .home--card {
+    flex: 0 1 40%;
+    max-width: 40%;
+    max-height: 60%;
+  }
+}
+@media screen and (max-width: 585px) {
+  main .home .home--cards .home--card {
+    flex: 0 1 60%;
+    max-width: 60%;
+    max-height: 70%;
+  }
+}
+@media screen and (max-width: 414px) {
+  main .home .home--cards .home--card {
+    flex: 0 1 70%;
+    max-width: 70%;
+    max-height: 70%;
+  }
 }
 main .home .home--cards .home--card h2 {
   text-align: center;
@@ -195,13 +329,34 @@ main .home .home--cards .home--card--details {
   margin: 1em;
   box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
 }
+@media screen and (max-width: 1457px) {
+  main .home .home--cards .home--card--details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1168px) {
+  main .home .home--cards .home--card--details {
+    flex: 0 1 70%;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 747px) {
+  main .home .home--cards .home--card--details {
+    flex: 0 1 80%;
+    width: 80%;
+  }
+}
 main .home .home--cards .home--card--details .card--img {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  width: 50%;
+  width: 100%;
+  object-fit: cover;
 }
 main .home .home--cards .home--card--details .card--img img {
   width: 100%;
@@ -228,6 +383,12 @@ main .home .home--cards .home--card--details .card--description p {
   margin: 0 1em 1em 1em;
   max-width: auto;
   word-wrap: anywhere;
+}
+@media screen and (max-width: 867px) {
+  main .home .home--cards .home--card--details .card--description p {
+    max-height: 150px;
+    overflow: scroll;
+  }
 }
 main .home .home--cards .home--card--details .card--description .home--card--spans--details {
   display: flex;
@@ -260,7 +421,7 @@ main .home .home--cards .home--card--details .card--description .home--card--btn
   color: #fff;
   font-size: 1em;
   padding: 0.5em 1em;
-  margin: 0 1em;
+  margin: 0.5em 1em;
   background-color: #189b4e;
   border: 1px solid #13793d;
   border-radius: 5px;
@@ -289,6 +450,16 @@ main .home .home--edit .home--form--edit {
   flex-direction: column;
   align-items: stretch;
   width: 60%;
+}
+@media screen and (max-width: 1168px) {
+  main .home .home--edit .home--form--edit {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 973px) {
+  main .home .home--edit .home--form--edit {
+    width: 80%;
+  }
 }
 main .home .home--edit .home--form--edit form {
   display: flex;
@@ -359,6 +530,21 @@ main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+@media screen and (max-width: 815px) {
+  main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 421px) {
+  main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 360px) {
+  main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
+    width: 30%;
+  }
+}
 main .home .home--edit .home--form--edit form #btn--form--edit--confirm:hover {
   background-color: #13793d;
 }
@@ -377,35 +563,66 @@ main .home .home--delete .delete--warning {
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
-  width: 60%;
+  width: 50%;
   padding: 1em;
   background-color: rgba(199, 98, 98, 0.5058823529);
   border: 1px solid rgba(199, 98, 98, 0.4196078431);
   border-radius: 5px;
   box-shadow: -4px 5px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
 }
+@media screen and (max-width: 956px) {
+  main .home .home--delete .delete--warning {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 599px) {
+  main .home .home--delete .delete--warning {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+}
 main .home .home--delete .delete--warning p {
   font-size: 1em;
   color: #2c2c2c;
 }
-main .home .home--delete .delete--warning #btn_delete--confirm, main .home .home--delete .delete--warning #btn_cancel {
+main .home .home--delete .delete--warning .delete--warning--btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+}
+@media screen and (max-width: 599px) {
+  main .home .home--delete .delete--warning .delete--warning--btn {
+    margin-top: 1em;
+  }
+}
+main .home .home--delete .delete--warning .delete--warning--btn #btn_delete--confirm, main .home .home--delete .delete--warning .delete--warning--btn #btn_cancel {
   text-decoration: none;
   background-color: #aa2020;
   color: #fff;
   font-size: 1em;
   padding: 0.5em 1em;
+  margin: 0em 1em;
   border: 1px solid #8b1919;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-main .home .home--delete .delete--warning #btn_delete--confirm:hover, main .home .home--delete .delete--warning #btn_cancel:hover {
+main .home .home--delete .delete--warning .delete--warning--btn #btn_delete--confirm:hover, main .home .home--delete .delete--warning .delete--warning--btn #btn_cancel:hover {
   background-color: #8b1919;
 }
-main .home .home--delete .delete--warning #btn_cancel {
+main .home .home--delete .delete--warning .delete--warning--btn #btn_cancel {
   background-color: #575656;
   border: 1px solid #474747;
 }
-main .home .home--delete .delete--warning #btn_cancel:hover {
+main .home .home--delete .delete--warning .delete--warning--btn #btn_cancel:hover {
   background-color: #474747;
 }
 main .d-none-home {
@@ -445,6 +662,16 @@ main .create_job .create_job--form {
   flex-direction: column;
   align-items: stretch;
   width: 60%;
+}
+@media screen and (max-width: 1131px) {
+  main .create_job .create_job--form {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 973px) {
+  main .create_job .create_job--form {
+    width: 80%;
+  }
 }
 main .create_job .create_job--form form {
   display: flex;
@@ -515,6 +742,21 @@ main .create_job .create_job--form form #btn--form--submit {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+@media screen and (max-width: 815px) {
+  main .create_job .create_job--form form #btn--form--submit {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 421px) {
+  main .create_job .create_job--form form #btn--form--submit {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 360px) {
+  main .create_job .create_job--form form #btn--form--submit {
+    width: 30%;
+  }
+}
 main .create_job .create_job--form form #btn--form--submit:hover {
   background-color: #136579;
 }
@@ -530,6 +772,22 @@ main .d-none-job {
   width: 100%;
   background-color: #ca62a5;
   padding: 1.5em;
+}
+@media screen and (max-width: 632px) {
+  .navbar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 373px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .navbar h2 {
   margin-right: 1em;
