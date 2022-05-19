@@ -19,11 +19,6 @@ main {
             }
 
             @media screen and (max-width: 632px) {
-                @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
-                width: 95%;
-            }
-
-            @media screen and (max-width: 599px) {
                 @include d-flex ($direction: column, $justify_content: space-evenly, $align_items: center);
                 width: 95%;
                 margin: 1em 0em 0em 0em;
@@ -82,7 +77,7 @@ main {
 
             .home--search--buttons {
 
-                @media screen and (max-width: 599px) {
+                @media screen and (max-width: 632px) {
                     padding: .6em;
                     margin-bottom: 1em;
                 }
@@ -94,7 +89,7 @@ main {
                     border: 1px solid $secondary_color;
                     border-radius: 5px;
 
-                    @media screen and (max-width: 599px) {
+                    @media screen and (max-width: 632px) {
                         padding: .5em 1em;
                         margin: .5em .5em 0 .5em;
                     }
@@ -505,15 +500,19 @@ main {
                     }
                         
                     #btn_delete--confirm {
-                    text-decoration: none;
-                    background-color: $color--delete;
-                    color: $color--light;
-                    font-size: $font_size--small;
-                    padding: .5em 1em;
-                    margin: 0em 1em;
-                    border: 1px solid $color--delete_hover;
-                    border-radius: 5px;
-                    transition: background-color .3s;
+                        text-decoration: none;
+                        background-color: $color--delete;
+                        color: $color--light;
+                        font-size: $font_size--small;
+                        padding: .5em 1em;
+                        margin: 0em 1em;
+                        border: 1px solid $color--delete_hover;
+                        border-radius: 5px;
+                        transition: background-color .3s;
+
+                        @media screen and (max-width: 605px) {
+                            margin: 0em .3em;
+                        }
                     }
 
                     #btn_delete--confirm:hover {
