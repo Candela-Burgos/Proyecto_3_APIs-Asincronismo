@@ -52,7 +52,7 @@ const filterJobs = () => {
     filterCategoryJobs(queryId("home--select_category").value);
 }
 
-const limpiarSelects = () => {
+const clearSelects = () => {
     setTimeout(() => {
         queryId("home--select_location").value = "Location";
         queryId("home--select_seniority").value = "Seniority";
@@ -66,7 +66,7 @@ queryId("search").addEventListener("click", (e) => {
     queryId("create_job--form").classList.add("d-none-job");
     queryId("home--form--edit").classList.add("d-none-edit-form");
     filterJobs();
-    limpiarSelects();
+    clearSelects();
 });
 
 // Si apreta search y los select estan vacios, que tire una alerta de que tiene que llenar 1 select para poder buscar/filtrar
@@ -288,4 +288,7 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
     // }
 })
 
-queryId("clear").addEventListener("click", getJobs)
+queryId("clear").addEventListener("click", () => {
+    queryId('home--delete--warning').innerHTML = "";
+    getJobs();
+})
