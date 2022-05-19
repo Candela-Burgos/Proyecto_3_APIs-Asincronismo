@@ -210,7 +210,7 @@ main .home .home--cards .home--card--details .card--img img {
 main .home .home--cards .home--card--details .card--description {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -221,10 +221,13 @@ main .home .home--cards .home--card--details .card--description h2 {
   font-size: 1.5em;
   color: #2c2c2c;
   margin: 0.5em 0 1em 0;
+  width: auto;
 }
 main .home .home--cards .home--card--details .card--description p {
   text-align: center;
-  margin: 0 1em;
+  margin: 0 1em 1em 1em;
+  max-width: auto;
+  word-wrap: anywhere;
 }
 main .home .home--cards .home--card--details .card--description .home--card--spans--details {
   display: flex;
@@ -243,7 +246,15 @@ main .home .home--cards .home--card--details .card--description .home--card--spa
   border-radius: 15px;
   margin: 0.3em;
 }
-main .home .home--cards .home--card--details .card--description .btn--edit, main .home .home--cards .home--card--details .card--description .btn--delete {
+main .home .home--cards .home--card--details .card--description .home--card--btn--details {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--edit, main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--delete {
   cursor: pointer;
   text-decoration: none;
   color: #fff;
@@ -255,14 +266,14 @@ main .home .home--cards .home--card--details .card--description .btn--edit, main
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-main .home .home--cards .home--card--details .card--description .btn--edit:hover, main .home .home--cards .home--card--details .card--description .btn--delete:hover {
+main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--edit:hover, main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--delete:hover {
   background-color: #13793d;
 }
-main .home .home--cards .home--card--details .card--description .btn--delete {
+main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--delete {
   background-color: #aa2020;
   border: 1px solid #8b1919;
 }
-main .home .home--cards .home--card--details .card--description .btn--delete:hover {
+main .home .home--cards .home--card--details .card--description .home--card--btn--details .btn--delete:hover {
   background-color: #8b1919;
 }
 main .home .home--edit {
@@ -406,6 +417,27 @@ main .create_job {
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+main .create_job .validate {
+  position: absolute;
+  background-color: #575656;
+  padding: 1em;
+  border: 1px solid #474747;
+  border-radius: 5px;
+  z-index: 12;
+}
+main .create_job .validate h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+main .create_job .validate .btn-ok {
+  background-color: #9ba2a5;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+}
+main .create_job .d-none-validate {
+  display: none;
 }
 main .create_job .create_job--form {
   display: flex;

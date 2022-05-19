@@ -144,7 +144,7 @@ main {
                 }
 
                 .card--description {
-                    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
                     flex-wrap: wrap;
                     width: 100%;
 
@@ -154,11 +154,14 @@ main {
                         font-size: $font_size--medium;
                         color: $color--dark;
                         margin: .5em 0 1em 0;
+                        width: auto;
                     }
-
+                    
                     p {
                         text-align: center;
-                        margin: 0 1em;
+                        margin: 0 1em 1em 1em;
+                        max-width: auto;
+                        word-wrap: anywhere;
                     }
 
                     .home--card--spans--details {
@@ -177,7 +180,12 @@ main {
                         }
                     }
                     
-                    .btn--edit {
+                    .home--card--btn--details {
+                        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                        flex-wrap: wrap;
+                        width: 100%;
+                        
+                        .btn--edit {
                         cursor: pointer;
                         text-decoration: none;
                         color: $color--light;
@@ -188,21 +196,23 @@ main {
                         border: 1px solid $color--edit_hover;
                         border-radius: 5px;
                         transition: background-color .3s;
-                    }
+                        }
 
-                    .btn--edit:hover {
-                        background-color: $color--edit_hover;
-                    }
+                        .btn--edit:hover {
+                            background-color: $color--edit_hover;
+                        }
 
-                    .btn--delete {
-                        @extend .btn--edit;
-                        background-color: $color--delete;
-                        border: 1px solid $color--delete_hover;
-                    }
+                        .btn--delete {
+                            @extend .btn--edit;
+                            background-color: $color--delete;
+                            border: 1px solid $color--delete_hover;
+                        }
 
-                    .btn--delete:hover {
-                        background-color: $color--delete_hover;
+                        .btn--delete:hover {
+                            background-color: $color--delete_hover;
+                        }
                     }
+                    
 
                 }    
 
@@ -367,6 +377,31 @@ main {
     .create_job {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
         width: 100%;
+            
+        .validate {
+            position: absolute;
+            background-color: $color--cancel;
+            padding: 1em;
+            border: 1px solid $color--cancel_hover;
+            border-radius: 5px;
+            z-index: 12;
+
+            h3 {
+                color: $color--light;
+                padding: 1em;
+                text-align: center;
+            }
+
+            .btn-ok {
+                background-color: #9ba2a5;
+                padding: .3em 1em;
+                color: $color--dark;
+            }
+        }
+
+        .d-none-validate {
+            display: none;
+        }
 
         .create_job--form {
             @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);

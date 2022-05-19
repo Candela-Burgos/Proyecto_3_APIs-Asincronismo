@@ -8,6 +8,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+    <!-- <div id="blur"> -->
         <header>
             <nav class="navbar">
                 <h2>Careers</h2>
@@ -23,7 +24,7 @@
                 <div class="home--search">
                     <div class="home--search--selects">
                         <select name="Location" id="home--select_location" class="home--search--select">
-                            <option selected disabled="">Location</option>
+                            <option selected disabled="" id="location--option">Location</option>
                             <option value="Argentina">Argentina</option>
                             <option value="United States">United States</option>
                             <option value="Spain">Spain</option>
@@ -94,14 +95,18 @@
 
             </div>
             <div id="create_job--form" class="create_job d-none-job">
+                <div class="validate d-none-validate" id="validate">
+                    <h3>Please complete the fields to continue</h3>
+                    <button class="btn-ok" id="btn-ok">Ok</button>
+                </div>
                 <div class="create_job--form">
                     <form>
                        <label>Job Title</label>
-                       <input id="job-title" class="job-title" type="text" placeholder="Job Title" required="required">
+                       <input id="job-title" class="job-title" type="text" placeholder="Job Title" required="">
                        <label>Description</label>
-                       <textarea id="description" class="description" cols="30" rows="10" required="required"></textarea>
+                       <textarea id="description" class="description" cols="30" rows="10" required=""></textarea>
                        <label>Tags</label>
-                       <select name="Location" id="create_job--select_location" required="required">
+                       <select name="Location" id="create_job--select_location" required="">
                         <option selected disabled="">Location</option>
                         <option value="Argentina">Argentina</option>
                         <option value="United States">United States</option>
@@ -110,15 +115,15 @@
                         <option value="Uruguay">Uruguay</option>
                         <option value="Russia">Russia</option>
                        </select>
-                       <select selected name="Seniority" id="create_job--select_seniority" required="required">
-                        <option disabled="">Seniority</option>
+                       <select name="Seniority" id="create_job--select_seniority" required="">
+                        <option selected disabled="">Seniority</option>
                         <option value="Trainee">Trainee</option>
                         <option value="Junior">Junior</option>
                         <option value="Semisenior">Semisenior</option>
                         <option value="Senior">Senior</option>
                        </select>
-                       <select selected name="Category" id="create_job--select_category" required="required">
-                        <option disabled="">Category</option>
+                       <select name="Category" id="create_job--select_category" required="">
+                        <option selected disabled="">Category</option>
                         <option value="Development">Development</option>
                         <option value="Product">Product</option>
                         <option value="Design">Design</option>
@@ -134,7 +139,7 @@
                 <p>Sitio web creado por <a href="#">Knd</a></p>
             </div>
         </footer>
-
+    <!-- </div> -->
         <script src="js/main.js"></script>
     </body>
 </html>

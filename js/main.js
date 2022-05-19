@@ -1,5 +1,11 @@
 const queryId = (id) => document.getElementById(id);
 const BASE_API = "https://62605c6353a42eaa0703db75.mockapi.io/jobs";
+const imgInclude = ["BackEnd Developer", "FrontEnd Developer", "Fullstack Developer", "Graphic Design", "Marketing", "Product Manager"];
+const imgRandom = ["0", "1", "2", "3", "4", "5"];
+
+const chooseImgRandom = (arr) => {
+    return Math.floor(Math.random() * Math.floor(arr.length))
+}
 
 // GET
 
@@ -20,45 +26,35 @@ const getJob = (id) => {
 }
 
 const filterLocationJobs = (valorLocation) => {
-    valorLocation = queryId("home--select_location").value;
-    console.log(valorLocation);
     fetch(`${BASE_API}?location=${valorLocation}`)
         .then(res => res.json())
-        // .then(data => console.log(data))
-        .then(data => {
-            `${valorLocation ? showData(data) : data}`
-        })
+        .then(data => `${valorLocation == "Location" ? data : showData(data)}`)
         .catch(err => console.log(err))
 }
 
 const filterSeniorityJobs = (valorSeniority) => {
-    valorSeniority = queryId("home--select_seniority").value;
-    console.log(valorSeniority);
     fetch(`${BASE_API}?seniority=${valorSeniority}`)
         .then(res => res.json())
-        // .then(data => console.log(data))
-        .then(data => {
-           `${valorSeniority ? showData(data) : data}`
-        })
+        .then(data => `${valorSeniority == "Seniority" ? data : showData(data.filter(({seniority}) => seniority === valorSeniority))}`)
         .catch(err => console.log(err))
 }
 
 const filterCategoryJobs = (valorCategory) => {
-    valorCategory = queryId("home--select_category").value;
-    console.log(valorCategory);
     fetch(`${BASE_API}?category=${valorCategory}`)
         .then(res => res.json())
-        // .then(data => console.log(data))
-        .then(data => {
-            `${valorCategory ? showData(data) : data}`
-        })
+        .then(data => `${valorCategory == "Category" ? data : showData(data)}`)
         .catch(err => console.log(err))
 }
 
-queryId("search").addEventListener("click", () => {
-    filterLocationJobs();
-    filterSeniorityJobs();
-    filterCategoryJobs();
+const filterJobs = () => {
+    filterLocationJobs(queryId("home--select_location").value);
+    filterSeniorityJobs(queryId("home--select_seniority").value);
+    filterCategoryJobs(queryId("home--select_category").value);
+}
+
+queryId("search").addEventListener("click", (e) => {
+    e.preventDefault();
+    filterJobs();
 });
 
 // POST || /jobs  CREATE JOB
@@ -136,7 +132,7 @@ const showDetail = (job) => {
         queryId('home--cards').innerHTML += `
             <div class="home--card--details">
                 <div class="card--img">
-                    <img src="assets/${name}.jpg" alt="${name}">
+                    <img src="assets/${imgInclude.includes(name) ? name : chooseImgRandom(imgRandom)}.jpg" alt="Foto de trabajo">
                 </div>
                 <div class="card--description">
                     <h2>${name}</h2>
@@ -146,16 +142,16 @@ const showDetail = (job) => {
                         <span class="span_info--details">${seniority}</span>
                         <span class="span_info--details">${category}</span>
                     </div>
-                    <a href="#" class="btn--edit" id="btn--edit" onclick="editForm(${id})">Edit</a>
-                    <a href="#" class="btn--delete" onclick="deleteWarning(${id})">Delete</a>
+                    <div class="home--card--btn--details">
+                        <a href="#" class="btn--edit" id="btn--edit" onclick="editForm(${id})">Edit</a>
+                        <a href="#" class="btn--delete" onclick="deleteWarning(${id})">Delete</a>
+                    </div>
                 </div>
             </div>            
         `
     }, 2000)
     
 }
-
-// LINEA 96 el ternario no me sirve para nada. Ver como solucionarlo => ${name ? name : "Careers X"}
 
 const deleteWarning = (id) => {
     queryId("home--form--edit").classList.add("d-none-edit-form");
@@ -175,10 +171,28 @@ const cancel = () => {
     getJobs()
 }
 
-// const validateCamp = (nam, descrip, locat, categ, seniori) => {
-//     if (nam === "" || descrip === "" || locat === "" || categ === "" || seniori === "" ) {
-//         queryId("validate").classList.remove("d-none-validate")
+// const validateCamp = (nam, descrip, locat, seniori, categ) => {
+//     return nam == "" || descrip == "" || locat == "" || categ == "" || seniori == "";
+// }
+
+// const saveData = () => {
+//     let nam = queryId("job-title").value;
+//     let descrip = queryId("description").value;
+//     let locat = queryId("create_job--select_location").value;
+//     let seniori = queryId("create_job--select_seniority").value;
+//     let categ = queryId("create_job--select_category").value;
+//     if (validateCamp(nam, descrip, locat, seniori, categ)) {
+//         queryId("validate").classList.remove("d-none-validate");
+//     } else {
+//         return {
+//             name: nam,
+//             description: descrip,
+//             location: locat,
+//             seniority: seniori,
+//             category: categ
+//         }
 //     }
+        
 // }
 
 const saveData = () => {
@@ -186,19 +200,18 @@ const saveData = () => {
         name: queryId("job-title").value,
         description: queryId("description").value,
         location: queryId("create_job--select_location").value,
-        category: queryId("create_job--select_category").value,
-        seniority: queryId("create_job--select_seniority").value
+        seniority: queryId("create_job--select_seniority").value,
+        category: queryId("create_job--select_category").value
     }
 }
 
-//esto es lo que mando
 const getDataEdit = () => {
     return {
         name: queryId("form--edit--title").value,
         description: queryId("form--edit--description").value,
         location: queryId("form--edit--select_location").value,
-        category: queryId("form--edit--select_seniority").value,
-        seniority: queryId("form--edit--select_category").value
+        seniority: queryId("form--edit--select_seniority").value,
+        category: queryId("form--edit--select_category").value
     }
 }
 
@@ -209,11 +222,9 @@ const editForm = (id) => {
             const {name, description, location, category, seniority} = data;
             queryId("form--edit--title").value = `${name}`;
             queryId("form--edit--description").innerHTML = `${description}`;
-            console.log(queryId("form--edit--select_location").value = `${location}`);
-            console.log(queryId("form--edit--select_seniority").value = `${seniority}`);
-            console.log(queryId("form--edit--select_category").value = `${category}`);
-            // console.log(queryId("form--edit--select_category").value = `${category}`.selected = `${category}`);
-            // console.log(queryId("form--edit--select_seniority") = `${seniority === getElementsByTagName('option').value && seniority.setAttribute("selected", "selected")}`);
+            queryId("form--edit--select_location").value = `${location}`;
+            queryId("form--edit--select_seniority").value = `${seniority}`;
+            queryId("form--edit--select_category").value = `${category}`;
         })
         .catch(err => console.log(err))
     queryId("home--form--edit").classList.remove("d-none-edit-form");
@@ -226,12 +237,6 @@ const eventID = (id) => {
         editData(id);
     })
 }
-
-// const clearSelects = () => {
-//     queryId("home--select_location").selected = queryId("location-option");
-//     queryId("home--select_seniority").selected = queryId("seniority-option");
-//     queryId("home--select_category").selected = queryId("category-option");
-// }
 
 // EVENTS
 
@@ -253,13 +258,19 @@ queryId("create_job").addEventListener('click', () => {
 })
 
 queryId("btn--form--submit").addEventListener('click', (e) => {
-    e.preventDefault();
-    sendData();
-    queryId("create_job--form").classList.add("d-none-job");
+    // if (queryId("job-title").value == "" || queryId("description").value == "" || queryId("create_job--select_location").value == " " || queryId("create_job--select_seniority").value == " " || queryId("create_job--select_category").value == " ") {
+    //     queryId("validate").classList.remove("d-none-validate");
+    //     queryId("btn-ok").addEventListener('click', () => {
+    //         queryId("validate").classList.add("d-none-validate");
+    //     })
+    // } else {
+        e.preventDefault();
+        sendData();
+        queryId("create_job--form").classList.add("d-none-job");
+    // }
 })
 
 queryId("clear").addEventListener("click", () => {
-    // clearSelects();
     window.location = "index.html";
     getJobs();
 })
