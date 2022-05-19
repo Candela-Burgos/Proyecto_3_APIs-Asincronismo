@@ -52,9 +52,18 @@ const filterJobs = () => {
     filterCategoryJobs(queryId("home--select_category").value);
 }
 
+const limpiarSelects = () => {
+    setTimeout(() => {
+        queryId("home--select_location").value = "Location";
+        queryId("home--select_seniority").value = "Seniority";
+        queryId("home--select_category").value = "Category";
+    }, 2400);
+}
+
 queryId("search").addEventListener("click", (e) => {
     e.preventDefault();
     filterJobs();
+    limpiarSelects();
 });
 
 // POST || /jobs  CREATE JOB
@@ -270,7 +279,4 @@ queryId("btn--form--submit").addEventListener('click', (e) => {
     // }
 })
 
-queryId("clear").addEventListener("click", () => {
-    window.location = "index.html";
-    getJobs();
-})
+queryId("clear").addEventListener("click", getJobs)
