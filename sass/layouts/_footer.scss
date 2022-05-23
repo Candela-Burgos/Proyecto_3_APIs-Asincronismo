@@ -3,11 +3,8 @@
     width: 100%;
     background-color: $primary_color;
     padding: 1em;
-
-    position: fixed;
-    // left: 0;
+    position: absolute;
     bottom: 0;
-    width: 100vw;
 
     h3 {
         font-size: $font_size--small;

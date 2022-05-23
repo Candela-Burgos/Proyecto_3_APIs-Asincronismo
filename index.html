@@ -21,10 +21,10 @@
         <main>
             <!-- HOME PAGE -->
             <div class="home d-none-home">
-                <div class="home--search">
+                <div class="home--search d-none-search" id="home--search">
                     <div class="home--search--selects">
                         <select name="Location" id="home--select_location" class="home--search--select">
-                            <option selected disabled="" id="location--option">Location</option>
+                            <option selected disabled="">Location</option>
                             <option value="Argentina">Argentina</option>
                             <option value="United States">United States</option>
                             <option value="Spain">Spain</option>
@@ -106,7 +106,7 @@
                        <label>Description</label>
                        <textarea id="description" class="description" cols="30" rows="10" required=""></textarea>
                        <label>Tags</label>
-                       <select name="Location" id="create_job--select_location" required="">
+                       <select name="Location" id="create_job--select_location">
                         <option selected disabled="">Location</option>
                         <option value="Argentina">Argentina</option>
                         <option value="United States">United States</option>
@@ -115,14 +115,14 @@
                         <option value="Uruguay">Uruguay</option>
                         <option value="Russia">Russia</option>
                        </select>
-                       <select name="Seniority" id="create_job--select_seniority" required="">
+                       <select name="Seniority" id="create_job--select_seniority">
                         <option selected disabled="">Seniority</option>
                         <option value="Trainee">Trainee</option>
                         <option value="Junior">Junior</option>
                         <option value="Semisenior">Semisenior</option>
                         <option value="Senior">Senior</option>
                        </select>
-                       <select name="Category" id="create_job--select_category" required="">
+                       <select name="Category" id="create_job--select_category">
                         <option selected disabled="">Category</option>
                         <option value="Development">Development</option>
                         <option value="Product">Product</option>

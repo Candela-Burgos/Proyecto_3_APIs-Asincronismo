@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+
 * {
   font-family: "Times New Roman", Times, serif;
   color: #2c2c2c;
@@ -17,9 +27,8 @@
   width: 100%;
   background-color: #ca62a5;
   padding: 1em;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  width: 100vw;
 }
 .footer h3 {
   font-size: 1em;
@@ -65,7 +74,7 @@ main {
   align-items: center;
   width: 100%;
   margin-top: 4.8em;
-  margin-bottom: 7em;
+  margin-bottom: 8em;
 }
 main .home {
   display: flex;
@@ -189,6 +198,9 @@ main .home .home--search .home--search--buttons #clear {
 main .home .home--search .home--search--buttons #clear:hover {
   color: #fff;
   background-color: #ca62a5;
+}
+main .home .d-none-search {
+  display: none;
 }
 main .home .home--cards {
   display: flex;
@@ -317,7 +329,7 @@ main .home .home--cards .home--card--details {
   border: 2px solid #ca62a5;
   border-radius: 5px;
   padding: 1em;
-  margin: 1em;
+  margin: 5em 1em 1em 1em;
   box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
 }
 @media screen and (max-width: 1457px) {
@@ -548,6 +560,8 @@ main .home .home--delete {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  position: absolute;
+  top: 15%;
 }
 main .home .home--delete .delete--warning {
   display: flex;
@@ -630,6 +644,7 @@ main .create_job {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: 5em 0em;
 }
 main .create_job .validate {
   position: absolute;
@@ -811,7 +826,7 @@ main .d-none-job {
   height: 36px;
   border-radius: 50%;
   border-left-color: #5692e0;
-  margin: 2em;
+  margin: 5em 2em;
   animation: spin 1s ease infinite;
 }
 
