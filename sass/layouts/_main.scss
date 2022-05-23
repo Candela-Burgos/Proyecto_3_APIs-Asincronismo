@@ -3,7 +3,7 @@ main {
     width: 100%;
     margin-top: 4.8em;
     
-    margin-bottom: 7em;
+    margin-bottom: 8em;
 
     .home {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
@@ -118,6 +118,10 @@ main {
             }
         }
 
+        .d-none-search {
+            display: none;
+        }
+
         .home--cards {
             @include d-flex ($direction: row, $justify_content: center, $align_items: center);
             flex-wrap: wrap;
@@ -230,7 +234,7 @@ main {
                 border: 2px solid $primary_color;
                 border-radius: 5px;
                 padding: 1em;
-                margin: 1em;
+                margin: 5em 1em 1em 1em;
                 box-shadow: -8px 10px 10px .1px $box_shadow;
 
                 @media screen and (max-width: 1457px) {
@@ -466,6 +470,8 @@ main {
         .home--delete {
             @include d-flex ($direction: column, $justify_content: center, $align_items: center);
             width: 100%;
+            position: absolute;
+            top: 15%;
 
             .delete--warning {
                 @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
@@ -539,11 +545,10 @@ main {
         display: flex;
     }
 
-    
-
     .create_job {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
         width: 100%;
+        margin: 5em 0em;
             
         .validate {
             position: absolute;

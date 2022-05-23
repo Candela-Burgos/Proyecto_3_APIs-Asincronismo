@@ -64,7 +64,6 @@ queryId("search").addEventListener("click", (e) => {
     e.preventDefault();
     queryId('home--delete--warning').innerHTML = ""; 
     queryId("create_job--form").classList.add("d-none-job");
-    queryId("home--form--edit").classList.add("d-none-edit-form");
     filterJobs();
     clearSelects();
 });
@@ -119,6 +118,7 @@ const spinner = () => {
 const showData = (jobs) => {
     spinner();
     setTimeout(() => {
+        queryId("home--search").classList.remove("d-none-search");
         queryId('home--cards').innerHTML = '';
         for (const job of jobs) {
             const {id, name, location, category, seniority} = job;
@@ -139,6 +139,7 @@ const showData = (jobs) => {
 }
 
 const showDetail = (job) => {
+    queryId("home--search").classList.add("d-none-search");
     spinner();
     setTimeout(() => {
         const {id, name, location, category, seniority, description} = job;
@@ -265,6 +266,7 @@ queryId("home").addEventListener('click', () => {
 })
 
 queryId("create_job").addEventListener('click', () => {
+    queryId("home--search").classList.add("d-none-search");
     queryId('home--delete--warning').innerHTML = "";
     queryId("home--form--edit").classList.add("d-none-edit-form");
     queryId("home--cards").innerHTML = "";
