@@ -2,7 +2,6 @@ main {
     @include d-flex ($direction: column, $justify_content: center, $align_items: center);
     width: 100%;
     margin-top: 4.8em;
-    
     margin-bottom: 8em;
 
     .home {
@@ -33,7 +32,13 @@ main {
                 border-radius: 5px;
                 padding: .5em 7em .5em 1em;
                 margin: 1em;
-                transition: background-color 1s;
+                transition: background-color .3s, color .3s, border .3s;
+
+                body.dark & {
+                    color: $color--light;
+                    background-color: $primary_color--dark_mode;
+                    border: 1px solid $secondary_color--dark_mode;
+                }
 
                 @media screen and (max-width: 1168px) {
                     padding: .5em 3em .5em 1em;
@@ -69,10 +74,18 @@ main {
                     padding: .3em 0em;
                     margin: 0em 0em .5em 0em;
                 }
+
+                option {
+                    color: $color--light;
+                }
             }
 
             .home--search--select:hover {
                 background-color: $secondary_color;
+
+                body.dark & {
+                    background-color: $secondary_color--dark_mode;
+                }
             }
 
             .home--search--buttons {
@@ -88,6 +101,11 @@ main {
                     padding: .5em;
                     border: 1px solid $secondary_color;
                     border-radius: 5px;
+                    transition: border .3s;
+
+                    body.dark & {
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
 
                     @media screen and (max-width: 632px) {
                         padding: .5em 1em;
@@ -99,21 +117,38 @@ main {
                     color: $color--light;
                     background-color: $primary_color;
                     transition: background-color .3s;
+
+                    body.dark & {
+                        background-color: $primary_color--dark_mode;
+                    }
                 }
 
                 #search:hover {
                     background-color: $secondary_color;
+
+                    body.dark & {
+                        background-color: $secondary_color--dark_mode;
+                    }
                 }
 
                 #clear {
                     background-color: $color--light;
                     color: $color--dark;
-                    transition: color, .3s, background-color .3s;
+                    transition: color .3s, background-color .3s;
+
+                    body.dark & {
+                        color: $color--light;
+                        background-color: $primary_color--dark_mode;
+                    }
                 }
 
                 #clear:hover {
                     color: $color--light;
                     background-color: $primary_color;
+
+                    body.dark & {
+                        background-color: $primary_color;
+                    }
                 }
             }
         }
@@ -146,14 +181,22 @@ main {
             .home--card {
                 @include d-flex ($direction: column, $justify_content: center, $align_items: center);
                 flex: 0 1 25%;
-                max-width: 25%;
-                max-height: 45%;
+                width: 25%;
+                max-width: 430px;
+                min-width: 130px;
+                height: 280px;
                 background-color: $color--light;
                 border: 2px solid $primary_color;
                 border-radius: 5px;
                 padding: 1em;
                 margin: 1em;
                 box-shadow: -8px 10px 10px .1px $box_shadow;
+                transition: background-color .3s, border .3s;
+
+                body.dark & {
+                    border: 2px solid $secondary_color--dark_mode;
+                    background-color: $primary_color--dark_mode;
+                }
 
                 @media screen and (max-width: 1168px) {
                     flex: 0 1 30%;
@@ -191,6 +234,11 @@ main {
                     font-size: $font_size--medium;
                     color: $color--dark;
                     margin: .5em 0 1em 0;
+                    transition: color .3s;
+    
+                    body.dark & {
+                        color: $color--light;
+                    }
                 }
 
                 .home--card--spans {
@@ -206,6 +254,11 @@ main {
                         padding: .1em .8em;
                         border-radius: 15px;
                         margin: .3em;
+                        transition: background-color .3s;
+
+                        body.dark & {
+                            background-color: $color_span--dark_mode;
+                        }
                     }
                 }
 
@@ -218,11 +271,22 @@ main {
                     border-radius: 5px;
                     color: $color--light;
                     background-color: $primary_color;
-                    transition: background-color .3s;
+                    transition: background-color .3s, border .3s, color .3s;
+
+                    body.dark & {
+                        color: $primary_color;
+                        border: 1px solid $secondary_color--dark_mode;
+                        background-color: $secondary_color--dark_mode;
+                    }
                 }
 
                 a:hover {
                     background-color: $secondary_color;
+
+                    body.dark & {
+                        color: $color--light;
+                        background-color: $secondary_color--dark_mode;
+                    }
                 }
             }
 
@@ -236,6 +300,12 @@ main {
                 padding: 1em;
                 margin: 5em 1em 1em 1em;
                 box-shadow: -8px 10px 10px .1px $box_shadow;
+                transition: background-color .3s, border .3s;
+
+                body.dark & {
+                    border: 2px solid $secondary_color--dark_mode;
+                    background-color: $primary_color--dark_mode;
+                }
 
                 @media screen and (max-width: 1457px) {
                     @include d-flex ($direction: column, $justify_content: center, $align_items: center);
@@ -275,6 +345,11 @@ main {
                         color: $color--dark;
                         margin: .5em 0 1em 0;
                         width: auto;
+                        transition: color .3s;
+        
+                        body.dark & {
+                            color: $color--light;
+                        }
                     }
                     
                     p {
@@ -282,6 +357,11 @@ main {
                         margin: 0 1em 1em 1em;
                         max-width: auto;
                         word-wrap: anywhere;
+                        transition: color .3s;
+        
+                        body.dark & {
+                            color: $color--light;
+                        }
                         
                         @media screen and (max-width: 867px) {
                             max-height: 150px;
@@ -302,6 +382,11 @@ main {
                             padding: .1em .8em;
                             border-radius: 15px;
                             margin: .3em;
+                            transition: background-color .3s;
+    
+                            body.dark & {
+                                background-color: $color_span--dark_mode;
+                            }
                         }
                     }
                     
@@ -378,16 +463,29 @@ main {
                     outline: 0;
                     border: 1px solid $color--dark;
                     border-radius: 5px;
-                    transition: border .3s;
+                    transition: border .3s, background-color .3s;
+
+                    body.dark & {
+                        background-color: $form_color--dark_mode;
+                    }
                 }
 
                 .job-title:hover {
                     border: 1px solid $primary_color;
+
+                    body.dark & {
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
                 }
 
                 .job-title:focus {
                     outline: 1px solid $primary_color;
                     border: 1px solid $primary_color;
+
+                    body.dark & {
+                        outline: 1px solid $secondary_color--dark_mode;
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
                 }
 
                 textarea {
@@ -397,16 +495,29 @@ main {
                     outline: 0;
                     border: 1px solid $color--dark;
                     border-radius: 5px;
-                    transition: border .3s; 
+                    transition: border .3s, background-color .3s;
+
+                    body.dark & {
+                        background-color: $form_color--dark_mode;
+                    }
                 }
 
                 textarea:hover {
                     border: 1px solid $primary_color;
+
+                    body.dark & {
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
                 }
 
                 textarea:focus {
                     outline: 1px solid $primary_color;
                     border: 1px solid $primary_color;
+
+                    body.dark & {
+                        outline: 1px solid $secondary_color--dark_mode;
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
                 }
 
                 #form--edit--select_location {
@@ -418,11 +529,29 @@ main {
                     border-radius: 5px;
                     padding: .5em;
                     margin-bottom: 1em;
-                    transition: border .3s;  
+                    transition: border .3s, background-color .3s;
+
+                    body.dark & {
+                        background-color: $form_color--dark_mode;
+                    }
                 }
 
                 #form--edit--select_location:hover {
                     border: 1px solid $primary_color;
+
+                    body.dark & {
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
+                }
+
+                #form--edit--select_location:focus {
+                    outline: 1px solid $primary_color;
+                    border: 1px solid $primary_color;
+
+                    body.dark & {
+                        outline: 1px solid $secondary_color--dark_mode;
+                        border: 1px solid $secondary_color--dark_mode;
+                    }
                 }
 
                 #form--edit--select_seniority {
@@ -605,16 +734,29 @@ main {
                 outline: 0;
                 border: 1px solid $color--dark;
                 border-radius: 5px;
-                transition: border .3s;
+                transition: border .3s, background-color .3s;
+
+                body.dark & {
+                    background-color: $form_color--dark_mode;
+                }
             }
 
             .job-title:hover {
                 border: 1px solid $primary_color;
+
+                body.dark & {
+                    border: 1px solid $secondary_color--dark_mode;
+                }
             }
 
             .job-title:focus {
                 outline: 1px solid $primary_color;
                 border: 1px solid $primary_color;
+
+                body.dark & {
+                    outline: 1px solid $secondary_color--dark_mode;
+                    border: 1px solid $secondary_color--dark_mode;
+                }
             }
 
             textarea {
@@ -624,16 +766,29 @@ main {
                 outline: 0;
                 border: 1px solid $color--dark;
                 border-radius: 5px;
-                transition: border .3s; 
+                transition: border .3s, background-color .3s;
+
+                body.dark & {
+                    background-color: $form_color--dark_mode;
+                }
             }
 
             textarea:hover {
                 border: 1px solid $primary_color;
+
+                body.dark & {
+                    border: 1px solid $secondary_color--dark_mode;
+                }
             }
 
             textarea:focus {
                 outline: 1px solid $primary_color;
                 border: 1px solid $primary_color;
+
+                body.dark & {
+                    outline: 1px solid $secondary_color--dark_mode;
+                    border: 1px solid $secondary_color--dark_mode;
+                }
             }
 
             #create_job--select_location {
@@ -645,11 +800,29 @@ main {
                 border-radius: 5px;
                 padding: .5em;
                 margin-bottom: 1em;
-                transition: border .3s;  
+                transition: border .3s, background-color .3s;
+
+                body.dark & {
+                    background-color: $form_color--dark_mode;
+                }
             }
 
             #create_job--select_location:hover {
                 border: 1px solid $primary_color;
+                
+                body.dark & {
+                    border: 1px solid $secondary_color--dark_mode;
+                }
+            }
+
+            #create_job--select_location:focus {
+                outline: 1px solid $primary_color;
+                border: 1px solid $primary_color;
+
+                body.dark & {
+                    outline: 1px solid $secondary_color--dark_mode;
+                    border: 1px solid $secondary_color--dark_mode;
+                }
             }
 
             #create_job--select_seniority {
