@@ -14,9 +14,18 @@ $color--delete: #aa2020;
 $color--delete_hover: #8b1919;
 $color--cancel: #575656;
 $color--cancel_hover: #474747;
-$color--spinner: #5692e0;
+$color_spinner: #5692e0;
 $bg--delete: #c7626281;
 $border--delete: #c762626b;
+$bg--color: #ca62c51f;
+
+// Dark Mode 
+$bg--dark_mode: #14141453;
+$primary_color--dark_mode: #2c2b2c;
+$secondary_color--dark_mode: #151515;
+$color_span--dark_mode: #565656;
+$form_color--dark_mode: #d4d4d4;
+$color_spinner--dark_mode: #a42baeae;
 
 // Fuentes
 $font_family: 'Times New Roman', Times, serif;
