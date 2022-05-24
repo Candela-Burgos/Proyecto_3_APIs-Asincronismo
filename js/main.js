@@ -294,3 +294,8 @@ queryId("clear").addEventListener("click", () => {
     queryId('home--delete--warning').innerHTML = "";
     getJobs();
 })
+
+queryId("switch").addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    queryId("switch").classList.toggle('active');
+})

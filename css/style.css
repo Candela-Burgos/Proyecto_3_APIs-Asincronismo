@@ -12,6 +12,11 @@ html {
 body {
   margin: 0;
   margin-bottom: 40px;
+  background-color: rgba(202, 98, 197, 0.1215686275);
+  transition: background-color 0.3s;
+}
+body.dark {
+  background-color: rgba(20, 20, 20, 0.3254901961);
 }
 
 * {
@@ -29,26 +34,44 @@ body {
   padding: 1em;
   position: absolute;
   bottom: 0;
+  transition: background-color 0.3s;
+}
+body.dark .footer {
+  background-color: #2c2b2c;
 }
 .footer h3 {
   font-size: 1em;
   font-weight: lighter;
   color: #fff;
   margin: 0.5em;
+  transition: color 0.3s;
+}
+body.dark .footer h3 {
+  color: #ca62a5;
 }
 .footer p {
   font-size: 1em;
   font-weight: lighter;
   color: #fff;
   margin: 0.5em;
+  transition: color 0.3s;
+}
+body.dark .footer p {
+  color: #ca62a5;
 }
 .footer p a {
   text-decoration: none;
   color: #fff;
   transition: color 0.3s;
 }
+body.dark .footer p a {
+  color: #ca62a5;
+}
 .footer p a:hover {
   color: #2c2c2c;
+}
+body.dark .footer p a:hover {
+  color: #fff;
 }
 
 header {
@@ -61,10 +84,6 @@ header {
   top: 0;
   left: 0;
   z-index: 10;
-}
-
-body {
-  background-color: rgba(202, 98, 197, 0.1215686275);
 }
 
 main {
@@ -115,7 +134,12 @@ main .home .home--search .home--search--select {
   border-radius: 5px;
   padding: 0.5em 7em 0.5em 1em;
   margin: 1em;
-  transition: background-color 1s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+body.dark main .home .home--search .home--search--select {
+  color: #fff;
+  background-color: #2c2b2c;
+  border: 1px solid #151515;
 }
 @media screen and (max-width: 1168px) {
   main .home .home--search .home--search--select {
@@ -160,8 +184,14 @@ main .home .home--search .home--search--select {
     margin: 0em 0em 0.5em 0em;
   }
 }
+main .home .home--search .home--search--select option {
+  color: #fff;
+}
 main .home .home--search .home--search--select:hover {
   background-color: #e26ab6;
+}
+body.dark main .home .home--search .home--search--select:hover {
+  background-color: #151515;
 }
 @media screen and (max-width: 632px) {
   main .home .home--search .home--search--buttons {
@@ -175,6 +205,10 @@ main .home .home--search .home--search--buttons a {
   padding: 0.5em;
   border: 1px solid #e26ab6;
   border-radius: 5px;
+  transition: border 0.3s;
+}
+body.dark main .home .home--search .home--search--buttons a {
+  border: 1px solid #151515;
 }
 @media screen and (max-width: 632px) {
   main .home .home--search .home--search--buttons a {
@@ -187,16 +221,29 @@ main .home .home--search .home--search--buttons #search {
   background-color: #ca62a5;
   transition: background-color 0.3s;
 }
+body.dark main .home .home--search .home--search--buttons #search {
+  background-color: #2c2b2c;
+}
 main .home .home--search .home--search--buttons #search:hover {
   background-color: #e26ab6;
+}
+body.dark main .home .home--search .home--search--buttons #search:hover {
+  background-color: #151515;
 }
 main .home .home--search .home--search--buttons #clear {
   background-color: #fff;
   color: #2c2c2c;
-  transition: color, 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+}
+body.dark main .home .home--search .home--search--buttons #clear {
+  color: #fff;
+  background-color: #2c2b2c;
 }
 main .home .home--search .home--search--buttons #clear:hover {
   color: #fff;
+  background-color: #ca62a5;
+}
+body.dark main .home .home--search .home--search--buttons #clear:hover {
   background-color: #ca62a5;
 }
 main .home .d-none-search {
@@ -236,14 +283,21 @@ main .home .home--cards .home--card {
   flex-direction: column;
   align-items: center;
   flex: 0 1 25%;
-  max-width: 25%;
-  max-height: 45%;
+  width: 25%;
+  max-width: 430px;
+  min-width: 130px;
+  height: 280px;
   background-color: #fff;
   border: 2px solid #ca62a5;
   border-radius: 5px;
   padding: 1em;
   margin: 1em;
   box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark main .home .home--cards .home--card {
+  border: 2px solid #151515;
+  background-color: #2c2b2c;
 }
 @media screen and (max-width: 1168px) {
   main .home .home--cards .home--card {
@@ -286,6 +340,10 @@ main .home .home--cards .home--card h2 {
   font-size: 1.5em;
   color: #2c2c2c;
   margin: 0.5em 0 1em 0;
+  transition: color 0.3s;
+}
+body.dark main .home .home--cards .home--card h2 {
+  color: #fff;
 }
 main .home .home--cards .home--card .home--card--spans {
   display: flex;
@@ -303,6 +361,10 @@ main .home .home--cards .home--card .home--card--spans .span_info {
   padding: 0.1em 0.8em;
   border-radius: 15px;
   margin: 0.3em;
+  transition: background-color 0.3s;
+}
+body.dark main .home .home--cards .home--card .home--card--spans .span_info {
+  background-color: #565656;
 }
 main .home .home--cards .home--card a {
   text-decoration: none;
@@ -313,10 +375,19 @@ main .home .home--cards .home--card a {
   border-radius: 5px;
   color: #fff;
   background-color: #ca62a5;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+body.dark main .home .home--cards .home--card a {
+  color: #ca62a5;
+  border: 1px solid #151515;
+  background-color: #151515;
 }
 main .home .home--cards .home--card a:hover {
   background-color: #e26ab6;
+}
+body.dark main .home .home--cards .home--card a:hover {
+  color: #fff;
+  background-color: #151515;
 }
 main .home .home--cards .home--card--details {
   display: flex;
@@ -331,6 +402,11 @@ main .home .home--cards .home--card--details {
   padding: 1em;
   margin: 5em 1em 1em 1em;
   box-shadow: -8px 10px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark main .home .home--cards .home--card--details {
+  border: 2px solid #151515;
+  background-color: #2c2b2c;
 }
 @media screen and (max-width: 1457px) {
   main .home .home--cards .home--card--details {
@@ -380,12 +456,20 @@ main .home .home--cards .home--card--details .card--description h2 {
   color: #2c2c2c;
   margin: 0.5em 0 1em 0;
   width: auto;
+  transition: color 0.3s;
+}
+body.dark main .home .home--cards .home--card--details .card--description h2 {
+  color: #fff;
 }
 main .home .home--cards .home--card--details .card--description p {
   text-align: center;
   margin: 0 1em 1em 1em;
   max-width: auto;
   word-wrap: anywhere;
+  transition: color 0.3s;
+}
+body.dark main .home .home--cards .home--card--details .card--description p {
+  color: #fff;
 }
 @media screen and (max-width: 867px) {
   main .home .home--cards .home--card--details .card--description p {
@@ -409,6 +493,10 @@ main .home .home--cards .home--card--details .card--description .home--card--spa
   padding: 0.1em 0.8em;
   border-radius: 15px;
   margin: 0.3em;
+  transition: background-color 0.3s;
+}
+body.dark main .home .home--cards .home--card--details .card--description .home--card--spans--details .span_info--details {
+  background-color: #565656;
 }
 main .home .home--cards .home--card--details .card--description .home--card--btn--details {
   display: flex;
@@ -483,14 +571,24 @@ main .home .home--edit .home--form--edit form .job-title {
   outline: 0;
   border: 1px solid #2c2c2c;
   border-radius: 5px;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .home .home--edit .home--form--edit form .job-title {
+  background-color: #d4d4d4;
 }
 main .home .home--edit .home--form--edit form .job-title:hover {
   border: 1px solid #ca62a5;
 }
+body.dark main .home .home--edit .home--form--edit form .job-title:hover {
+  border: 1px solid #151515;
+}
 main .home .home--edit .home--form--edit form .job-title:focus {
   outline: 1px solid #ca62a5;
   border: 1px solid #ca62a5;
+}
+body.dark main .home .home--edit .home--form--edit form .job-title:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .home .home--edit .home--form--edit form textarea {
   padding: 0.5em;
@@ -499,14 +597,24 @@ main .home .home--edit .home--form--edit form textarea {
   outline: 0;
   border: 1px solid #2c2c2c;
   border-radius: 5px;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .home .home--edit .home--form--edit form textarea {
+  background-color: #d4d4d4;
 }
 main .home .home--edit .home--form--edit form textarea:hover {
   border: 1px solid #ca62a5;
 }
+body.dark main .home .home--edit .home--form--edit form textarea:hover {
+  border: 1px solid #151515;
+}
 main .home .home--edit .home--form--edit form textarea:focus {
   outline: 1px solid #ca62a5;
   border: 1px solid #ca62a5;
+}
+body.dark main .home .home--edit .home--form--edit form textarea:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .home .home--edit .home--form--edit form #form--edit--select_location, main .home .home--edit .home--form--edit form #form--edit--select_category, main .home .home--edit .home--form--edit form #form--edit--select_seniority {
   cursor: pointer;
@@ -517,10 +625,24 @@ main .home .home--edit .home--form--edit form #form--edit--select_location, main
   border-radius: 5px;
   padding: 0.5em;
   margin-bottom: 1em;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .home .home--edit .home--form--edit form #form--edit--select_location, body.dark main .home .home--edit .home--form--edit form #form--edit--select_category, body.dark main .home .home--edit .home--form--edit form #form--edit--select_seniority {
+  background-color: #d4d4d4;
 }
 main .home .home--edit .home--form--edit form #form--edit--select_location:hover, main .home .home--edit .home--form--edit form #form--edit--select_category:hover, main .home .home--edit .home--form--edit form #form--edit--select_seniority:hover {
   border: 1px solid #ca62a5;
+}
+body.dark main .home .home--edit .home--form--edit form #form--edit--select_location:hover, body.dark main .home .home--edit .home--form--edit form #form--edit--select_category:hover, body.dark main .home .home--edit .home--form--edit form #form--edit--select_seniority:hover {
+  border: 1px solid #151515;
+}
+main .home .home--edit .home--form--edit form #form--edit--select_location:focus, main .home .home--edit .home--form--edit form #form--edit--select_category:focus, main .home .home--edit .home--form--edit form #form--edit--select_seniority:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+body.dark main .home .home--edit .home--form--edit form #form--edit--select_location:focus, body.dark main .home .home--edit .home--form--edit form #form--edit--select_category:focus, body.dark main .home .home--edit .home--form--edit form #form--edit--select_seniority:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .home .home--edit .home--form--edit form #btn--form--edit--confirm {
   width: 10%;
@@ -703,14 +825,24 @@ main .create_job .create_job--form form .job-title {
   outline: 0;
   border: 1px solid #2c2c2c;
   border-radius: 5px;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .create_job .create_job--form form .job-title {
+  background-color: #d4d4d4;
 }
 main .create_job .create_job--form form .job-title:hover {
   border: 1px solid #ca62a5;
 }
+body.dark main .create_job .create_job--form form .job-title:hover {
+  border: 1px solid #151515;
+}
 main .create_job .create_job--form form .job-title:focus {
   outline: 1px solid #ca62a5;
   border: 1px solid #ca62a5;
+}
+body.dark main .create_job .create_job--form form .job-title:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .create_job .create_job--form form textarea {
   padding: 0.5em;
@@ -719,14 +851,24 @@ main .create_job .create_job--form form textarea {
   outline: 0;
   border: 1px solid #2c2c2c;
   border-radius: 5px;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .create_job .create_job--form form textarea {
+  background-color: #d4d4d4;
 }
 main .create_job .create_job--form form textarea:hover {
   border: 1px solid #ca62a5;
 }
+body.dark main .create_job .create_job--form form textarea:hover {
+  border: 1px solid #151515;
+}
 main .create_job .create_job--form form textarea:focus {
   outline: 1px solid #ca62a5;
   border: 1px solid #ca62a5;
+}
+body.dark main .create_job .create_job--form form textarea:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .create_job .create_job--form form #create_job--select_location, main .create_job .create_job--form form #create_job--select_category, main .create_job .create_job--form form #create_job--select_seniority {
   cursor: pointer;
@@ -737,10 +879,24 @@ main .create_job .create_job--form form #create_job--select_location, main .crea
   border-radius: 5px;
   padding: 0.5em;
   margin-bottom: 1em;
-  transition: border 0.3s;
+  transition: border 0.3s, background-color 0.3s;
+}
+body.dark main .create_job .create_job--form form #create_job--select_location, body.dark main .create_job .create_job--form form #create_job--select_category, body.dark main .create_job .create_job--form form #create_job--select_seniority {
+  background-color: #d4d4d4;
 }
 main .create_job .create_job--form form #create_job--select_location:hover, main .create_job .create_job--form form #create_job--select_category:hover, main .create_job .create_job--form form #create_job--select_seniority:hover {
   border: 1px solid #ca62a5;
+}
+body.dark main .create_job .create_job--form form #create_job--select_location:hover, body.dark main .create_job .create_job--form form #create_job--select_category:hover, body.dark main .create_job .create_job--form form #create_job--select_seniority:hover {
+  border: 1px solid #151515;
+}
+main .create_job .create_job--form form #create_job--select_location:focus, main .create_job .create_job--form form #create_job--select_category:focus, main .create_job .create_job--form form #create_job--select_seniority:focus {
+  outline: 1px solid #ca62a5;
+  border: 1px solid #ca62a5;
+}
+body.dark main .create_job .create_job--form form #create_job--select_location:focus, body.dark main .create_job .create_job--form form #create_job--select_category:focus, body.dark main .create_job .create_job--form form #create_job--select_seniority:focus {
+  outline: 1px solid #151515;
+  border: 1px solid #151515;
 }
 main .create_job .create_job--form form #btn--form--submit {
   width: 10%;
@@ -777,12 +933,16 @@ main .d-none-job {
 
 .navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
   width: 100%;
   background-color: #ca62a5;
   padding: 1.5em;
+  transition: background-color 0.3s;
+}
+body.dark .navbar {
+  background-color: #2c2b2c;
 }
 @media screen and (max-width: 632px) {
   .navbar {
@@ -803,6 +963,18 @@ main .d-none-job {
 .navbar h2 {
   margin-right: 1em;
   color: #fff;
+  padding-bottom: 0.3em;
+  transition: color 0.3s;
+}
+body.dark .navbar h2 {
+  color: #ca62a5;
+}
+.navbar .navbar--links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin-left: 2em;
 }
 .navbar .navbar--links a {
   text-decoration: none;
@@ -810,13 +982,22 @@ main .d-none-job {
   margin: 0 1em;
   padding-bottom: 0.3em;
   border-bottom: none;
-  transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s, color 0.3s;
+}
+body.dark .navbar .navbar--links a {
+  color: #ca62a5;
 }
 .navbar .navbar--links a:hover {
   border-bottom: 1px solid #fff;
 }
+body.dark .navbar .navbar--links a:hover {
+  border-bottom: 1px solid #ca62a5;
+}
 .navbar .navbar--links a:focus {
   border-bottom: 1px solid #fff;
+}
+body.dark .navbar .navbar--links a:focus {
+  border-bottom: 1px solid #ca62a5;
 }
 
 .spinner {
@@ -827,7 +1008,12 @@ main .d-none-job {
   border-radius: 50%;
   border-left-color: #5692e0;
   margin: 5em 2em;
+  transition: border 0.3s, border-left-color 0.3s;
   animation: spin 1s ease infinite;
+}
+body.dark .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  border-left-color: rgba(164, 43, 174, 0.6823529412);
 }
 
 @keyframes spin {
@@ -837,6 +1023,52 @@ main .d-none-job {
   100% {
     transform: rotate(360deg);
   }
+}
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  margin-right: 3em;
+  background-color: #fff;
+}
+.switch::after {
+  display: block;
+  background-color: #e26ab6;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  transform: translate(0px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 1.5px 1.5px rgba(0, 0, 0, 0.5019607843);
+  content: "";
+}
+.switch.active {
+  background-color: #ffce73;
+  color: #000;
+}
+.switch.active::after {
+  transform: translate(30px);
+}
+.switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  color: #2c2c2c;
+  background-color: none;
+}
+.switch span .fa-moon {
+  color: #2c2c2c;
+}
+.switch span .fa-sun {
+  color: #2c2c2c;
 }
 
 /*# sourceMappingURL=style.css.map */

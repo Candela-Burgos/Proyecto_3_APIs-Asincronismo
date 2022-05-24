@@ -5,12 +5,22 @@
     padding: 1em;
     position: absolute;
     bottom: 0;
+    transition: background-color .3s;
+
+    body.dark & {
+        background-color: $primary_color--dark_mode;
+    }
 
     h3 {
         font-size: $font_size--small;
         font-weight: lighter;
         color: $color--light;
         margin: .5em;
+        transition: color .3s;
+    
+        body.dark & {
+            color: $primary_color;
+        }
     }
 
     p {
@@ -18,15 +28,28 @@
         font-weight: lighter;
         color: $color--light;
         margin: .5em;
+        transition: color .3s;
+    
+        body.dark & {
+            color: $primary_color;
+        }
         
         a {
             text-decoration: none;
             color: $color--light;
-            transition: color .3s;
+            transition: color .3s;    
+
+            body.dark & {
+                color: $primary_color;
+            }
         }
 
         a:hover {
             color: $color--dark;
+
+            body.dark & {
+                color: $color--light;
+            }
         }
     }
 }

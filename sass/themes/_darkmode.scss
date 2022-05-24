@@ -1,0 +1,53 @@
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    margin-right: 3em;
+    background-color: $color--light;
+
+    &::after {
+        display: block;
+        background-color: $secondary_color;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        border-radius: 50%;
+        transform: translate(0px);
+        transition: all .3s ease;
+        box-shadow: 0 0 1.5px 1.5px #00000080; 
+        content: "";
+    }
+
+    &.active {
+        background-color: #ffce73;
+        color: #000;
+        &::after {
+            transform: translate(30px);
+        }
+    }
+
+    span {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        color: $color--dark;
+        background-color: none;
+
+        .fa-moon {
+            color: $color--dark;
+        }
+
+        .fa-sun {
+            color: $color--dark;
+        }
+    }  
+
+    
+}

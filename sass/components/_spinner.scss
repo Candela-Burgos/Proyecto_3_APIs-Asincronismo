@@ -4,10 +4,16 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border-left-color: $color--spinner;
+    border-left-color: $color_spinner;
     margin: 5em 2em;
+    transition: border .3s, border-left-color .3s;
 
     animation: spin 1s ease infinite;
+
+    body.dark & {
+        border: 4px solid rgba(0, 0, 0, 0.2);
+        border-left-color: $color_spinner--dark_mode;
+    }
 }
 
 @keyframes spin {
