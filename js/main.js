@@ -188,29 +188,10 @@ const cancel = () => {
     getJobs()
 }
 
-// const validateCamp = (nam, descrip, locat, seniori, categ) => {
-//     return nam == "" || descrip == "" || locat == "" || categ == "" || seniori == "";
-// }
-
-// const saveData = () => {
-//     let nam = queryId("job-title").value;
-//     let descrip = queryId("description").value;
-//     let locat = queryId("create_job--select_location").value;
-//     let seniori = queryId("create_job--select_seniority").value;
-//     let categ = queryId("create_job--select_category").value;
-//     if (validateCamp(nam, descrip, locat, seniori, categ)) {
-//         queryId("validate").classList.remove("d-none-validate");
-//     } else {
-//         return {
-//             name: nam,
-//             description: descrip,
-//             location: locat,
-//             seniority: seniori,
-//             category: categ
-//         }
-//     }
-        
-// }
+const validateForm = (data) => {
+    console.log("validateForm:", data);
+    return data.name == "" || data.description == "" || data.location == "Location" || data.category == "Category" || data.seniority == "Seniority";
+}
 
 const saveData = () => {
     return {
@@ -236,7 +217,7 @@ const editForm = (id) => {
     fetch(`${BASE_API}/${id}`)
         .then(res => res.json())
         .then(data => {
-            const {name, description, location, category, seniority} = data;
+        const {name, description, location, category, seniority} = data;
             queryId("form--edit--title").value = `${name}`;
             queryId("form--edit--description").innerHTML = `${description}`;
             queryId("form--edit--select_location").value = `${location}`;
@@ -251,7 +232,13 @@ const editForm = (id) => {
 const eventID = (id) => {
     queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
         e.preventDefault();
-        editData(id);
+        if (validateForm(getDataEdit())) {
+            // queryId("blur").style.filter = 'blur(3px)';
+            // queryId("blur").style.zIndex = '-10';
+            queryId("validate--edit").classList.remove("d-none-validate--edit");
+        } else {
+            editData(id);
+        }
     })
 }
 
@@ -266,6 +253,7 @@ queryId("home").addEventListener('click', () => {
 })
 
 queryId("create_job").addEventListener('click', () => {
+    queryId("validate--job").classList.add("d-none-validate--job");
     queryId("home--search").classList.add("d-none-search");
     queryId('home--delete--warning').innerHTML = "";
     queryId("home--form--edit").classList.add("d-none-edit-form");
@@ -278,16 +266,15 @@ queryId("create_job").addEventListener('click', () => {
 })
 
 queryId("btn--form--submit").addEventListener('click', (e) => {
-    // if (queryId("job-title").value == "" || queryId("description").value == "" || queryId("create_job--select_location").value == " " || queryId("create_job--select_seniority").value == " " || queryId("create_job--select_category").value == " ") {
-    //     queryId("validate").classList.remove("d-none-validate");
-    //     queryId("btn-ok").addEventListener('click', () => {
-    //         queryId("validate").classList.add("d-none-validate");
-    //     })
-    // } else {
-        e.preventDefault();
+    e.preventDefault();
+    if (validateForm(saveData())) {
+        // queryId("blur").style.filter = 'blur(3px)';
+        // queryId("blur").style.zIndex = '-10';
+        queryId("validate--job").classList.remove("d-none-validate--job");
+    } else {
         sendData();
         queryId("create_job--form").classList.add("d-none-job");
-    // }
+    }
 })
 
 queryId("clear").addEventListener("click", () => {
@@ -298,4 +285,14 @@ queryId("clear").addEventListener("click", () => {
 queryId("switch").addEventListener('click', () => {
     document.body.classList.toggle('dark');
     queryId("switch").classList.toggle('active');
+})
+
+queryId("btn-ok--job").addEventListener('click', () => {
+    queryId("validate--job").classList.add("d-none-validate--job");
+    // queryId("blur").style.filter = 'none';
+})
+
+queryId("btn-ok--edit").addEventListener('click', () => {
+    queryId("validate--edit").classList.add("d-none-validate--edit");
+    // queryId("blur").style.filter = 'none';
 })

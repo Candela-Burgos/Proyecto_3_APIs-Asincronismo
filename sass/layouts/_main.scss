@@ -433,6 +433,40 @@ main {
             @include d-flex ($direction: column, $justify_content: center, $align_items: center);
             width: 100%;
 
+            .validate--edit {
+                @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+                width: 30%;
+                position: fixed;
+                top: 45%;
+                // left: 0;
+                z-index: 20;
+                background-color: $primary_color;
+                padding: 1em;
+                border: 1px solid $secondary_color;
+                border-radius: 5px;
+                
+                .container--validate--edit {
+                    @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+
+                    h3 {
+                    color: $color--light;
+                    padding: 1em;
+                    text-align: center;
+                    }
+    
+                    .btn-ok--edit {
+                        background-color: #9ba2a5;
+                        cursor: pointer;
+                        padding: .3em 1em;
+                        color: $color--dark;
+                    } 
+                }
+            }
+    
+            .d-none-validate--edit {
+                display: none;
+            }
+
             .home--form--edit {
                 @include d-flex ($direction: column, $justify_content: center, $align_items: stretch);
                 width: 60%;
@@ -677,30 +711,47 @@ main {
     .create_job {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
         width: 100%;
-        margin: 5em 0em;
+        margin: 3em 0em;
             
-        .validate {
+        .validate--job {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+            width: 30%;
             position: absolute;
-            background-color: $color--cancel;
+            // top: 0;
+            // left: 0;
+            z-index: 20;
+            background-color: $primary_color;
             padding: 1em;
-            border: 1px solid $color--cancel_hover;
+            border: 1px solid $secondary_color;
             border-radius: 5px;
-            z-index: 12;
+            transition: background-color .3s, border .3s;
 
-            h3 {
-                color: $color--light;
-                padding: 1em;
-                text-align: center;
+            body.dark & {
+                background-color: $color--cancel;
+                border: 1px solid $color--cancel_hover; 
             }
 
-            .btn-ok {
-                background-color: #9ba2a5;
-                padding: .3em 1em;
-                color: $color--dark;
+            .container--validate--job {
+                @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+
+                h3 {
+                    color: $color--light;
+                    padding: 1em;
+                    text-align: center;
+                }
+
+                .btn-ok--job {
+                    border: none;
+                    border-radius: 5px;
+                    background-color: $color--light;
+                    cursor: pointer;
+                    padding: .3em 1em;
+                    color: $color--dark;
+                }   
             }
         }
 
-        .d-none-validate {
+        .d-none-validate--job {
             display: none;
         }
 
