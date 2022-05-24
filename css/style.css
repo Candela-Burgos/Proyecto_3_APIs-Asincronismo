@@ -34,6 +34,7 @@ body.dark {
   padding: 1em;
   position: absolute;
   bottom: 0;
+  left: 0;
   transition: background-color 0.3s;
 }
 body.dark .footer {
@@ -535,6 +536,40 @@ main .home .home--edit {
   align-items: center;
   width: 100%;
 }
+main .home .home--edit .validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: fixed;
+  top: 45%;
+  z-index: 20;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+}
+main .home .home--edit .validate--edit .container--validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+main .home .home--edit .validate--edit .container--validate--edit h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+main .home .home--edit .validate--edit .container--validate--edit .btn-ok--edit {
+  background-color: #9ba2a5;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+}
+main .home .home--edit .d-none-validate--edit {
+  display: none;
+}
 main .home .home--edit .home--form--edit {
   display: flex;
   justify-content: center;
@@ -766,27 +801,46 @@ main .create_job {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 5em 0em;
+  margin: 3em 0em;
 }
-main .create_job .validate {
+main .create_job .validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
   position: absolute;
-  background-color: #575656;
+  z-index: 20;
+  background-color: #ca62a5;
   padding: 1em;
-  border: 1px solid #474747;
+  border: 1px solid #e26ab6;
   border-radius: 5px;
-  z-index: 12;
+  transition: background-color 0.3s, border 0.3s;
 }
-main .create_job .validate h3 {
+body.dark main .create_job .validate--job {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+main .create_job .validate--job .container--validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+main .create_job .validate--job .container--validate--job h3 {
   color: #fff;
   padding: 1em;
   text-align: center;
 }
-main .create_job .validate .btn-ok {
-  background-color: #9ba2a5;
+main .create_job .validate--job .container--validate--job .btn-ok--job {
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
   padding: 0.3em 1em;
   color: #2c2c2c;
 }
-main .create_job .d-none-validate {
+main .create_job .d-none-validate--job {
   display: none;
 }
 main .create_job .create_job--form {
