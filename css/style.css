@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
+#html {
   min-height: 100%;
   position: relative;
 }
@@ -22,6 +22,35 @@ body.dark {
 * {
   font-family: "Times New Roman", Times, serif;
   color: #2c2c2c;
+}
+
+@media screen and (max-width: 1808px) {
+  #blur-container {
+    min-height: 122%;
+  }
+}
+
+.blur-job {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+  filter: blur(3px);
+}
+
+.blur-edit {
+  width: 100%;
+  position: absolute;
+  z-index: -100;
+  filter: blur(3px);
+}
+
+.blur-search {
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+  filter: blur(3px);
 }
 
 .footer {
@@ -109,24 +138,40 @@ main .home .home--search {
   flex-direction: row;
   align-items: center;
   width: 80%;
-  margin: 1em 0;
+  flex-wrap: wrap;
+  margin-top: 3em;
 }
-@media screen and (max-width: 711px) {
+@media screen and (max-width: 1334px) {
   main .home .home--search {
     width: 90%;
   }
 }
-@media screen and (max-width: 632px) {
+@media screen and (max-width: 1060px) {
   main .home .home--search {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    width: 95%;
-    margin: 1em 0em 0em 0em;
+    width: 100%;
   }
 }
-main .home .home--search .home--search--select {
+@media screen and (max-width: 500px) {
+  main .home .home--search {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+main .home .home--search .home--search--selects {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+}
+@media screen and (max-width: 430px) {
+  main .home .home--search .home--search--selects {
+    width: 90%;
+  }
+}
+main .home .home--search .home--search--selects .home--search--select {
   cursor: pointer;
   font-size: 1em;
   color: #fff;
@@ -137,61 +182,44 @@ main .home .home--search .home--search--select {
   margin: 1em;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
-body.dark main .home .home--search .home--search--select {
+body.dark main .home .home--search .home--search--selects .home--search--select {
   color: #fff;
   background-color: #2c2b2c;
   border: 1px solid #151515;
 }
-@media screen and (max-width: 1168px) {
-  main .home .home--search .home--search--select {
+@media screen and (max-width: 1334px) {
+  main .home .home--search .home--search--selects .home--search--select {
     padding: 0.5em 3em 0.5em 1em;
   }
 }
-@media screen and (max-width: 927px) {
-  main .home .home--search .home--search--select {
-    padding: 0.5em 2em 0.5em 1em;
-  }
-}
-@media screen and (max-width: 867px) {
-  main .home .home--search .home--search--select {
-    padding: 0.5em 1em;
-  }
-}
-@media screen and (max-width: 807px) {
-  main .home .home--search .home--search--select {
+@media screen and (max-width: 900px) {
+  main .home .home--search .home--search--selects .home--search--select {
     padding: 0.5em;
   }
 }
-@media screen and (max-width: 747px) {
-  main .home .home--search .home--search--select {
-    padding: 0.5em 0.2em;
+@media screen and (max-width: 484px) {
+  main .home .home--search .home--search--selects .home--search--select {
+    padding: 0.3em;
+    margin: 1em 0.5em;
   }
 }
-@media screen and (max-width: 474px) {
-  main .home .home--search .home--search--select {
-    padding: 0.5em 0.1em;
-    margin: 0.5em 0.5em 1em 0.5em;
+@media screen and (max-width: 500px) {
+  main .home .home--search .home--search--selects .home--search--select {
+    padding: 0.3em;
   }
 }
-@media screen and (max-width: 414px) {
-  main .home .home--search .home--search--select {
-    padding: 0.3em 0.1em;
-    margin: 0em 0.1em 1em 0.1em;
+@media screen and (max-width: 430px) {
+  main .home .home--search .home--search--selects .home--search--select {
+    width: 30%;
   }
 }
-@media screen and (max-width: 373px) {
-  main .home .home--search .home--search--select {
-    padding: 0.3em 0em;
-    margin: 0em 0em 0.5em 0em;
-  }
-}
-main .home .home--search .home--search--select option {
+main .home .home--search .home--search--selects .home--search--select option {
   color: #fff;
 }
-main .home .home--search .home--search--select:hover {
+main .home .home--search .home--search--selects .home--search--select:hover {
   background-color: #e26ab6;
 }
-body.dark main .home .home--search .home--search--select:hover {
+body.dark main .home .home--search .home--search--selects .home--search--select:hover {
   background-color: #151515;
 }
 @media screen and (max-width: 632px) {
@@ -214,6 +242,12 @@ body.dark main .home .home--search .home--search--buttons a {
 @media screen and (max-width: 632px) {
   main .home .home--search .home--search--buttons a {
     padding: 0.5em 1em;
+    margin: 0.5em 0.5em 0 0.5em;
+  }
+}
+@media screen and (max-width: 500px) {
+  main .home .home--search .home--search--buttons a {
+    padding: 0.3em 0.4em;
     margin: 0.5em 0.5em 0 0.5em;
   }
 }
@@ -258,22 +292,7 @@ main .home .home--cards {
   flex-wrap: wrap;
   max-width: 80%;
 }
-@media screen and (max-width: 1168px) {
-  main .home .home--cards {
-    max-width: 90%;
-  }
-}
-@media screen and (max-width: 1066px) {
-  main .home .home--cards {
-    max-width: 95%;
-  }
-}
-@media screen and (max-width: 1066px) {
-  main .home .home--cards {
-    max-width: 97%;
-  }
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1768px) {
   main .home .home--cards {
     max-width: 100%;
   }
@@ -300,39 +319,22 @@ body.dark main .home .home--cards .home--card {
   border: 2px solid #151515;
   background-color: #2c2b2c;
 }
-@media screen and (max-width: 1168px) {
-  main .home .home--cards .home--card {
-    flex: 0 1 30%;
-    max-width: 30%;
-    max-height: 50%;
-  }
-}
-@media screen and (max-width: 989px) {
-  main .home .home--cards .home--card {
-    flex: 0 1 35%;
-    max-width: 35%;
-    max-height: 55%;
-  }
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 960px) {
   main .home .home--cards .home--card {
     flex: 0 1 40%;
-    max-width: 40%;
-    max-height: 60%;
+    width: 40%;
+    max-width: 500px;
+    min-width: 200px;
+    height: 330px;
   }
 }
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 601px) {
   main .home .home--cards .home--card {
-    flex: 0 1 60%;
-    max-width: 60%;
-    max-height: 70%;
-  }
-}
-@media screen and (max-width: 414px) {
-  main .home .home--cards .home--card {
-    flex: 0 1 70%;
-    max-width: 70%;
-    max-height: 70%;
+    flex: 0 1 65%;
+    width: 65%;
+    max-width: 600px;
+    min-width: 300px;
+    height: 330px;
   }
 }
 main .home .home--cards .home--card h2 {
@@ -536,40 +538,6 @@ main .home .home--edit {
   align-items: center;
   width: 100%;
 }
-main .home .home--edit .validate--edit {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  position: fixed;
-  top: 45%;
-  z-index: 20;
-  background-color: #ca62a5;
-  padding: 1em;
-  border: 1px solid #e26ab6;
-  border-radius: 5px;
-}
-main .home .home--edit .validate--edit .container--validate--edit {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-}
-main .home .home--edit .validate--edit .container--validate--edit h3 {
-  color: #fff;
-  padding: 1em;
-  text-align: center;
-}
-main .home .home--edit .validate--edit .container--validate--edit .btn-ok--edit {
-  background-color: #9ba2a5;
-  cursor: pointer;
-  padding: 0.3em 1em;
-  color: #2c2c2c;
-}
-main .home .home--edit .d-none-validate--edit {
-  display: none;
-}
 main .home .home--edit .home--form--edit {
   display: flex;
   justify-content: center;
@@ -717,8 +685,7 @@ main .home .home--delete {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  position: absolute;
-  top: 15%;
+  margin-top: 3em;
 }
 main .home .home--delete .delete--warning {
   display: flex;
@@ -802,46 +769,6 @@ main .create_job {
   align-items: center;
   width: 100%;
   margin: 3em 0em;
-}
-main .create_job .validate--job {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  position: absolute;
-  z-index: 20;
-  background-color: #ca62a5;
-  padding: 1em;
-  border: 1px solid #e26ab6;
-  border-radius: 5px;
-  transition: background-color 0.3s, border 0.3s;
-}
-body.dark main .create_job .validate--job {
-  background-color: #575656;
-  border: 1px solid #474747;
-}
-main .create_job .validate--job .container--validate--job {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-}
-main .create_job .validate--job .container--validate--job h3 {
-  color: #fff;
-  padding: 1em;
-  text-align: center;
-}
-main .create_job .validate--job .container--validate--job .btn-ok--job {
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
-  padding: 0.3em 1em;
-  color: #2c2c2c;
-}
-main .create_job .d-none-validate--job {
-  display: none;
 }
 main .create_job .create_job--form {
   display: flex;
@@ -1006,12 +933,9 @@ body.dark .navbar {
     align-items: center;
   }
 }
-@media screen and (max-width: 373px) {
+@media screen and (max-width: 400px) {
   .navbar {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
+    padding: 1.5em 0.4em;
   }
 }
 .navbar h2 {
@@ -1030,6 +954,11 @@ body.dark .navbar h2 {
   width: auto;
   margin-left: 2em;
 }
+@media screen and (max-width: 500px) {
+  .navbar .navbar--links {
+    margin-left: 0;
+  }
+}
 .navbar .navbar--links a {
   text-decoration: none;
   color: #fff;
@@ -1040,6 +969,11 @@ body.dark .navbar h2 {
 }
 body.dark .navbar .navbar--links a {
   color: #ca62a5;
+}
+@media screen and (max-width: 460px) {
+  .navbar .navbar--links a {
+    font-size: 0.9em;
+  }
 }
 .navbar .navbar--links a:hover {
   border-bottom: 1px solid #fff;
@@ -1052,6 +986,201 @@ body.dark .navbar .navbar--links a:hover {
 }
 body.dark .navbar .navbar--links a:focus {
   border-bottom: 1px solid #ca62a5;
+}
+
+.validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  z-index: 2000;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark .validate--job {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+@media screen and (max-width: 808px) {
+  .validate--job {
+    width: 50%;
+    top: 45%;
+    left: 25%;
+  }
+}
+@media screen and (max-width: 485px) {
+  .validate--job {
+    width: 70%;
+    top: 45%;
+    left: 15%;
+  }
+}
+.validate--job .container--validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.validate--job .container--validate--job h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.validate--job .container--validate--job .btn-ok--job {
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+  transition: background-color 0.3s, color 0.3s;
+}
+.validate--job .container--validate--job .btn-ok--job:hover {
+  color: #ca62a5;
+}
+body.dark .validate--job .container--validate--job .btn-ok--job:hover {
+  background-color: #474747;
+}
+
+.d-none-validate--job {
+  display: none;
+}
+
+.validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: fixed;
+  top: 45%;
+  left: 35%;
+  z-index: 2000;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark .validate--edit {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+@media screen and (max-width: 808px) {
+  .validate--edit {
+    width: 50%;
+    top: 45%;
+    left: 25%;
+  }
+}
+@media screen and (max-width: 485px) {
+  .validate--edit {
+    width: 70%;
+    top: 45%;
+    left: 15%;
+  }
+}
+.validate--edit .container--validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.validate--edit .container--validate--edit h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.validate--edit .container--validate--edit .btn-ok--edit {
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+  transition: background-color 0.3s, color 0.3s;
+}
+.validate--edit .container--validate--edit .btn-ok--edit:hover {
+  color: #ca62a5;
+}
+body.dark .validate--edit .container--validate--edit .btn-ok--edit:hover {
+  background-color: #474747;
+}
+
+.d-none-validate--edit {
+  display: none;
+}
+
+.validate--search {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: fixed;
+  top: 45%;
+  left: 35%;
+  z-index: 2000;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark .validate--search {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+@media screen and (max-width: 808px) {
+  .validate--search {
+    width: 50%;
+    top: 45%;
+    left: 25%;
+  }
+}
+@media screen and (max-width: 485px) {
+  .validate--search {
+    width: 70%;
+    top: 45%;
+    left: 15%;
+  }
+}
+.validate--search .container--validate--search {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.validate--search .container--validate--search h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.validate--search .container--validate--search .btn-ok--search {
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+  transition: background-color 0.3s, color 0.3s;
+}
+.validate--search .container--validate--search .btn-ok--search:hover {
+  color: #ca62a5;
+}
+body.dark .validate--search .container--validate--search .btn-ok--search:hover {
+  background-color: #474747;
+}
+
+.d-none-validate--search {
+  display: none;
 }
 
 .spinner {
@@ -1089,6 +1218,11 @@ body.dark .spinner {
   border-radius: 1rem;
   margin-right: 3em;
   background-color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .switch {
+    margin-right: 0;
+  }
 }
 .switch::after {
   display: block;

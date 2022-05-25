@@ -13,8 +13,8 @@
         @include d-flex ($direction: row, $justify_content: space-evenly, $align_items: center);
     }
 
-    @media screen and (max-width: 373px) {
-        @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    @media screen and (max-width: 400px) {
+        padding: 1.5em .4em;
     }
 
     h2 {
@@ -35,6 +35,10 @@
         width: auto;
         margin-left: 2em;
 
+        @media screen and (max-width: 500px) {
+            margin-left: 0;
+        }
+
         a {
             text-decoration: none;
             color: $color--light;
@@ -45,6 +49,10 @@
 
             body.dark & {
                 color: $primary_color;
+            }
+
+            @media screen and (max-width: 460px) {
+                font-size: $font_size--super_small;
             }
         }
 

@@ -10,6 +10,10 @@
     margin-right: 3em;
     background-color: $color--light;
 
+    @media screen and (max-width: 500px) {
+        margin-right: 0;
+    }
+
     &::after {
         display: block;
         background-color: $secondary_color;
