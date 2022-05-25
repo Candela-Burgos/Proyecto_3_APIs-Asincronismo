@@ -62,15 +62,19 @@ const clearSelects = () => {
 
 queryId("search").addEventListener("click", (e) => {
     e.preventDefault();
-    queryId('home--delete--warning').innerHTML = ""; 
-    queryId("create_job--form").classList.add("d-none-job");
-    filterJobs();
-    clearSelects();
+    if(queryId("home--select_location").value == "Location" && queryId("home--select_category").value == "Category" && queryId("home--select_seniority").value == "Seniority") {
+        queryId("validate--search").classList.remove("d-none-validate--search");
+        queryId("html").style.height = "3170px";
+        queryId("blur-container").classList.add("blur-search");  
+    } else {
+        queryId('home--delete--warning').innerHTML = ""; 
+        queryId("create_job--form").classList.add("d-none-job");
+        filterJobs();
+        clearSelects();
+    }
 });
 
-// Si apreta search y los select estan vacios, que tire una alerta de que tiene que llenar 1 select para poder buscar/filtrar
-
-// POST || /jobs  CREATE JOB
+// POST
 
 const sendData = () => {
     fetch(`${BASE_API}`, {
@@ -83,8 +87,7 @@ const sendData = () => {
     .finally(() => window.location = "index.html")
 }
 
-// PUT || /jobs/:id
-
+// PUT
 
 const editData = (id) => {
     fetch(`${BASE_API}/${id}`, {
@@ -233,7 +236,8 @@ const eventID = (id) => {
     queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
         e.preventDefault();
         if (validateForm(getDataEdit())) {
-            queryId("blur-container").classList.add("blur-edit"); 
+            queryId("blur-container").classList.add("blur-edit");
+            queryId("html").style.height = "1710px";
             queryId("validate--edit").classList.remove("d-none-validate--edit");
         } else {
             editData(id);
@@ -288,9 +292,63 @@ queryId("switch").addEventListener('click', () => {
 queryId("btn-ok--job").addEventListener('click', () => {
     queryId("validate--job").classList.add("d-none-validate--job");
     queryId("blur-container").classList.remove("blur-job");
+    queryId("blur-container").classList.remove("blur-job");
 })
 
 queryId("btn-ok--edit").addEventListener('click', () => {
     queryId("validate--edit").classList.add("d-none-validate--edit");
     queryId("blur-container").classList.remove("blur-edit");
+    queryId("html").style.height = "";
+})
+
+queryId("btn-ok--search").addEventListener('click', () => {
+    queryId("validate--search").classList.add("d-none-validate--search"); 
+    queryId("blur-container").classList.remove("blur-search");
+    queryId("html").style.height = "";
+})    
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Scape') {
+        queryId("validate--job").classList.add("d-none-validate--job");
+        queryId("blur-container").classList.remove("blur-job");
+    }
+})
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Scape') {
+        queryId("validate--edit").classList.add("d-none-validate--edit");
+        queryId("blur-container").classList.remove("blur-edit");
+        queryId("html").style.height = "";
+    }
+})
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Scape') {
+        queryId("validate--search").classList.add("d-none-validate--search"); 
+        queryId("blur-container").classList.remove("blur-search");
+        queryId("html").style.height = "";
+    }
+})
+
+window.addEventListener('click', (e) => {
+    if (e.target === queryId("html")) {
+        queryId("validate--job").classList.add("d-none-validate--job");
+        queryId("blur-container").classList.remove("blur-job");
+    }
+})
+
+window.addEventListener('click', (e) => {
+    if (e.target === queryId("html")) {
+        queryId("validate--edit").classList.add("d-none-validate--edit");
+        queryId("blur-container").classList.remove("blur-edit");
+        queryId("html").style.height = "";
+    }
+})
+
+window.addEventListener('click', (e) => {
+    if (e.target === queryId("html")) {
+        queryId("validate--search").classList.add("d-none-validate--search"); 
+        queryId("blur-container").classList.remove("blur-search");
+        queryId("html").style.height = "";
+    }
 })
