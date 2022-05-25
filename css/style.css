@@ -24,6 +24,22 @@ body.dark {
   color: #2c2c2c;
 }
 
+.blur-job {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+  filter: blur(3px);
+}
+
+.blur-edit {
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+  filter: blur(3px);
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -536,40 +552,6 @@ main .home .home--edit {
   align-items: center;
   width: 100%;
 }
-main .home .home--edit .validate--edit {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  position: fixed;
-  top: 45%;
-  z-index: 20;
-  background-color: #ca62a5;
-  padding: 1em;
-  border: 1px solid #e26ab6;
-  border-radius: 5px;
-}
-main .home .home--edit .validate--edit .container--validate--edit {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-}
-main .home .home--edit .validate--edit .container--validate--edit h3 {
-  color: #fff;
-  padding: 1em;
-  text-align: center;
-}
-main .home .home--edit .validate--edit .container--validate--edit .btn-ok--edit {
-  background-color: #9ba2a5;
-  cursor: pointer;
-  padding: 0.3em 1em;
-  color: #2c2c2c;
-}
-main .home .home--edit .d-none-validate--edit {
-  display: none;
-}
 main .home .home--edit .home--form--edit {
   display: flex;
   justify-content: center;
@@ -803,46 +785,6 @@ main .create_job {
   width: 100%;
   margin: 3em 0em;
 }
-main .create_job .validate--job {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  position: absolute;
-  z-index: 20;
-  background-color: #ca62a5;
-  padding: 1em;
-  border: 1px solid #e26ab6;
-  border-radius: 5px;
-  transition: background-color 0.3s, border 0.3s;
-}
-body.dark main .create_job .validate--job {
-  background-color: #575656;
-  border: 1px solid #474747;
-}
-main .create_job .validate--job .container--validate--job {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-}
-main .create_job .validate--job .container--validate--job h3 {
-  color: #fff;
-  padding: 1em;
-  text-align: center;
-}
-main .create_job .validate--job .container--validate--job .btn-ok--job {
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
-  padding: 0.3em 1em;
-  color: #2c2c2c;
-}
-main .create_job .d-none-validate--job {
-  display: none;
-}
 main .create_job .create_job--form {
   display: flex;
   justify-content: center;
@@ -982,6 +924,87 @@ main .create_job .create_job--form form #btn--form--submit:hover {
   background-color: #136579;
 }
 main .d-none-job {
+  display: none;
+}
+
+.validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  z-index: 2000;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+  transition: background-color 0.3s, border 0.3s;
+}
+body.dark .validate--job {
+  background-color: #575656;
+  border: 1px solid #474747;
+}
+.validate--job .container--validate--job {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.validate--job .container--validate--job h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.validate--job .container--validate--job .btn-ok--job {
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+}
+
+.d-none-validate--job {
+  display: none;
+}
+
+.validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  position: fixed;
+  top: 45%;
+  left: 35%;
+  z-index: 2000;
+  background-color: #ca62a5;
+  padding: 1em;
+  border: 1px solid #e26ab6;
+  border-radius: 5px;
+}
+.validate--edit .container--validate--edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.validate--edit .container--validate--edit h3 {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.validate--edit .container--validate--edit .btn-ok--edit {
+  background-color: #9ba2a5;
+  cursor: pointer;
+  padding: 0.3em 1em;
+  color: #2c2c2c;
+}
+
+.d-none-validate--edit {
   display: none;
 }
 

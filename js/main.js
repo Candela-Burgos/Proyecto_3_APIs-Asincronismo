@@ -233,8 +233,7 @@ const eventID = (id) => {
     queryId("btn--form--edit--confirm").addEventListener("click", (e) => {
         e.preventDefault();
         if (validateForm(getDataEdit())) {
-            // queryId("blur").style.filter = 'blur(3px)';
-            // queryId("blur").style.zIndex = '-10';
+            queryId("blur-container").classList.add("blur-edit"); 
             queryId("validate--edit").classList.remove("d-none-validate--edit");
         } else {
             editData(id);
@@ -268,8 +267,7 @@ queryId("create_job").addEventListener('click', () => {
 queryId("btn--form--submit").addEventListener('click', (e) => {
     e.preventDefault();
     if (validateForm(saveData())) {
-        // queryId("blur").style.filter = 'blur(3px)';
-        // queryId("blur").style.zIndex = '-10';
+        queryId("blur-container").classList.add("blur-job");
         queryId("validate--job").classList.remove("d-none-validate--job");
     } else {
         sendData();
@@ -289,10 +287,10 @@ queryId("switch").addEventListener('click', () => {
 
 queryId("btn-ok--job").addEventListener('click', () => {
     queryId("validate--job").classList.add("d-none-validate--job");
-    // queryId("blur").style.filter = 'none';
+    queryId("blur-container").classList.remove("blur-job");
 })
 
 queryId("btn-ok--edit").addEventListener('click', () => {
     queryId("validate--edit").classList.add("d-none-validate--edit");
-    // queryId("blur").style.filter = 'none';
+    queryId("blur-container").classList.remove("blur-edit");
 })

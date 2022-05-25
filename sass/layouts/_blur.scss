@@ -1,4 +1,15 @@
-// #blur {
-//     position: absolute;
-//     width: 100%;
-// }
+.blur-job {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+    filter: blur(3px);
+}
+
+.blur-edit {
+    width: 100%;
+    position: absolute;
+    z-index: -10;
+    filter: blur(3px);
+}
