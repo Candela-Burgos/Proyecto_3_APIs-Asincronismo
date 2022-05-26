@@ -290,7 +290,6 @@ queryId("switch").addEventListener('click', () => {
 queryId("btn-ok--job").addEventListener('click', () => {
     queryId("validate--job").classList.add("d-none-validate--job");
     queryId("blur-container").classList.remove("blur-job");
-    queryId("blur-container").classList.remove("blur-job");
 })
 
 queryId("btn-ok--edit").addEventListener('click', () => {

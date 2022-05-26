@@ -26,7 +26,7 @@ body.dark {
 
 @media screen and (max-width: 1808px) {
   #blur-container {
-    min-height: 122%;
+    min-height: 143%;
   }
 }
 
@@ -768,7 +768,12 @@ main .create_job {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 3em 0em;
+  margin: 1.5em 0em 3em 0em;
+}
+@media screen and (max-width: 360px) {
+  main .create_job {
+    margin-top: 0;
+  }
 }
 main .create_job .create_job--form {
   display: flex;
@@ -1026,10 +1031,31 @@ body.dark .container_global--validate--job .validate--job {
     left: 25%;
   }
 }
+@media screen and (max-width: 808px) and (orientation: landscape) {
+  .container_global--validate--job .validate--job {
+    width: 50%;
+    top: 40%;
+    left: 25%;
+  }
+}
+@media screen and (max-width: 544px) and (orientation: landscape) {
+  .container_global--validate--job .validate--job {
+    width: 60%;
+    top: 35%;
+    left: 20%;
+  }
+}
 @media screen and (max-width: 485px) {
   .container_global--validate--job .validate--job {
     width: 70%;
     top: 45%;
+    left: 15%;
+  }
+}
+@media screen and (max-width: 485px) and (orientation: landscape) {
+  .container_global--validate--job .validate--job {
+    width: 70%;
+    top: 35%;
     left: 15%;
   }
 }
@@ -1102,10 +1128,24 @@ body.dark .container_global--validate--edit .validate--edit {
     left: 25%;
   }
 }
+@media screen and (max-width: 808px) and (orientation: landscape) {
+  .container_global--validate--edit .validate--edit {
+    width: 50%;
+    top: 35%;
+    left: 25%;
+  }
+}
 @media screen and (max-width: 485px) {
   .container_global--validate--edit .validate--edit {
     width: 70%;
     top: 45%;
+    left: 15%;
+  }
+}
+@media screen and (max-width: 485px) and (orientation: landscape) {
+  .container_global--validate--edit .validate--edit {
+    width: 70%;
+    top: 30%;
     left: 15%;
   }
 }
@@ -1178,10 +1218,31 @@ body.dark .container_global--validate--search .validate--search {
     left: 25%;
   }
 }
+@media screen and (max-width: 808px) and (orientation: landscape) {
+  .container_global--validate--search .validate--search {
+    width: 50%;
+    top: 35%;
+    left: 25%;
+  }
+}
+@media screen and (max-width: 566px) and (orientation: landscape) {
+  .container_global--validate--search .validate--search {
+    width: 60%;
+    top: 30%;
+    left: 20%;
+  }
+}
 @media screen and (max-width: 485px) {
   .container_global--validate--search .validate--search {
     width: 70%;
     top: 45%;
+    left: 15%;
+  }
+}
+@media screen and (max-width: 485px) and (orientation: landscape) {
+  .container_global--validate--search .validate--search {
+    width: 70%;
+    top: 30%;
     left: 15%;
   }
 }
