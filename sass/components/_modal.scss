@@ -266,3 +266,175 @@
 .d-none-validate--search {
     display: none;
 }
+
+.container_global--validate--job {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 2000;
+    background-color: $box_shadow;
+
+    .validate--job {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 30%;
+        position: absolute;
+        top: 45%;
+        left: 35%;
+        z-index: 2000;
+        background-color: $primary_color;
+        padding: 1em;
+        border: 1px solid $secondary_color;
+        border-radius: 5px;
+        transition: background-color .3s, border .3s;
+    
+        body.dark & {
+            background-color: $color--cancel;
+            border: 1px solid $color--cancel_hover; 
+        }
+    
+        @media screen and (max-width: 808px) {
+            width: 50%;
+            top: 45%;
+            left: 25%;
+        }
+
+        @media screen and (max-width: 808px) and (orientation: landscape) {
+            width: 50%;
+            top: 40%;
+            left: 25%;
+        }
+
+        @media screen and (max-width: 544px) and (orientation: landscape) {
+            width: 60%;
+            top: 35%;
+            left: 20%;
+        }
+    
+        @media screen and (max-width: 485px) {
+            width: 70%;
+            top: 45%;
+            left: 15%;
+        }
+
+        @media screen and (max-width: 485px) and (orientation: landscape) {
+            width: 70%;
+            top: 35%;
+            left: 15%;
+        }
+    
+        .container--validate--job {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    
+            h3 {
+                color: $color--light;
+                padding: 1em;
+                text-align: center;
+            }
+    
+            .btn-ok--job {
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                background-color: $color--light;
+                cursor: pointer;
+                padding: .3em 1em;
+                color: $color--dark;
+                transition: background-color .3s, color .3s;
+            }   
+    
+            .btn-ok--job:hover {
+                color: $primary_color;
+    
+                body.dark & {
+                    background-color: $color--cancel_hover;
+                }
+            }
+        }
+    }
+}
+
+.d-none-validate--job {
+    display: none;
+}
+
+.container_global--catch_err {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 2000;
+    // background-color: $box_shadow;
+
+    .catch_err {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        width: 30%;
+        position: fixed;
+        top: 45%;
+        left: 35%;
+        z-index: 2000;
+        background-color: $primary_color;
+        padding: 1em;
+        border: 1px solid $secondary_color;
+        border-radius: 5px;
+        transition: background-color .3s, border .3s;
+    
+        body.dark & {
+            background-color: $color--cancel;
+            border: 1px solid $color--cancel_hover; 
+        }
+    
+        @media screen and (max-width: 808px) {
+            width: 50%;
+            top: 45%;
+            left: 25%;
+        }
+
+        @media screen and (max-width: 808px) and (orientation: landscape) {
+            width: 50%;
+            top: 35%;
+            left: 25%;
+        }
+    
+        @media screen and (max-width: 485px) {
+            width: 70%;
+            top: 45%;
+            left: 15%;
+        }
+
+        @media screen and (max-width: 485px) and (orientation: landscape) {
+            width: 70%;
+            top: 30%;
+            left: 15%;
+        }
+            
+        .container--catch_err {
+            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+    
+            h3 {
+            color: $color--light;
+            padding: 1em;
+            text-align: center;
+            }
+    
+            .btn-ok--catch_err {
+                border: 1px solid $color--dark;
+                border-radius: 5px;
+                background-color: $color--light;
+                cursor: pointer;
+                padding: .3em 1em;
+                color: $color--dark;
+                transition: background-color .3s, color .3s;
+            } 
+    
+            .btn-ok--catch_err:hover {
+                color: $primary_color;
+    
+                body.dark & {
+                    background-color: $color--cancel_hover;
+                }
+            }
+    
+        }
+    }
+    
+}

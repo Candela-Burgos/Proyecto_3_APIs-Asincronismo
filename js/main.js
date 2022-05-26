@@ -13,7 +13,11 @@ const getJobs = () => {
     fetch(`${BASE_API}`)
     .then(res => res.json())
     .then(data => showData(data))
-    .catch(err => console.log(err))
+    .catch(err => {
+        alertCatchErr(err);
+        queryId("catch_err").style.backgroundColor = "#55555577";
+        queryId("blur-container").classList.add("blur-search");
+    })
 }
 
 getJobs()
@@ -22,28 +26,44 @@ const getJob = (id) => {
     fetch(`${BASE_API}/${id}`)
         .then(res => res.json())
         .then(data => showDetail(data))
-        .catch(err => console.log(err))
+        .catch(err => {
+            alertCatchErr(err);
+            queryId("catch_err").style.backgroundColor = "#55555577";
+            queryId("blur-container").classList.add("blur-search");
+        })
 }
 
 const filterLocationJobs = (valorLocation) => {
     fetch(`${BASE_API}?location=${valorLocation}`)
         .then(res => res.json())
         .then(data => `${valorLocation == "Location" ? data : showData(data)}`)
-        .catch(err => console.log(err))
+        .catch(err => {
+            alertCatchErr(err);
+            queryId("catch_err").style.backgroundColor = "#55555577";
+            queryId("blur-container").classList.add("blur-search");
+        })
 }
 
 const filterSeniorityJobs = (valorSeniority) => {
     fetch(`${BASE_API}?seniority=${valorSeniority}`)
         .then(res => res.json())
         .then(data => `${valorSeniority == "Seniority" ? data : showData(data.filter(({seniority}) => seniority === valorSeniority))}`)
-        .catch(err => console.log(err))
+        .catch(err => {
+            alertCatchErr(err);
+            queryId("catch_err").style.backgroundColor = "#55555577";
+            queryId("blur-container").classList.add("blur-search");
+        })
 }
 
 const filterCategoryJobs = (valorCategory) => {
     fetch(`${BASE_API}?category=${valorCategory}`)
         .then(res => res.json())
         .then(data => `${valorCategory == "Category" ? data : showData(data)}`)
-        .catch(err => console.log(err))
+        .catch(err => {
+            alertCatchErr(err);
+            queryId("catch_err").style.backgroundColor = "#55555577";
+            queryId("blur-container").classList.add("blur-search");
+        })
 }
 
 const filterJobs = () => {
@@ -83,6 +103,11 @@ const sendData = () => {
         },
         body: JSON.stringify(saveData())
     })
+    .catch(err => {
+        alertCatchErr(err);
+        queryId("catch_err").style.backgroundColor = "#55555577";
+        queryId("blur-container").classList.add("blur-search");
+    })
     .finally(() => window.location = "index.html")
 }
 
@@ -96,6 +121,11 @@ const editData = (id) => {
         },
         body: JSON.stringify(getDataEdit())
     })
+    .catch(err => {
+        alertCatchErr(err);
+        queryId("catch_err").style.backgroundColor = "#55555577";
+        queryId("blur-container").classList.add("blur-search");
+    })
     .finally(() => window.location = "index.html")
 }
 
@@ -105,7 +135,11 @@ const deleteConfirm = (id) => {
     fetch(`${BASE_API}/${id}`, {
         method: "DELETE"
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        alertCatchErr(err);
+        queryId("catch_err").style.backgroundColor = "#55555577";
+        queryId("blur-container").classList.add("blur-search");
+    })
     .finally(() => window.location = "index.html")
 }
 
@@ -190,6 +224,23 @@ const cancel = () => {
     getJobs()
 }
 
+const alertCatchErr = () => {
+    queryId("catch_err").innerHTML += `
+        <div class="catch_err">
+            <div class="container--catch_err">
+                <h3>Ups.. something went wrong, please try again</h3>
+                <button class="btn-ok--catch_err" id="btn-ok--catch_err" onclick="btnCatchErr()">Ok</button>
+            </div>
+        </div>
+    `
+}
+
+const btnCatchErr = () => {
+    queryId("catch_err").style.display = "none";
+    queryId("catch_err").style.backgroundColor = "";
+    queryId("blur-container").classList.remove("blur-search");
+}
+
 const validateForm = (data) => {
     return data.name == "" || data.description == "" || data.location == "Location" || data.category == "Category" || data.seniority == "Seniority";
 }
@@ -225,7 +276,11 @@ const editForm = (id) => {
             queryId("form--edit--select_seniority").value = `${seniority}`;
             queryId("form--edit--select_category").value = `${category}`;
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            alertCatchErr(err);
+            queryId("catch_err").style.backgroundColor = "#55555577";
+            queryId("blur-container").classList.add("blur-search");
+        })
     queryId("home--form--edit").classList.remove("d-none-edit-form");
     eventID(id)
 }
