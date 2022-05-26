@@ -191,7 +191,6 @@ const cancel = () => {
 }
 
 const validateForm = (data) => {
-    console.log("validateForm:", data);
     return data.name == "" || data.description == "" || data.location == "Location" || data.category == "Category" || data.seniority == "Seniority";
 }
 
