@@ -65,7 +65,7 @@ queryId("search").addEventListener("click", (e) => {
     if(queryId("home--select_location").value == "Location" && queryId("home--select_category").value == "Category" && queryId("home--select_seniority").value == "Seniority") {
         queryId("validate--search").classList.remove("d-none-validate--search");
         queryId("html").style.height = "3170px";
-        queryId("blur-container").classList.add("blur-search");  
+        queryId("blur-container").classList.add("blur-search");
     } else {
         queryId('home--delete--warning').innerHTML = ""; 
         queryId("create_job--form").classList.add("d-none-job");
