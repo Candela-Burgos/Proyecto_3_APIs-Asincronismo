@@ -64,7 +64,6 @@ queryId("search").addEventListener("click", (e) => {
     e.preventDefault();
     if(queryId("home--select_location").value == "Location" && queryId("home--select_category").value == "Category" && queryId("home--select_seniority").value == "Seniority") {
         queryId("validate--search").classList.remove("d-none-validate--search");
-        queryId("html").style.height = "3170px";
         queryId("blur-container").classList.add("blur-search");
     } else {
         queryId('home--delete--warning').innerHTML = ""; 
@@ -237,7 +236,6 @@ const eventID = (id) => {
         e.preventDefault();
         if (validateForm(getDataEdit())) {
             queryId("blur-container").classList.add("blur-edit");
-            queryId("html").style.height = "1710px";
             queryId("validate--edit").classList.remove("d-none-validate--edit");
         } else {
             editData(id);
@@ -298,13 +296,11 @@ queryId("btn-ok--job").addEventListener('click', () => {
 queryId("btn-ok--edit").addEventListener('click', () => {
     queryId("validate--edit").classList.add("d-none-validate--edit");
     queryId("blur-container").classList.remove("blur-edit");
-    queryId("html").style.height = "";
 })
 
 queryId("btn-ok--search").addEventListener('click', () => {
     queryId("validate--search").classList.add("d-none-validate--search"); 
     queryId("blur-container").classList.remove("blur-search");
-    queryId("html").style.height = "";
 })    
 
 window.addEventListener('keydown', (e) => {
@@ -318,7 +314,6 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Scape') {
         queryId("validate--edit").classList.add("d-none-validate--edit");
         queryId("blur-container").classList.remove("blur-edit");
-        queryId("html").style.height = "";
     }
 })
 
@@ -326,29 +321,26 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Scape') {
         queryId("validate--search").classList.add("d-none-validate--search"); 
         queryId("blur-container").classList.remove("blur-search");
-        queryId("html").style.height = "";
     }
 })
 
 window.addEventListener('click', (e) => {
-    if (e.target === queryId("html")) {
+    if (e.target === queryId("validate--job")) {
         queryId("validate--job").classList.add("d-none-validate--job");
         queryId("blur-container").classList.remove("blur-job");
     }
 })
 
 window.addEventListener('click', (e) => {
-    if (e.target === queryId("html")) {
+    if (e.target === queryId("validate--edit")) {
         queryId("validate--edit").classList.add("d-none-validate--edit");
         queryId("blur-container").classList.remove("blur-edit");
-        queryId("html").style.height = "";
     }
 })
 
 window.addEventListener('click', (e) => {
-    if (e.target === queryId("html")) {
+    if (e.target === queryId("validate--search")) {
         queryId("validate--search").classList.add("d-none-validate--search"); 
         queryId("blur-container").classList.remove("blur-search");
-        queryId("html").style.height = "";
     }
 })
