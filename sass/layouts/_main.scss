@@ -177,17 +177,22 @@ main {
                 max-width: 430px;
                 min-width: 130px;
                 height: 280px;
-                background-color: $color--light;
+                background: linear-gradient($color--light_pink , $color--light);
                 border: 2px solid $primary_color;
                 border-radius: 5px;
                 padding: 1em;
                 margin: 1em;
                 box-shadow: -8px 10px 10px .1px $box_shadow;
-                transition: background-color .3s, border .3s;
+                transition: background .3s, border .3s, transform .3s;
+
+                &:hover {
+                    transform: scale(1.05);    
+                    transition: all .3s;
+                }
 
                 body.dark & {
                     border: 2px solid $secondary_color--dark_mode;
-                    background-color: $primary_color--dark_mode;
+                    background: linear-gradient($color--dark,$color--light_pink--dark_mode);;
                 }
 
                 @media screen and (max-width: 960px) {
