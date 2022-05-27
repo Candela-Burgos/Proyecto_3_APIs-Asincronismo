@@ -225,12 +225,14 @@ const cancel = () => {
 }
 
 const alertCatchErr = (err) => {
-    queryId("catch_err").innerHTML += `
-        <div class="catch_err">
-            <div class="container--catch_err">
-                <h3>Ups.. something went wrong, please try again</h3>
-                <p>${err}</p>
-                <button class="btn-ok--catch_err" id="btn-ok--catch_err" onclick="btnCatchErr()">Ok</button>
+    queryId("container_modals").innerHTML += `
+        <div class="container_global--catch_err" id="catch_err">
+            <div class="catch_err">
+                <div class="container--catch_err">
+                    <h3>Ups.. something went wrong, please try again</h3>
+                    <p>${err}</p>
+                    <button class="btn-ok--catch_err" id="btn-ok--catch_err" onclick="btnCatchErr()">Ok</button>
+                </div>
             </div>
         </div>
     `

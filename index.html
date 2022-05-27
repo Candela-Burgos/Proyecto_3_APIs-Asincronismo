@@ -9,168 +9,27 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' integrity='sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==' crossorigin='anonymous' referrerpolicy='no-referrer'/>
     </head>
     <body>
-
-    <div id="blur-container">
-        <header>
-            <nav class="navbar">
-                <div class="navbar--links">
-                    <h2><a href="home.html">Careers</a></h2>
-                    <a class="links-nav" id="home" href="#">Home</a>
-                    <a class="links-nav" id="create_job" href="#">Create Job</a>
-                </div>
-                <button class="switch active" id="switch">
-                    <span><i class="fa-solid fa-sun"></i></span>
-                    <span><i class="fa-solid fa-moon"></i></span>
-                </button>
-            </nav>
-        </header>
-        <main>
-            <div class="home d-none-home">
-                <div class="home--search d-none-search" id="home--search">
-                    <div class="home--search--selects">
-                        <select name="Location" id="home--select_location" class="home--search--select">
-                            <option selected disabled="">Location</option>
-                            <option value="Argentina">Argentina</option>
-                            <option value="United States">United States</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Chile">Chile</option>
-                            <option value="Uruguay">Uruguay</option>
-                            <option value="Russia">Russia</option>
-                        </select>
-                        <select name="Seniority" id="home--select_seniority" class="home--search--select">
-                            <option selected disabled="">Seniority</option>
-                            <option value="Trainee">Trainee</option>
-                            <option value="Junior">Junior</option>
-                            <option value="Semisenior">Semisenior</option>
-                            <option value="Senior">Senior</option>
-                        </select>
-                        <select name="Category" id="home--select_category" class="home--search--select">
-                            <option selected disabled="">Category</option>
-                            <option value="Development">Development</option>
-                            <option value="Product">Product</option>
-                            <option value="Design">Design</option>
-                        </select>
+        <div id="blur-container">
+            <header>
+                <nav class="navbar">
+                    <div class="navbar--links" id="navbar--links">
                     </div>
-                    <div class="home--search--buttons">
-                       <a id="search" href="#">Search</a>
-                       <a id="clear" href="#">Clear</a>
-                   </div>
-                </div>
-
-                <div class="home--delete d-none-delete-warning" id="home--delete--warning"> </div>
-
-                <div id="home--cards" class="home--cards"> </div>
-
-                <div class="home--edit" id="home--edit--form"> 
-                    
-                    <div id="home--form--edit" class="home--form--edit d-none-edit-form">
-                        <form>
-                            <label>Job Title</label>
-                            <input id="form--edit--title" class="job-title" type="text" placeholder="Job Title" value="">
-                            <label>Description</label>
-                            <textarea id="form--edit--description" class="description" cols="30" rows="10"></textarea>
-                            <label>Tags</label>
-                            <select name="Location" id="form--edit--select_location">
-                                <option disabled="">Location</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="United States">United States</option>
-                                <option value="Spain">Spain</option>
-                                <option value="Chile">Chile</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Russia">Russia</option>
-                            </select>
-                            <select name="Seniority" id="form--edit--select_seniority">
-                                <option disabled="">Seniority</option>
-                                <option value="Trainee">Trainee</option>
-                                <option value="Junior">Junior</option>
-                                <option value="Semisenior">Semisenior</option>
-                                <option value="Senior">Senior</option>
-                            </select>
-                            <select name="Category" id="form--edit--select_category">
-                                <option disabled="">Category</option>
-                                <option value="Development">Development</option>
-                                <option value="Product">Product</option>
-                                <option value="Design">Design</option>
-                            </select>
-                            <input id="btn--form--edit--confirm" type="submit" name="submit" value="Edit">
-                        </form>
-                    </div>       
-                </div>
-
-            </div>
-
-            <div id="create_job--form" class="create_job d-none-job">
-                <div class="create_job--form">
-                    <form>
-                       <label>Job Title</label>
-                       <input id="job-title" class="job-title" type="text" placeholder="Job Title" required="">
-                       <label>Description</label>
-                       <textarea id="description" class="description" cols="30" rows="10" required=""></textarea>
-                       <label>Tags</label>
-                       <select name="Location" id="create_job--select_location">
-                        <option selected disabled="">Location</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="United States">United States</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Russia">Russia</option>
-                       </select>
-                       <select name="Seniority" id="create_job--select_seniority">
-                        <option selected disabled="">Seniority</option>
-                        <option value="Trainee">Trainee</option>
-                        <option value="Junior">Junior</option>
-                        <option value="Semisenior">Semisenior</option>
-                        <option value="Senior">Senior</option>
-                       </select>
-                       <select name="Category" id="create_job--select_category">
-                        <option selected disabled="">Category</option>
-                        <option value="Development">Development</option>
-                        <option value="Product">Product</option>
-                        <option value="Design">Design</option>
-                       </select>
-                       <input id="btn--form--submit" type="submit" name="submit" value="Submit">
-                    </form>
+                    <button class="switch active" id="switch">
+                        <span><i class="fa-solid fa-sun"></i></span>
+                        <span><i class="fa-solid fa-moon"></i></span>
+                    </button>
+                </nav>
+            </header>
+            <div class="container_home">
+                <div class="container_home--title">
+                    <span class="typed">Welcome!</span>
+                    <p>Here you will find the <span>job</span> of your dreams...</p>
+                    <div class="link-go">
+                        <a href="home.html">GO!</a>
+                    </div>
                 </div>
             </div>
-        </main>
-        <footer>
-            <div class="footer">
-                <h3>Copyright © 2022 | Candela Burgos</h3>
-                <p>Sitio web creado por <a href="#">Knd</a></p>
-            </div>
-        </footer>
-    </div>
-    <!-- MODALS -->
-    <div class="container_global--validate--job d-none-validate--job" id="validate--job">
-        <div class="validate--job">
-            <div class="container--validate--job">
-                <h3>Please complete the fields to continue</h3>
-                <button class="btn-ok--job" id="btn-ok--job">Ok</button>
-            </div>
         </div>
-    </div>
-
-   <div class="container_global--validate--edit d-none-validate--edit" id="validate--edit">
-        <div class="validate--edit">
-            <div class="container--validate--edit">
-                <h3>Please complete the fields to continue</h3>
-                <button class="btn-ok--edit" id="btn-ok--edit">Ok</button>
-            </div>
-        </div>
-   </div>
-
-    <div class="container_global--validate--search d-none-validate--search" id="validate--search">
-        <div class="validate--search">
-            <div class="container--validate--search">
-                <h3>Please, choose one of the options to continue your search</h3>
-                <button class="btn-ok--search" id="btn-ok--search">Ok</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container_global--catch_err" id="catch_err"></div>
-    
-        <script src="js/main.js"></script>
+        <script src="./js/typed.js"></script>
     </body>
 </html>
