@@ -108,7 +108,7 @@ const sendData = () => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "home.html")
+    .finally(() => getJobs());
 }
 
 // PUT
@@ -126,7 +126,7 @@ const editData = (id) => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "home.html")
+    .finally(() => getJobs());
 }
 
 // DELETE
@@ -140,7 +140,11 @@ const deleteConfirm = (id) => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "home.html")
+    .finally(() => {
+        queryId("home--cards").innerHTML = "";
+        queryId("home--delete--warning").innerHTML = "";
+        getJobs();
+    });
 }
 
 // SPINNER 
@@ -296,6 +300,8 @@ const eventID = (id) => {
             queryId("validate--edit").classList.remove("d-none-validate--edit");
         } else {
             editData(id);
+            queryId("home--cards").innerHTML = "";
+            queryId("home--form--edit").classList.add("d-none-edit-form");
         }
     })
 }

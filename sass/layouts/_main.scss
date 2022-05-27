@@ -217,6 +217,7 @@ main {
                     font-size: $font_size--medium;
                     color: $color--dark;
                     margin: .5em 0 1em 0;
+                    word-wrap: anywhere;
                     transition: color .3s;
 
                     body.dark & {

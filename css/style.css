@@ -347,6 +347,7 @@ main .home .home--cards .home--card h2 {
   font-size: 1.5em;
   color: #2c2c2c;
   margin: 0.5em 0 1em 0;
+  word-wrap: anywhere;
   transition: color 0.3s;
 }
 body.dark main .home .home--cards .home--card h2 {
