@@ -1,0 +1,89 @@
+.container_home {
+    @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient($primary_color 100px, $color--light);
+    transition: background .3s;
+
+    body.dark & {
+        background: linear-gradient($primary_color--dark_mode 100px, $color--light_pink--dark_mode);
+    }
+
+    .container_home--title {
+        @include d-flex ($direction: column, $justify_content: center, $align_items: flex-start);
+        width: 70%;
+        padding: 1em;
+
+        .typed {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: .5em;
+            color: $color--dark;
+            display: block;
+            font-family: monospace;
+            white-space: nowrap;
+            border-right: 4px solid;
+            width: 8ch;
+            animation: typing 2s steps(8), blink .5s infinite step-end alternate;
+            overflow: hidden;
+            transition: color .3s;
+
+            body.dark & {
+                color: $color--light;
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        p{
+            font-size: 3em;
+            font-family: monospace;
+            color: $color--dark;
+            transition: color .3s;
+
+            body.dark & {
+                color: $color--light;
+            }
+
+            span {
+                color: $primary_color;
+                font-weight: bold;
+            }
+        }
+
+        .link-go {
+            @include d-flex ($direction: row, $justify_content: right, $align_items: center);
+            width: 90%;
+
+            a {
+                text-decoration: none;
+                font-size: 3em;
+                font-family: monospace;
+                font-weight: bold;
+                text-align: right;
+                color: $color--dark;
+                transition: color .3s;
+    
+                body.dark & {
+                    color: $color--light;
+                }
+            }
+
+            a:hover {
+                color: $primary_color;
+
+                body.dark & {
+                    color: $primary_color;
+                }
+            }
+        }
+        
+    }
+}

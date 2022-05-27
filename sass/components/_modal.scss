@@ -407,14 +407,20 @@
         }
             
         .container--catch_err {
-            @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
     
             h3 {
-            color: $color--light;
-            padding: 1em;
-            text-align: center;
+                color: $color--light;
+                padding: 1em;
+                text-align: center;
             }
-    
+
+            p {
+                color: $color--light;
+                padding: .5em 0 1.3em 0;
+                text-align: center;
+            }
+
             .btn-ok--catch_err {
                 border: 1px solid $color--dark;
                 border-radius: 5px;
