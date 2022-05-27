@@ -108,7 +108,7 @@ const sendData = () => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "index.html")
+    .finally(() => window.location = "home.html")
 }
 
 // PUT
@@ -126,7 +126,7 @@ const editData = (id) => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "index.html")
+    .finally(() => window.location = "home.html")
 }
 
 // DELETE
@@ -140,7 +140,7 @@ const deleteConfirm = (id) => {
         queryId("catch_err").style.backgroundColor = "#55555577";
         queryId("blur-container").classList.add("blur-search");
     })
-    .finally(() => window.location = "index.html")
+    .finally(() => window.location = "home.html")
 }
 
 // SPINNER 
@@ -399,4 +399,16 @@ window.addEventListener('click', (e) => {
         queryId("validate--search").classList.add("d-none-validate--search"); 
         queryId("blur-container").classList.remove("blur-search");
     }
+})
+
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'F5' || (e.ctrlKey && (e.key == 'r' || e.key == 'R'))) {
+        e.preventDefault()
+        window.location = "index.html"
+    }    
+})
+
+window.addEventListener('unload', (e) => {
+    e.preventDefault()
+    window.location = "index.html";
 })
