@@ -15,6 +15,22 @@
         width: 70%;
         padding: 1em;
 
+        @media screen and (max-width: 1724px) {
+            width: 60%;
+        }
+
+        @media screen and (max-width: 1724px) and (orientation: landscape) {
+            width: 60%;
+        }
+
+        @media screen and (max-width: 1376px) {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        }
+
+        @media screen and (max-width: 1376px) and (orientation: landscape) {
+            @include d-flex ($direction: column, $justify_content: center, $align_items: center);
+        }
+
         .typed {
             font-size: 5em;
             font-weight: bold;
@@ -28,6 +44,14 @@
             animation: typing 2s steps(8), blink .5s infinite step-end alternate;
             overflow: hidden;
             transition: color .3s;
+
+            @media screen and (max-width: 1724px) {
+                font-size: 4em;
+            }
+
+            @media screen and (max-width: 1724px) and (orientation: landscape) {
+                font-size: 4em;
+            }
 
             body.dark & {
                 color: $color--light;
@@ -48,6 +72,22 @@
             color: $color--dark;
             transition: color .3s;
 
+            @media screen and (max-width: 1724px) {
+                font-size: 2em;
+            }
+
+            @media screen and (max-width: 1724px) and (orientation: landscape) {
+                font-size: 2em;
+            }
+
+            @media screen and (max-width:  1104px) {
+                text-align: center;
+            }
+
+            @media screen and (max-width: 1104px) and (orientation: landscape) {
+                text-align: center;
+            }
+
             body.dark & {
                 color: $color--light;
             }
@@ -62,6 +102,16 @@
             @include d-flex ($direction: row, $justify_content: right, $align_items: center);
             width: 90%;
 
+            @media screen and (max-width: 1376px) {
+                @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                margin-top: 2em;
+            }
+
+            @media screen and (max-width: 1376px) and (orientation: landscape) {
+                @include d-flex ($direction: row, $justify_content: center, $align_items: center);
+                margin-top: 2em;
+            }
+
             a {
                 text-decoration: none;
                 font-size: 3em;
@@ -71,6 +121,14 @@
                 color: $color--dark;
                 transition: color .3s;
     
+                @media screen and (max-width: 1724px) {
+                    font-size: 2em;
+                }
+    
+                @media screen and (max-width: 1724px) and (orientation: landscape) {
+                    font-size: 2em;
+                }
+
                 body.dark & {
                     color: $color--light;
                 }
@@ -86,4 +144,8 @@
         }
         
     }
+}
+
+#navbar--links {
+    width: 50%;
 }
