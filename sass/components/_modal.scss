@@ -363,7 +363,6 @@
     height: 100vh;
     position: fixed;
     z-index: 2000;
-    // background-color: $box_shadow;
 
     .catch_err {
         @include d-flex ($direction: column, $justify_content: center, $align_items: center);
