@@ -929,6 +929,7 @@ main .d-none-job {
   width: 100%;
   background-color: #ca62a5;
   padding: 1.5em;
+  box-shadow: 4px 5px 10px 0.1px rgba(85, 85, 85, 0.4666666667);
   transition: background-color 0.3s;
 }
 body.dark .navbar {

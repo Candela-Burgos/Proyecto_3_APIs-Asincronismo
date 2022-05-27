@@ -3,6 +3,7 @@
     width: 100%;
     background-color: $primary_color;
     padding: 1.5em;
+    box-shadow:  4px 5px 10px .1px $box_shadow;
     transition: background-color .3s;
 
     body.dark & {
